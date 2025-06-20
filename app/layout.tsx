@@ -4,7 +4,7 @@ import { Inter } from "next/font/google"
 import "./globals.css"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
-import { LanguageProvider } from "@/lib/language-context"
+import { I18nextProvider } from "@/components/i18next-provider"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -23,11 +23,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <LanguageProvider>
+        <I18nextProvider>
           <Navbar />
           <main className="min-h-screen">{children}</main>
           <Footer />
-        </LanguageProvider>
+        </I18nextProvider>
       </body>
     </html>
   )

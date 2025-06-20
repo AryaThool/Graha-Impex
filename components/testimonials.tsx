@@ -75,31 +75,31 @@ export default function Testimonials() {
   const certifications = [
     {
       name: "GST Registration",
-      image: "/images/certifications/gst.jpg",
+      image: "https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/certificate-images//GST.jpg",
     },
     {
       name: "FSSAI License",
-      image: "/images/certifications/fssai-logo.jpg",
+      image: "https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/certificate-images//fssai-logo.jpg",
     },
     {
       name: "Import Export Certificate",
-      image: "/images/certifications/import-export-certificate.png",
+      image: "https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/certificate-images//import-export-certificate.png",
     },
     {
       name: "MSME Udyam Registration",
-      image: "/images/certifications/msme-udyam-registration.webp",
+      image: "https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/certificate-images//msme-udyam-registration.jpg",
     },
     {
       name: "APEDA Registration",
-      image: "/images/certifications/apeda-logo.webp",
+      image: "https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/certificate-images//Apeda-logo.jpg",
     },
     {
       name: "ICEGATE Registration",
-      image: "/images/certifications/icegate.jpeg",
+      image: "https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/certificate-images//ICEGATE.jpeg",
     },
     {
       name: "Spices Board Registration",
-      image: "/images/certifications/spices-board.jpeg",
+      image: "https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/certificate-images//SPICES-BOARD.jpeg",
     },
   ]
 

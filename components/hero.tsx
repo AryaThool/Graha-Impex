@@ -3,10 +3,10 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Download, Star, Users, Award, Globe2 } from "lucide-react"
 import Link from "next/link"
-import { useLanguage } from "@/lib/language-context"
+import { useTranslation } from "react-i18next"
 
 export default function Hero() {
-  const { t } = useLanguage()
+  const { t } = useTranslation()
 
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 overflow-hidden">
@@ -138,7 +138,7 @@ export default function Hero() {
               <Globe2 className="h-6 w-6 md:h-8 md:w-8 text-blue-300" />
             </div>
             <div className="absolute -bottom-6 md:-bottom-8 left-1/2 transform -translate-x-1/2 text-xs md:text-sm text-blue-200 whitespace-nowrap font-medium">
-              Source Port
+              India
             </div>
             {/* Port Infrastructure */}
             <div className="absolute -right-3 md:-right-4 top-6 md:top-8 w-6 md:w-8 h-1 bg-blue-400/60 rounded-full"></div>
@@ -192,7 +192,7 @@ export default function Hero() {
             <span className="text-xs md:text-sm font-medium text-white">{t("trustedBy")}</span>
           </div>
 
-          {/* Main Heading */}
+          {/* Main Heading - Using separate lines for better control */}
           <div className="space-y-4 md:space-y-6 max-w-4xl">
             <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold leading-tight text-white">
               <span className="block">{t("heroTitle")}</span>
@@ -200,7 +200,8 @@ export default function Hero() {
                 {t("heroTitleHighlight")}
               </span>
             </h1>
-            <p className="text-lg md:text-xl lg:text-2xl text-blue-100 leading-relaxed max-w-3xl mx-auto px-4">
+            {/* Using whitespace-pre-line to handle line breaks */}
+            <p className="text-lg md:text-xl lg:text-2xl text-blue-100 leading-relaxed max-w-3xl mx-auto px-4 whitespace-pre-line">
               {t("heroDescription")}
             </p>
           </div>
@@ -236,7 +237,7 @@ export default function Hero() {
           {/* Stats - Better responsive spacing */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 pt-8 md:pt-12 max-w-4xl w-full px-4">
             {[
-              { icon: Users, number: "50K+", label: t("happyCustomers") },
+              { icon: Users, number: "50K+", label: t("dailyDeliveries") },
               { icon: Globe2, number: "50+", label: t("countries") },
               { icon: Award, number: "99.9%", label: t("successRate") },
               { icon: Star, number: "24/7", label: t("support") },

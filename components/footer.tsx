@@ -1,27 +1,40 @@
+"use client"
+
 import Link from "next/link"
-import { Package, Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from "lucide-react"
+import Image from "next/image"
+import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from "lucide-react"
+import { useTranslation } from "react-i18next"
 
 export default function Footer() {
+  const { t } = useTranslation()
+
   const quickLinks = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About Us" },
-    { href: "/products", label: "Products" },
-    { href: "/certificates", label: "Certificates" },
-    { href: "/contact", label: "Contact Us" },
+    { href: "/", label: t("home") },
+    { href: "/about", label: t("about") },
+    { href: "/products", label: t("products") },
+    { href: "/contact", label: t("contact") },
   ]
 
   const products = [
-    { href: "/products", label: "Packaging Solutions" },
-    { href: "/products", label: "Tracking Technology" },
-    { href: "/products", label: "Protective Materials" },
-    { href: "/products", label: "Storage Solutions" },
+    { href: "/products", label: "Spices & Seasonings" },
+    { href: "/products", label: "Dehydrated Products" },
+    { href: "/products", label: "Oil Seeds" },
+    { href: "/products", label: "Edible Oils" },
   ]
 
   const socialLinks = [
-    { icon: <Facebook className="h-5 w-5" />, href: "#", label: "Facebook" },
+    {
+      icon: <Facebook className="h-5 w-5" />,
+      href: "https://www.facebook.com/profile.php?id=61560943020624",
+      label: "Facebook",
+    },
     { icon: <Twitter className="h-5 w-5" />, href: "#", label: "Twitter" },
-    { icon: <Linkedin className="h-5 w-5" />, href: "#", label: "LinkedIn" },
-    { icon: <Instagram className="h-5 w-5" />, href: "#", label: "Instagram" },
+    {
+      icon: <Linkedin className="h-5 w-5" />,
+      href: "https://www.linkedin.com/company/graha-impex/",
+      label: "LinkedIn",
+    },
+    { icon: <Instagram className="h-5 w-5" />, href: "https://www.instagram.com/grahaimpex/", label: "Instagram" },
   ]
 
   return (
@@ -31,13 +44,16 @@ export default function Footer() {
           {/* Company Info */}
           <div className="space-y-4">
             <Link href="/" className="flex items-center space-x-2">
-              <Package className="h-8 w-8 text-blue-400" />
+              <Image
+                src="https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/founder-images//Graha%20Impex.png"
+                alt="Graha Impex Logo"
+                width={32}
+                height={32}
+                className="rounded-lg"
+              />
               <span className="text-2xl font-bold">Graha Impex</span>
             </Link>
-            <p className="text-gray-300 text-sm">
-              Leading courier and logistics company providing reliable shipping solutions worldwide with premium
-              products and excellence.
-            </p>
+            <p className="text-gray-300 text-sm">{t("footerDescription")}</p>
             <div className="flex space-x-4">
               {socialLinks.map((social, index) => (
                 <Link
@@ -54,7 +70,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-4">{t("quickLinks")}</h3>
             <ul className="space-y-2">
               {quickLinks.map((link, index) => (
                 <li key={index}>
@@ -68,7 +84,7 @@ export default function Footer() {
 
           {/* Products */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Our Products</h3>
+            <h3 className="text-lg font-semibold mb-4">{t("ourProducts")}</h3>
             <ul className="space-y-2">
               {products.map((product, index) => (
                 <li key={index}>
@@ -82,7 +98,7 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
+            <h3 className="text-lg font-semibold mb-4">{t("contactInfo")}</h3>
             <div className="space-y-3">
               <div className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-blue-400 mt-0.5 flex-shrink-0" />
@@ -94,11 +110,23 @@ export default function Footer() {
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-blue-400 flex-shrink-0" />
-                <span className="text-gray-300 text-sm">+91 22 1234 5678</span>
+                <span className="text-gray-300 text-sm">+91 8766556928</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Phone className="h-5 w-5 text-blue-400 flex-shrink-0" />
+                <span className="text-gray-300 text-sm">+91 7385143290</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-blue-400 flex-shrink-0" />
                 <span className="text-gray-300 text-sm">info@grahaimpex.com</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Mail className="h-5 w-5 text-blue-400 flex-shrink-0" />
+                <span className="text-gray-300 text-sm">aachal@grahaimpex.com</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Mail className="h-5 w-5 text-blue-400 flex-shrink-0" />
+                <span className="text-gray-300 text-sm">karan@grahaimpex.com</span>
               </div>
             </div>
           </div>
@@ -107,16 +135,18 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-gray-400 text-sm">© {new Date().getFullYear()} Graha Impex. All rights reserved.</p>
+            <p className="text-gray-400 text-sm">
+              © {new Date().getFullYear()} Graha Impex. {t("allRightsReserved")}
+            </p>
             <div className="flex space-x-6">
               <Link href="#" className="text-gray-400 hover:text-blue-400 transition-colors text-sm">
-                Privacy Policy
+                {t("privacyPolicy")}
               </Link>
               <Link href="#" className="text-gray-400 hover:text-blue-400 transition-colors text-sm">
-                Terms of Service
+                {t("termsOfService")}
               </Link>
               <Link href="#" className="text-gray-400 hover:text-blue-400 transition-colors text-sm">
-                Cookie Policy
+                {t("cookiePolicy")}
               </Link>
             </div>
           </div>

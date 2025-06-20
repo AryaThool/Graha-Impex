@@ -13,7 +13,7 @@ export default function AboutPage() {
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">About Graha Impex</h1>
             <p className="text-xl md:text-2xl mb-8">
-              Leading the future of logistics with innovation, reliability, and excellence
+              A New-Age Export Company With Old-School Values
             </p>
           </div>
         </div>
@@ -26,17 +26,16 @@ export default function AboutPage() {
             <div>
               <h2 className="text-3xl font-bold mb-6">Our Story</h2>
               <p className="text-gray-600 mb-4">
-                Founded with a vision to revolutionize the courier and logistics industry, Graha Impex has been at the
-                forefront of providing exceptional products and logistics solutions for over a decade.
+               The idea behind our company was born from a powerful blend of business experience and a passion for meaningful trade.
               </p>
               <p className="text-gray-600 mb-4">
-                From humble beginnings as a local courier service, we have grown into a trusted international logistics
-                partner, serving thousands of customers across multiple continents with our premium products and
-                innovative solutions.
+                One of our founders comes from a long line of Indian entrepreneurs, with successful ventures in petroleum and infrastructure. The other, a first-generation entrepreneur, stepped into business with a vision to make a difference in how Indian products are delivered to the global stage.
               </p>
               <p className="text-gray-600 mb-6">
-                Our commitment to innovation, customer satisfaction, and operational excellence has made us a preferred
-                choice for businesses and individuals alike.
+               Together, they created this company with a shared purpose:
+               To uplift Indian farmers, manufacturers, and small producers.
+               To give global buyers access to authentic, high-quality products.
+               And to build a company that stands for integrity, quality, and trust.
               </p>
               <Link href="/contact">
                 <Button size="lg">Get in Touch</Button>
@@ -44,7 +43,7 @@ export default function AboutPage() {
             </div>
             <div>
               <Image
-                src="/placeholder.svg?height=400&width=600"
+                src="https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/founder-images//Graha%20Impex.png"
                 alt="Graha Impex warehouse"
                 width={600}
                 height={400}
@@ -61,41 +60,41 @@ export default function AboutPage() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Our Core Values</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              These values guide everything we do and shape our commitment to excellence
+              We are guided by a commitment to integrity, excellence, and customer-centricity.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <Card className="text-center p-6">
               <CardContent className="pt-6">
                 <Users className="h-12 w-12 text-blue-600 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Customer First</h3>
+                <h3 className="text-xl font-semibold mb-2">Clear Communication</h3>
                 <p className="text-gray-600">
-                  Every decision we make is centered around delivering exceptional customer experiences
+                  Ensuring information is conveyed accurately and understandably, fostering transparency and minimizing misunderstandings.
                 </p>
               </CardContent>
             </Card>
             <Card className="text-center p-6">
               <CardContent className="pt-6">
                 <Target className="h-12 w-12 text-blue-600 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Reliability</h3>
+                <h3 className="text-xl font-semibold mb-2">Fast response times</h3>
                 <p className="text-gray-600">
-                  We deliver on our promises with consistency and dependability you can trust
+                 Promptly addressing queries or concerns to maintain efficiency and demonstrate reliability.
                 </p>
               </CardContent>
             </Card>
             <Card className="text-center p-6">
               <CardContent className="pt-6">
                 <Award className="h-12 w-12 text-blue-600 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Excellence</h3>
-                <p className="text-gray-600">We strive for excellence in every aspect of our operations and services</p>
+                <h3 className="text-xl font-semibold mb-2">Attention to detail</h3>
+                <p className="text-gray-600">Carefully managing every aspect, no matter how small, to ensure precision and high-quality outcomes.</p>
               </CardContent>
             </Card>
             <Card className="text-center p-6">
               <CardContent className="pt-6">
                 <Globe className="h-12 w-12 text-blue-600 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Global Reach</h3>
+                <h3 className="text-xl font-semibold mb-2">Personalized Service</h3>
                 <p className="text-gray-600">
-                  Connecting businesses and people across borders with our worldwide network
+                  Tailoring experiences and solutions to meet the unique needs and preferences of each individual client.
                 </p>
               </CardContent>
             </Card>
@@ -108,15 +107,15 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Leadership Team</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">Meet the experienced professionals driving our success</p>
+            <p className="text-gray-600 max-w-2xl mx-auto">Our team is our strength. From sourcing specialists to logistics coordinators, quality inspectors, and customer service managers — each person plays a key role in making sure every shipment meets the highest standards.</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { name: "Rajesh Kumar", role: "Chief Executive Officer", image: "/placeholder.svg?height=300&width=300" },
+              { name: "Ms. Aachal Patil", role: "Chief Executive Officer", image: "https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/founder-images//Aachal%20Patil.jpg" },
               {
-                name: "Priya Sharma",
-                role: "Chief Operations Officer",
-                image: "/placeholder.svg?height=300&width=300",
+                name: "Mr. Karan Khurana",
+                role: "Director",
+                image: "https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/founder-images//Mr.%20Karan%20Khurana.jpeg",
               },
              
             ].map((member, index) => (

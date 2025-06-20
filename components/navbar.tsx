@@ -6,20 +6,20 @@ import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Menu, Package, Globe, X, ChevronDown } from "lucide-react"
-import { useLanguage } from "@/lib/language-context"
+import { Menu, Globe, X, ChevronDown } from "lucide-react"
+import { useTranslation } from "react-i18next"
+import Image from "next/image"
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
-  const { language, setLanguage, t } = useLanguage()
+  const { t, i18n } = useTranslation()
   const pathname = usePathname()
 
   const navItems = [
     { href: "/", label: t("home") },
     { href: "/about", label: t("about") },
     { href: "/products", label: t("products") },
-    { href: "/certificates", label: t("certificates") },
     { href: "/contact", label: t("contact") },
   ]
 
@@ -47,7 +47,12 @@ export default function Navbar() {
     { value: "sw", label: "Kiswahili", flag: "🇰🇪" },
   ]
 
-  const currentLanguage = languages.find((lang) => lang.value === language)
+  const currentLanguage = languages.find((lang) => lang.value === i18n.language)
+
+  const handleLanguageChange = (newLanguage: string) => {
+    i18n.changeLanguage(newLanguage)
+    localStorage.setItem("language", newLanguage)
+  }
 
   // Handle scroll effect
   useEffect(() => {
@@ -69,10 +74,14 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3 group">
             <div className="relative">
-              <Package
-                className={`h-10 w-10 transition-colors duration-300 ${
-                  isScrolled ? "text-blue-600" : "text-white"
-                } group-hover:scale-110 transition-transform`}
+              <Image
+                src="https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/founder-images//Graha%20Impex.png"
+                alt="Graha Impex Logo"
+                width={40}
+                height={40}
+                className={`transition-all duration-300 ${
+                  isScrolled ? "brightness-100" : "brightness-0 invert"
+                } group-hover:scale-110 transition-transform rounded-lg`}
               />
               <div className="absolute -inset-2 bg-blue-500/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
@@ -116,7 +125,7 @@ export default function Navbar() {
           {/* Desktop Language Selector & CTA */}
           <div className="hidden lg:flex items-center space-x-4">
             <div className="relative group">
-              <Select value={language} onValueChange={(value) => setLanguage(value as any)}>
+              <Select value={i18n.language} onValueChange={handleLanguageChange}>
                 <SelectTrigger
                   className={`w-44 border-0 transition-all duration-300 ${
                     isScrolled
@@ -171,7 +180,13 @@ export default function Navbar() {
             <SheetContent side="right" className="w-80 bg-white/95 backdrop-blur-lg border-l border-gray-200/50">
               <div className="flex flex-col space-y-8 mt-8">
                 <Link href="/" className="flex items-center space-x-3">
-                  <Package className="h-8 w-8 text-blue-600" />
+                  <Image
+                    src="https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/founder-images//Graha%20Impex.png"
+                    alt="Graha Impex Logo"
+                    width={32}
+                    height={32}
+                    className="rounded-lg"
+                  />
                   <span className="text-2xl font-bold text-gray-900">Graha Impex</span>
                 </Link>
 
@@ -196,7 +211,7 @@ export default function Navbar() {
                 <div className="space-y-4 pt-6 border-t border-gray-200">
                   <div className="space-y-2">
                     <label className="text-sm font-medium text-gray-700">Language</label>
-                    <Select value={language} onValueChange={(value) => setLanguage(value as any)}>
+                    <Select value={i18n.language} onValueChange={handleLanguageChange}>
                       <SelectTrigger className="bg-gray-50 border-gray-200">
                         <Globe className="h-4 w-4 mr-2" />
                         <span className="mr-1">{currentLanguage?.flag}</span>

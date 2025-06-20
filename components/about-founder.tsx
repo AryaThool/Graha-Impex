@@ -1,10 +1,15 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ArrowRight, Star } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { useTranslation } from "react-i18next"
 
 export default function AboutFounder() {
+  const { t } = useTranslation()
+
   return (
     <section className="relative py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 overflow-hidden">
       {/* Background Elements */}
@@ -55,8 +60,8 @@ export default function AboutFounder() {
                   {/* Founder Photo */}
                   <div className="flex-shrink-0">
                     <Image
-                      src="/placeholder.svg?height=200&width=200"
-                      alt="Ms. Achal Patil - Founder & CEO"
+                      src="https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/founder-images//Aachal%20Patil.jpg"
+                      alt={`${t("founderName")} - ${t("founderTitle")}`}
                       width={200}
                       height={200}
                       className="w-32 h-32 md:w-48 md:h-48 rounded-full border-4 border-white/30 shadow-xl object-cover"
@@ -66,21 +71,19 @@ export default function AboutFounder() {
                   {/* Content */}
                   <div className="flex-1 text-center md:text-left space-y-6">
                     <div>
-                      <h3 className="text-2xl md:text-3xl font-bold">Ms. Achal Patil</h3>
-                      <p className="text-cyan-400 font-medium text-lg">Founder & CEO</p>
+                      <h3 className="text-2xl md:text-3xl font-bold">{t("founderName")}</h3>
+                      <p className="text-cyan-400 font-medium text-lg">{t("founderTitle")}</p>
                     </div>
 
                     <blockquote className="text-lg leading-relaxed text-blue-100 italic">
-                      "With over 15 years of experience in logistics and supply chain management, I founded Graha
-                      Impex with a mission to provide world-class courier services that businesses and individuals can
-                      rely on. Our journey is built on trust, innovation, and unwavering commitment to excellence."
+                      "{t("founderQuote")}"
                     </blockquote>
 
                     {/* Stats */}
                     <div className="grid grid-cols-3 gap-4 py-6 border-t border-white/20">
                       <div className="text-center">
                         <div className="text-2xl font-bold text-cyan-400">15+</div>
-                        <div className="text-xs text-blue-200">Years Exp.</div>
+                        <div className="text-xs text-blue-200">{t("yearsExp")}</div>
                       </div>
                       <div className="text-center border-l border-r border-white/20">
                         <div className="text-2xl font-bold text-green-400">MBA</div>
@@ -88,13 +91,13 @@ export default function AboutFounder() {
                       </div>
                       <div className="text-center">
                         <div className="text-2xl font-bold text-purple-400">50K+</div>
-                        <div className="text-xs text-blue-200">Clients</div>
+                        <div className="text-xs text-blue-200">{t("clients")}</div>
                       </div>
                     </div>
 
                     <Link href="/about">
                       <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 group">
-                        Learn More About Us
+                        {t("learnMore")}
                         <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                       </Button>
                     </Link>
@@ -102,13 +105,14 @@ export default function AboutFounder() {
                 </div>
               </CardContent>
 
-            {/* Decorative Elements */}
-            <div className="absolute -top-4 -right-4 w-24 h-24 bg-blue-500/20 rounded-full opacity-50 animate-pulse backdrop-blur-sm"></div>
-            <div
-              className="absolute -bottom-4 -left-4 w-16 h-16 bg-purple-500/20 rounded-full opacity-50 animate-pulse backdrop-blur-sm"
-              style={{ animationDelay: "1s" }}
-            ></div>
-          </Card>
+              {/* Decorative Elements */}
+              <div className="absolute -top-4 -right-4 w-24 h-24 bg-blue-500/20 rounded-full opacity-50 animate-pulse backdrop-blur-sm"></div>
+              <div
+                className="absolute -bottom-4 -left-4 w-16 h-16 bg-purple-500/20 rounded-full opacity-50 animate-pulse backdrop-blur-sm"
+                style={{ animationDelay: "1s" }}
+              ></div>
+            </Card>
+          </div>
         </div>
       </div>
     </section>
