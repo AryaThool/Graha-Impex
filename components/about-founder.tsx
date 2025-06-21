@@ -11,42 +11,33 @@ export default function AboutFounder() {
   const { t } = useTranslation()
 
   return (
-    <section className="relative py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 overflow-hidden">
+    <section className="relative py-20 bg-white overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
-        {/* Floating Particles */}
-        <div className="absolute inset-0">
-          {[...Array(10)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-1 h-1 bg-white rounded-full opacity-20 animate-float-slow"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 5}s`,
-                animationDuration: `${3 + Math.random() * 4}s`,
-              }}
-            />
-          ))}
+        {/* Subtle Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fillRule='evenodd'%3E%3Cg fill='%23000000' fillOpacity='0.1'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3Ccircle cx='15' cy='15' r='1'/%3E%3Ccircle cx='45' cy='45' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            }}
+          ></div>
         </div>
-
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
       </div>
 
       <div className="relative z-10 container mx-auto px-4">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-6 py-3 bg-white/10 backdrop-blur-md rounded-full border border-white/20 mb-6">
-            <Star className="w-5 h-5 mr-2 text-yellow-400" />
-            <span className="text-sm font-medium text-white">Meet Our Founder</span>
+          <div className="inline-flex items-center px-6 py-3 bg-blue-50 rounded-full border border-blue-200 mb-6">
+            <Star className="w-5 h-5 mr-2 text-blue-600" />
+            <span className="text-sm font-medium text-blue-800">Meet Our Founder</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Leadership That
-            <span className="block bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
               Drives Excellence
             </span>
           </h2>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Visionary leadership with decades of experience in transforming global logistics
           </p>
         </div>
@@ -54,8 +45,8 @@ export default function AboutFounder() {
         <div className="max-w-4xl mx-auto">
           {/* Founder Card */}
           <div className="relative">
-            <Card className="overflow-hidden bg-white/10 backdrop-blur-md border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
-              <CardContent className="p-8 md:p-12 text-white">
+            <Card className="overflow-hidden bg-white border border-gray-200 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+              <CardContent className="p-8 md:p-12">
                 <div className="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8">
                   {/* Founder Photo */}
                   <div className="flex-shrink-0">
@@ -64,34 +55,34 @@ export default function AboutFounder() {
                       alt={`${t("founderName")} - ${t("founderTitle")}`}
                       width={200}
                       height={200}
-                      className="w-32 h-32 md:w-48 md:h-48 rounded-full border-4 border-white/30 shadow-xl object-cover"
+                      className="w-32 h-32 md:w-48 md:h-48 rounded-full border-4 border-blue-200 shadow-xl object-cover"
                     />
                   </div>
 
                   {/* Content */}
                   <div className="flex-1 text-center md:text-left space-y-6">
                     <div>
-                      <h3 className="text-2xl md:text-3xl font-bold">{t("founderName")}</h3>
-                      <p className="text-cyan-400 font-medium text-lg">{t("founderTitle")}</p>
+                      <h3 className="text-2xl md:text-3xl font-bold text-gray-900">{t("founderName")}</h3>
+                      <p className="text-blue-600 font-medium text-lg">{t("founderTitle")}</p>
                     </div>
 
-                    <blockquote className="text-lg leading-relaxed text-blue-100 italic">
+                    <blockquote className="text-lg leading-relaxed text-gray-700 italic">
                       "{t("founderQuote")}"
                     </blockquote>
 
                     {/* Stats */}
-                    <div className="grid grid-cols-3 gap-4 py-6 border-t border-white/20">
+                    <div className="grid grid-cols-3 gap-4 py-6 border-t border-gray-200">
                       <div className="text-center">
-                        <div className="text-2xl font-bold text-cyan-400">15+</div>
-                        <div className="text-xs text-blue-200">{t("yearsExp")}</div>
+                        <div className="text-2xl font-bold text-blue-600">15+</div>
+                        <div className="text-xs text-gray-600">{t("yearsExp")}</div>
                       </div>
-                      <div className="text-center border-l border-r border-white/20">
-                        <div className="text-2xl font-bold text-green-400">MBA</div>
-                        <div className="text-xs text-blue-200">Logistics</div>
+                      <div className="text-center border-l border-r border-gray-200">
+                        <div className="text-2xl font-bold text-green-600">MBA</div>
+                        <div className="text-xs text-gray-600">Logistics</div>
                       </div>
                       <div className="text-center">
-                        <div className="text-2xl font-bold text-purple-400">50K+</div>
-                        <div className="text-xs text-blue-200">{t("clients")}</div>
+                        <div className="text-2xl font-bold text-purple-600">50K+</div>
+                        <div className="text-xs text-gray-600">{t("clients")}</div>
                       </div>
                     </div>
 
@@ -106,11 +97,8 @@ export default function AboutFounder() {
               </CardContent>
 
               {/* Decorative Elements */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-blue-500/20 rounded-full opacity-50 animate-pulse backdrop-blur-sm"></div>
-              <div
-                className="absolute -bottom-4 -left-4 w-16 h-16 bg-purple-500/20 rounded-full opacity-50 animate-pulse backdrop-blur-sm"
-                style={{ animationDelay: "1s" }}
-              ></div>
+              <div className="absolute -top-4 -right-4 w-24 h-24 bg-blue-100 rounded-full opacity-50"></div>
+              <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-purple-100 rounded-full opacity-50"></div>
             </Card>
           </div>
         </div>

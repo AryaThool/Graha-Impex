@@ -6,15 +6,16 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { MapPin, Phone, Mail, Clock } from "lucide-react"
 import { useTranslation } from "react-i18next"
 import { useState } from "react"
+import { supabase } from "@/lib/supabase"
 
 export default function ContactPage() {
   const { t } = useTranslation()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitMessage, setSubmitMessage] = useState("")
+  const [messageType, setMessageType] = useState<"success" | "error">("success")
 
   const contactInfo = [
     {
@@ -42,19 +43,57 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setSubmitMessage("")
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000))
+    const formData = new FormData(e.target as HTMLFormElement)
 
-    setSubmitMessage("Message sent successfully! We'll get back to you within 24 hours.")
-    setIsSubmitting(false)
+    // Prepare data for Supabase insertion
+    const contactData = {
+      first_name: formData.get("firstName") as string,
+      last_name: formData.get("lastName") as string,
+      email: formData.get("email") as string,
+      phone: (formData.get("phone") as string) || null, // Handle empty phone as null
+      message: formData.get("message") as string,
+    }
 
-    // Reset form
-    const form = e.target as HTMLFormElement
-    form.reset()
+    try {
+      // Insert data into Supabase
+      const { data, error } = await supabase.from("contact_submissions").insert([contactData]).select()
 
-    // Clear message after 5 seconds
-    setTimeout(() => setSubmitMessage(""), 5000)
+      if (error) {
+        console.error("Supabase error:", error)
+        throw error
+      }
+
+      // Success
+      setMessageType("success")
+      setSubmitMessage("Thank you for your message! We'll get back to you within 24 hours.")
+
+      // Reset form
+      const form = e.target as HTMLFormElement
+      form.reset()
+    } catch (error: any) {
+      console.error("Error submitting form:", error)
+      setMessageType("error")
+
+      // Provide user-friendly error messages
+      if (error.message?.includes("duplicate key")) {
+        setSubmitMessage(
+          "It looks like you've already submitted a message with this email. We'll get back to you soon!",
+        )
+      } else if (error.message?.includes("invalid input")) {
+        setSubmitMessage("Please check your information and try again.")
+      } else {
+        setSubmitMessage("Sorry, there was an error sending your message. Please try again or contact us directly.")
+      }
+    } finally {
+      setIsSubmitting(false)
+
+      // Clear message after 7 seconds
+      setTimeout(() => {
+        setSubmitMessage("")
+      }, 7000)
+    }
   }
 
   return (
@@ -90,7 +129,9 @@ export default function ContactPage() {
                           id="firstName"
                           name="firstName"
                           required
-                          placeholder={`Enter your ${t("firstName").toLowerCase()}`}
+                          placeholder="Enter your first name"
+                          disabled={isSubmitting}
+                          className="transition-all duration-200"
                         />
                       </div>
                       <div>
@@ -101,7 +142,9 @@ export default function ContactPage() {
                           id="lastName"
                           name="lastName"
                           required
-                          placeholder={`Enter your ${t("lastName").toLowerCase()}`}
+                          placeholder="Enter your last name"
+                          disabled={isSubmitting}
+                          className="transition-all duration-200"
                         />
                       </div>
                     </div>
@@ -115,38 +158,24 @@ export default function ContactPage() {
                         name="email"
                         type="email"
                         required
-                        placeholder={`Enter your ${t("email").toLowerCase()}`}
+                        placeholder="Enter your email address"
+                        disabled={isSubmitting}
+                        className="transition-all duration-200"
                       />
                     </div>
 
                     <div>
                       <label htmlFor="phone" className="block text-sm font-medium mb-2">
-                        {t("phone")}
+                        {t("phone")} (Optional)
                       </label>
                       <Input
                         id="phone"
                         name="phone"
                         type="tel"
-                        placeholder={`Enter your ${t("phone").toLowerCase()}`}
+                        placeholder="Enter your phone number"
+                        disabled={isSubmitting}
+                        className="transition-all duration-200"
                       />
-                    </div>
-
-                    <div>
-                      <label htmlFor="service" className="block text-sm font-medium mb-2">
-                        {t("serviceInterest")}
-                      </label>
-                      <Select name="service">
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select a service" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="express">{t("expressDelivery")}</SelectItem>
-                          <SelectItem value="international">{t("internationalShipping")}</SelectItem>
-                          <SelectItem value="freight">{t("freightServices")}</SelectItem>
-                          <SelectItem value="ecommerce">{t("ecommerceServices")}</SelectItem>
-                          <SelectItem value="other">Other</SelectItem>
-                        </SelectContent>
-                      </Select>
                     </div>
 
                     <div>
@@ -158,17 +187,37 @@ export default function ContactPage() {
                         name="message"
                         required
                         rows={5}
-                        placeholder="Tell us about your requirements..."
+                        placeholder="Tell us about your requirements, questions, or how we can help you..."
+                        disabled={isSubmitting}
+                        className="transition-all duration-200"
                       />
                     </div>
 
-                    <Button type="submit" className="w-full" disabled={isSubmitting}>
-                      {isSubmitting ? t("sending") : t("sendMessage")}
+                    <Button
+                      type="submit"
+                      className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? (
+                        <div className="flex items-center justify-center">
+                          <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                          {t("sending")}...
+                        </div>
+                      ) : (
+                        t("sendMessage")
+                      )}
                     </Button>
 
+                    {/* Success/Error Message */}
                     {submitMessage && (
-                      <div className="mt-4 p-4 bg-green-50 border border-green-200 rounded-lg">
-                        <p className="text-green-800 text-sm">{submitMessage}</p>
+                      <div
+                        className={`mt-4 p-4 rounded-lg border transition-all duration-300 ${
+                          messageType === "success"
+                            ? "bg-green-50 border-green-200 text-green-800"
+                            : "bg-red-50 border-red-200 text-red-800"
+                        }`}
+                      >
+                        <p className="text-sm font-medium">{submitMessage}</p>
                       </div>
                     )}
                   </form>

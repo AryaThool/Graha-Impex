@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
@@ -25,6 +25,14 @@ export default function ProductFilters({ onFiltersChange, loading }: ProductFilt
   const [subcategories, setSubcategories] = useState<Subcategory[]>([])
   const [showFilters, setShowFilters] = useState(false)
 
+  // Debounced search function
+  const debouncedOnFiltersChange = useCallback(
+    debounce((filters: { search: string; categoryId: string; subcategoryId: string }) => {
+      onFiltersChange(filters)
+    }, 300),
+    [onFiltersChange],
+  )
+
   // Load categories on mount
   useEffect(() => {
     loadCategories()
@@ -40,14 +48,14 @@ export default function ProductFilters({ onFiltersChange, loading }: ProductFilt
     }
   }, [selectedCategory])
 
-  // Emit filter changes
+  // Emit filter changes with debounce for search
   useEffect(() => {
-    onFiltersChange({
+    debouncedOnFiltersChange({
       search,
       categoryId: selectedCategory,
       subcategoryId: selectedSubcategory,
     })
-  }, [search, selectedCategory, selectedSubcategory, onFiltersChange])
+  }, [search, selectedCategory, selectedSubcategory, debouncedOnFiltersChange])
 
   const loadCategories = async () => {
     const data = await getCategories()
@@ -69,7 +77,7 @@ export default function ProductFilters({ onFiltersChange, loading }: ProductFilt
 
   return (
     <div className="space-y-4 sm:space-y-6">
-      {/* Search Bar - Responsive sizing */}
+      {/* Search Bar - Fixed debounced input */}
       <div className="relative">
         <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
         <Input
@@ -221,4 +229,13 @@ export default function ProductFilters({ onFiltersChange, loading }: ProductFilt
       </div>
     </div>
   )
+}
+
+// Debounce utility function
+function debounce<T extends (...args: any[]) => any>(func: T, wait: number): T {
+  let timeout: NodeJS.Timeout
+  return ((...args: any[]) => {
+    clearTimeout(timeout)
+    timeout = setTimeout(() => func(...args), wait)
+  }) as T
 }

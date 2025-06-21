@@ -83,11 +83,13 @@ export default function Testimonials() {
     },
     {
       name: "Import Export Certificate",
-      image: "https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/certificate-images//import-export-certificate.png",
+      image:
+        "https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/certificate-images//import-export-certificate.png",
     },
     {
       name: "MSME Udyam Registration",
-      image: "https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/certificate-images//msme-udyam-registration.jpg",
+      image:
+        "https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/certificate-images//msme-udyam-registration.jpg",
     },
     {
       name: "APEDA Registration",
@@ -123,39 +125,33 @@ export default function Testimonials() {
   }
 
   return (
-    <section className="relative py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 overflow-hidden">
+    <section className="relative py-20 bg-white overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
-        {/* Floating Particles */}
-        <div className="absolute inset-0">
-          {[...Array(12)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-1 h-1 bg-white rounded-full opacity-20 animate-float-slow"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 5}s`,
-                animationDuration: `${3 + Math.random() * 4}s`,
-              }}
-            />
-          ))}
+        {/* Subtle Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fillRule='evenodd'%3E%3Cg fill='%23000000' fillOpacity='0.1'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3Ccircle cx='15' cy='15' r='1'/%3E%3Ccircle cx='45' cy='45' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            }}
+          ></div>
         </div>
       </div>
 
       <div className="relative z-10 container mx-auto px-4">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-6 py-3 bg-white/10 backdrop-blur-md rounded-full border border-white/20 mb-6">
-            <Star className="w-5 h-5 mr-2 text-yellow-400" />
-            <span className="text-sm font-medium text-white">Client Testimonials</span>
+          <div className="inline-flex items-center px-6 py-3 bg-blue-50 rounded-full border border-blue-200 mb-6">
+            <Star className="w-5 h-5 mr-2 text-blue-600" />
+            <span className="text-sm font-medium text-blue-800">Client Testimonials</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             What Our
-            <span className="block bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
               Clients Say
             </span>
           </h2>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Don't just take our word for it. Here's what our satisfied customers have to say about our services
           </p>
         </div>
@@ -169,13 +165,13 @@ export default function Testimonials() {
             >
               {testimonials.map((testimonial, index) => (
                 <div key={testimonial.id} className="w-full flex-shrink-0">
-                  <Card className="mx-4 bg-white/10 backdrop-blur-md border border-white/20 shadow-2xl">
+                  <Card className="mx-4 bg-white border border-gray-200 shadow-xl">
                     <CardContent className="p-8 lg:p-12">
                       <div className="grid lg:grid-cols-3 gap-8 items-center">
                         {/* Quote and Rating */}
                         <div className="lg:col-span-2 space-y-6">
                           <div className="flex items-center gap-2 mb-4">
-                            <Quote className="h-8 w-8 text-cyan-400 opacity-50" />
+                            <Quote className="h-8 w-8 text-blue-600 opacity-50" />
                             <div className="flex">
                               {[...Array(testimonial.rating)].map((_, i) => (
                                 <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
@@ -183,7 +179,7 @@ export default function Testimonials() {
                             </div>
                           </div>
 
-                          <blockquote className="text-xl lg:text-2xl text-white leading-relaxed font-medium">
+                          <blockquote className="text-xl lg:text-2xl text-gray-800 leading-relaxed font-medium">
                             "{testimonial.text}"
                           </blockquote>
 
@@ -193,22 +189,22 @@ export default function Testimonials() {
                               alt={testimonial.name}
                               width={60}
                               height={60}
-                              className="rounded-full object-cover border-2 border-white/30"
+                              className="rounded-full object-cover border-2 border-gray-200"
                             />
                             <div>
-                              <div className="font-bold text-white text-lg">{testimonial.name}</div>
-                              <div className="text-cyan-400 font-medium">{testimonial.position}</div>
-                              <div className="text-blue-200 text-sm">{testimonial.company}</div>
+                              <div className="font-bold text-gray-900 text-lg">{testimonial.name}</div>
+                              <div className="text-blue-600 font-medium">{testimonial.position}</div>
+                              <div className="text-gray-600 text-sm">{testimonial.company}</div>
                             </div>
                           </div>
                         </div>
 
                         {/* Company Info & Location */}
                         <div className="text-center lg:text-right space-y-4">
-                          <div className="p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
-                            <div className="text-2xl font-bold text-white mb-2">{testimonial.company}</div>
-                            <div className="text-blue-200 mb-4">{testimonial.location}</div>
-                            <div className="inline-flex items-center px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm font-medium border border-green-400/30">
+                          <div className="p-6 bg-gray-50 rounded-2xl border border-gray-200">
+                            <div className="text-2xl font-bold text-gray-900 mb-2">{testimonial.company}</div>
+                            <div className="text-gray-600 mb-4">{testimonial.location}</div>
+                            <div className="inline-flex items-center px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium border border-green-200">
                               ✓ Verified Client
                             </div>
                           </div>
@@ -222,17 +218,17 @@ export default function Testimonials() {
 
             {/* Navigation Arrows */}
             <Button
-              variant="ghost"
+              variant="outline"
               size="icon"
-              className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white border border-white/20 z-10"
+              className="absolute left-0 top-1/2 -translate-y-1/2 bg-white hover:bg-gray-50 text-gray-700 border-gray-200 z-10"
               onClick={prevTestimonial}
             >
               <ChevronLeft className="h-6 w-6" />
             </Button>
             <Button
-              variant="ghost"
+              variant="outline"
               size="icon"
-              className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white border border-white/20 z-10"
+              className="absolute right-0 top-1/2 -translate-y-1/2 bg-white hover:bg-gray-50 text-gray-700 border-gray-200 z-10"
               onClick={nextTestimonial}
             >
               <ChevronRight className="h-6 w-6" />
@@ -245,7 +241,7 @@ export default function Testimonials() {
               <button
                 key={index}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentTestimonial ? "bg-cyan-400 w-8" : "bg-white/30 hover:bg-white/50"
+                  index === currentTestimonial ? "bg-blue-600 w-8" : "bg-gray-300 hover:bg-gray-400"
                 }`}
                 onClick={() => goToTestimonial(index)}
               />
@@ -253,12 +249,12 @@ export default function Testimonials() {
           </div>
 
           {/* Certifications Section */}
-          <div className="mt-16 pt-8 border-t border-white/20">
-            <p className="text-center text-blue-200 mb-8 font-medium">Certified & Registered With</p>
+          <div className="mt-16 pt-8 border-t border-gray-200">
+            <p className="text-center text-gray-600 mb-8 font-medium">Certified & Registered With</p>
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6 items-center">
               {certifications.map((cert, index) => (
                 <div key={index} className="text-center group">
-                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 hover:bg-white/20 transition-all duration-300 group-hover:scale-105">
+                  <div className="bg-gray-50 rounded-lg p-4 border border-gray-200 hover:bg-white hover:shadow-md transition-all duration-300 group-hover:scale-105">
                     <Image
                       src={cert.image || "/placeholder.svg?height=80&width=120"}
                       alt={cert.name}
@@ -270,7 +266,7 @@ export default function Testimonials() {
                       }}
                     />
                   </div>
-                  <p className="text-xs text-blue-200 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <p className="text-xs text-gray-600 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     {cert.name}
                   </p>
                 </div>
@@ -280,22 +276,22 @@ export default function Testimonials() {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 pt-16 border-t border-white/20">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 pt-16 border-t border-gray-200">
           <div className="text-center">
-            <div className="text-3xl font-bold text-cyan-400 mb-2">50,000+</div>
-            <div className="text-blue-200">Happy Customers</div>
+            <div className="text-3xl font-bold text-blue-600 mb-2">50,000+</div>
+            <div className="text-gray-600">Happy Customers</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold text-green-400 mb-2">99.9%</div>
-            <div className="text-blue-200">Satisfaction Rate</div>
+            <div className="text-3xl font-bold text-green-600 mb-2">99.9%</div>
+            <div className="text-gray-600">Satisfaction Rate</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold text-purple-400 mb-2">4.9/5</div>
-            <div className="text-blue-200">Average Rating</div>
+            <div className="text-3xl font-bold text-purple-600 mb-2">4.9/5</div>
+            <div className="text-gray-600">Average Rating</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold text-orange-400 mb-2">10+</div>
-            <div className="text-blue-200">Years Experience</div>
+            <div className="text-3xl font-bold text-orange-600 mb-2">10+</div>
+            <div className="text-gray-600">Years Experience</div>
           </div>
         </div>
       </div>
