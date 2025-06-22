@@ -3,16 +3,13 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from "lucide-react"
-import { useTranslation } from "react-i18next"
 
 export default function Footer() {
-  const { t } = useTranslation()
-
   const quickLinks = [
-    { href: "/", label: t("home") },
-    { href: "/about", label: t("about") },
-    { href: "/products", label: t("products") },
-    { href: "/contact", label: t("contact") },
+    { href: "/", label: "Home" },
+    { href: "/about", label: "About Us" },
+    { href: "/products", label: "Products" },
+    { href: "/contact", label: "Contact Us" },
   ]
 
   const products = [
@@ -53,7 +50,10 @@ export default function Footer() {
               />
               <span className="text-2xl font-bold">Graha Impex</span>
             </Link>
-            <p className="text-gray-300 text-sm">{t("footerDescription")}</p>
+            <p className="text-gray-300 text-sm">
+              Leading export company providing reliable shipping solutions worldwide with premium products and
+              excellence.
+            </p>
             <div className="flex space-x-4">
               {socialLinks.map((social, index) => (
                 <Link
@@ -70,7 +70,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">{t("quickLinks")}</h3>
+            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               {quickLinks.map((link, index) => (
                 <li key={index}>
@@ -84,7 +84,7 @@ export default function Footer() {
 
           {/* Products */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">{t("ourProducts")}</h3>
+            <h3 className="text-lg font-semibold mb-4">Our Products</h3>
             <ul className="space-y-2">
               {products.map((product, index) => (
                 <li key={index}>
@@ -98,13 +98,13 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">{t("contactInfo")}</h3>
+            <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
             <div className="space-y-3">
               <div className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-blue-400 mt-0.5 flex-shrink-0" />
                 <div className="text-gray-300 text-sm">
-                  <p>123 Business District</p>
-                  <p>Mumbai, Maharashtra 400001</p>
+                  <p>Mihan</p>
+                  <p>Nagpur, Maharashtra 400001</p>
                   <p>India</p>
                 </div>
               </div>
@@ -135,18 +135,16 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} Graha Impex. {t("allRightsReserved")}
-            </p>
+            <p className="text-gray-400 text-sm">© {new Date().getFullYear()} Graha Impex. All rights reserved.</p>
             <div className="flex space-x-6">
               <Link href="#" className="text-gray-400 hover:text-blue-400 transition-colors text-sm">
-                {t("privacyPolicy")}
+                Privacy Policy
               </Link>
               <Link href="#" className="text-gray-400 hover:text-blue-400 transition-colors text-sm">
-                {t("termsOfService")}
+                Terms of Service
               </Link>
               <Link href="#" className="text-gray-400 hover:text-blue-400 transition-colors text-sm">
-                {t("cookiePolicy")}
+                Cookie Policy
               </Link>
             </div>
           </div>

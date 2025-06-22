@@ -5,54 +5,20 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Menu, Globe, X, ChevronDown } from "lucide-react"
-import { useTranslation } from "react-i18next"
+import { Menu, X } from "lucide-react"
 import Image from "next/image"
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
-  const { t, i18n } = useTranslation()
   const pathname = usePathname()
 
   const navItems = [
-    { href: "/", label: t("home") },
-    { href: "/about", label: t("about") },
-    { href: "/products", label: t("products") },
-    { href: "/contact", label: t("contact") },
+    { href: "/", label: "Home" },
+    { href: "/about", label: "About Us" },
+    { href: "/products", label: "Products" },
+    { href: "/contact", label: "Contact Us" },
   ]
-
-  // EXPANDED LANGUAGE LIST
-  const languages = [
-    { value: "en", label: "English", flag: "🇺🇸" },
-    { value: "hi", label: "हिंदी", flag: "🇮🇳" },
-    { value: "es", label: "Español", flag: "🇪🇸" },
-    { value: "fr", label: "Français", flag: "🇫🇷" },
-    { value: "de", label: "Deutsch", flag: "🇩🇪" },
-    { value: "zh", label: "中文", flag: "🇨🇳" },
-    { value: "ar", label: "العربية", flag: "🇸🇦" },
-    { value: "pt", label: "Português", flag: "🇵🇹" },
-    { value: "ru", label: "Русский", flag: "🇷🇺" },
-    { value: "ja", label: "日本語", flag: "🇯🇵" },
-    { value: "ko", label: "한국어", flag: "🇰🇷" },
-    { value: "it", label: "Italiano", flag: "🇮🇹" },
-    { value: "nl", label: "Nederlands", flag: "🇳🇱" },
-    { value: "tr", label: "Türkçe", flag: "🇹🇷" },
-    { value: "th", label: "ไทย", flag: "🇹🇭" },
-    { value: "vi", label: "Tiếng Việt", flag: "🇻🇳" },
-    { value: "id", label: "Bahasa Indonesia", flag: "🇮🇩" },
-    { value: "pl", label: "Polski", flag: "🇵🇱" },
-    { value: "uk", label: "Українська", flag: "🇺🇦" },
-    { value: "sw", label: "Kiswahili", flag: "🇰🇪" },
-  ]
-
-  const currentLanguage = languages.find((lang) => lang.value === i18n.language)
-
-  const handleLanguageChange = (newLanguage: string) => {
-    i18n.changeLanguage(newLanguage)
-    localStorage.setItem("language", newLanguage)
-  }
 
   // Handle scroll effect
   useEffect(() => {
@@ -122,34 +88,8 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Desktop Language Selector & CTA */}
-          <div className="hidden lg:flex items-center space-x-4">
-            <div className="relative group">
-              <Select value={i18n.language} onValueChange={handleLanguageChange}>
-                <SelectTrigger
-                  className={`w-44 border-0 transition-all duration-300 ${
-                    isScrolled
-                      ? "bg-gray-50 hover:bg-gray-100 text-gray-700"
-                      : "bg-white/10 hover:bg-white/20 text-white border-white/20"
-                  }`}
-                >
-                  <Globe className="h-4 w-4 mr-2" />
-                  <span className="mr-1">{currentLanguage?.flag}</span>
-                  <SelectValue />
-                  <ChevronDown className="h-4 w-4 ml-auto" />
-                </SelectTrigger>
-                <SelectContent className="max-h-60 overflow-y-auto border-0 shadow-xl">
-                  {languages.map((lang) => (
-                    <SelectItem key={lang.value} value={lang.value} className="hover:bg-blue-50">
-                      <div className="flex items-center gap-3">
-                        <span className="text-lg">{lang.flag}</span>
-                        <span>{lang.label}</span>
-                      </div>
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
+          {/* Desktop CTA */}
+          <div className="hidden lg:flex items-center">
             <Link href="/contact">
               <Button
                 className={`transition-all duration-300 transform hover:scale-105 ${
@@ -158,7 +98,7 @@ export default function Navbar() {
                     : "bg-white/10 hover:bg-white/20 text-white border border-white/30 backdrop-blur-sm"
                 }`}
               >
-                {t("getQuote")}
+                Get Quote
               </Button>
             </Link>
           </div>
@@ -207,31 +147,11 @@ export default function Navbar() {
                   ))}
                 </nav>
 
-                {/* Mobile Language Selector & CTA */}
-                <div className="space-y-4 pt-6 border-t border-gray-200">
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-gray-700">Language</label>
-                    <Select value={i18n.language} onValueChange={handleLanguageChange}>
-                      <SelectTrigger className="bg-gray-50 border-gray-200">
-                        <Globe className="h-4 w-4 mr-2" />
-                        <span className="mr-1">{currentLanguage?.flag}</span>
-                        <SelectValue />
-                      </SelectTrigger>
-                      <SelectContent className="max-h-60 overflow-y-auto">
-                        {languages.map((lang) => (
-                          <SelectItem key={lang.value} value={lang.value}>
-                            <div className="flex items-center gap-3">
-                              <span>{lang.flag}</span>
-                              <span>{lang.label}</span>
-                            </div>
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
+                {/* Mobile CTA */}
+                <div className="pt-6 border-t border-gray-200">
                   <Link href="/contact" onClick={() => setIsOpen(false)}>
                     <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg">
-                      {t("getQuote")}
+                      Get Quote
                     </Button>
                   </Link>
                 </div>

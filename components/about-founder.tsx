@@ -5,11 +5,8 @@ import { Card, CardContent } from "@/components/ui/card"
 import { ArrowRight, Star } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { useTranslation } from "react-i18next"
 
 export default function AboutFounder() {
-  const { t } = useTranslation()
-
   return (
     <section className="relative py-20 bg-white overflow-hidden">
       {/* Background Elements */}
@@ -51,8 +48,8 @@ export default function AboutFounder() {
                   {/* Founder Photo */}
                   <div className="flex-shrink-0">
                     <Image
-                      src="https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/founder-images//Aachal%20Patil.jpg"
-                      alt={`${t("founderName")} - ${t("founderTitle")}`}
+                      src="https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/founder-images//person.jpg"
+                      alt="Ms. Achal Patil - Founder & CEO"
                       width={200}
                       height={200}
                       className="w-32 h-32 md:w-48 md:h-48 rounded-full border-4 border-blue-200 shadow-xl object-cover"
@@ -62,19 +59,22 @@ export default function AboutFounder() {
                   {/* Content */}
                   <div className="flex-1 text-center md:text-left space-y-6">
                     <div>
-                      <h3 className="text-2xl md:text-3xl font-bold text-gray-900">{t("founderName")}</h3>
-                      <p className="text-blue-600 font-medium text-lg">{t("founderTitle")}</p>
+                      <h3 className="text-2xl md:text-3xl font-bold text-gray-900">Ms. Achal Patil</h3>
+                      <p className="text-blue-600 font-medium text-lg">Founder & CEO</p>
                     </div>
 
                     <blockquote className="text-lg leading-relaxed text-gray-700 italic">
-                      "{t("founderQuote")}"
+                      "We started this company with one mission: to make global sourcing simple, honest, and reliable.
+                      For us, it's not just about exports — it's about helping Indian suppliers grow and giving buyers
+                      worldwide a partner they can count on. Our journey is built on trust, innovation, and unwavering
+                      commitment to excellence."
                     </blockquote>
 
                     {/* Stats */}
                     <div className="grid grid-cols-3 gap-4 py-6 border-t border-gray-200">
                       <div className="text-center">
                         <div className="text-2xl font-bold text-blue-600">15+</div>
-                        <div className="text-xs text-gray-600">{t("yearsExp")}</div>
+                        <div className="text-xs text-gray-600">Years Exp.</div>
                       </div>
                       <div className="text-center border-l border-r border-gray-200">
                         <div className="text-2xl font-bold text-green-600">MBA</div>
@@ -82,13 +82,13 @@ export default function AboutFounder() {
                       </div>
                       <div className="text-center">
                         <div className="text-2xl font-bold text-purple-600">50K+</div>
-                        <div className="text-xs text-gray-600">{t("clients")}</div>
+                        <div className="text-xs text-gray-600">Clients</div>
                       </div>
                     </div>
 
                     <Link href="/about">
                       <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 group">
-                        {t("learnMore")}
+                        Learn More About Us
                         <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                       </Button>
                     </Link>

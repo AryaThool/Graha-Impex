@@ -163,19 +163,7 @@ export default function WhyChooseUs() {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-16">
-          <div className="inline-flex items-center gap-2 text-gray-600 mb-4">
-            <div className="flex -space-x-2">
-              {[1, 2, 3, 4].map((i) => (
-                <div
-                  key={i}
-                  className="w-8 h-8 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full border-2 border-white"
-                ></div>
-              ))}
-            </div>
-            <span className="text-sm font-medium">Trusted by 50,000+ customers worldwide</span>
-          </div>
-        </div>
+        
       </div>
     </section>
   )

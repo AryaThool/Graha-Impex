@@ -3,11 +3,8 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Download, Star, Users, Award, Globe2 } from "lucide-react"
 import Link from "next/link"
-import { useTranslation } from "react-i18next"
 
 export default function Hero() {
-  const { t } = useTranslation()
-
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 overflow-hidden">
       {/* Animated Background Elements */}
@@ -189,27 +186,26 @@ export default function Hero() {
           {/* Badge */}
           <div className="inline-flex items-center px-4 md:px-6 py-2 md:py-3 bg-white/10 backdrop-blur-md rounded-full border border-white/20 mt-20 md:mt-0">
             <Star className="w-4 h-4 md:w-5 md:h-5 mr-2 text-yellow-400" />
-            <span className="text-xs md:text-sm font-medium text-white">{t("trustedBy")}</span>
+            <span className="text-xs md:text-sm font-medium text-white">Trusted by Customers Worldwide</span>
           </div>
 
-          {/* Main Heading - Using separate lines for better control */}
+          {/* Main Heading */}
           <div className="space-y-4 md:space-y-6 max-w-4xl">
             <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold leading-tight text-white">
-              <span className="block">{t("heroTitle")}</span>
+              <span className="block">Your Trusted</span>
               <span className="block bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
-                {t("heroTitleHighlight")}
+                Export Partner from India
               </span>
             </h1>
-            {/* Using whitespace-pre-line to handle line breaks */}
-            <p className="text-lg md:text-xl lg:text-2xl text-blue-100 leading-relaxed max-w-3xl mx-auto px-4 whitespace-pre-line">
-              {t("heroDescription")}
+            <p className="text-lg md:text-xl lg:text-2xl text-blue-100 leading-relaxed max-w-3xl mx-auto px-4">
+              One Source. Endless Possibilities.{"\n"} Supplying Quality. Delivering Trust.
             </p>
           </div>
 
-          {/* CTA Buttons - Centered and responsive */}
+          {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center w-full px-4">
             <a
-              href="https://grahaimpex.com/wp-content/uploads/2024/09/graha-impex-pdf.pdf"
+              href="https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/sign/pdfs/New%20Company%20Profile.pdf?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hNGUyOWZlNy1iYzBmLTQ5MGYtOGVlNS00ZmE2NDJhZmFiOTEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJwZGZzL05ldyBDb21wYW55IFByb2ZpbGUucGRmIiwiaWF0IjoxNzUwNTIxNzQ3LCJleHAiOjE5MDgyMDE3NDd9.lesI-F-sSZJWRgrcBSC8LZ6_4l7X3ZZaDxzuTatpXkg"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto max-w-xs sm:max-w-none"
@@ -219,7 +215,7 @@ export default function Hero() {
                 className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 border-0 px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold"
               >
                 <Download className="mr-2 md:mr-3 h-5 w-5 md:h-6 md:w-6" />
-                {t("downloadProfile")}
+                Download Company Profile
               </Button>
             </a>
             <Link href="/contact" className="w-full sm:w-auto max-w-xs sm:max-w-none">
@@ -228,19 +224,19 @@ export default function Hero() {
                 variant="outline"
                 className="w-full sm:w-auto border-2 border-white/50 text-white bg-white/10 hover:bg-white/20 hover:border-white/70 backdrop-blur-sm transition-all duration-300 transform hover:scale-105 px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold"
               >
-                {t("getQuote")}
+                Get Quote
                 <ArrowRight className="ml-2 md:ml-3 h-5 w-5 md:h-6 md:w-6" />
               </Button>
             </Link>
           </div>
 
-          {/* Stats - Better responsive spacing */}
+          {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 pt-8 md:pt-12 max-w-4xl w-full px-4">
             {[
-              { icon: Users, number: "50K+", label: t("dailyDeliveries") },
-              { icon: Globe2, number: "50+", label: t("countries") },
-              { icon: Award, number: "99.9%", label: t("successRate") },
-              { icon: Star, number: "24/7", label: t("support") },
+              { icon: Users, number: "50K+", label: "Daily Deliveries" },
+              { icon: Globe2, number: "50+", label: "Countries" },
+              { icon: Award, number: "99.9%", label: "Success Rate" },
+              { icon: Star, number: "24/7", label: "Support" },
             ].map((stat, index) => (
               <div key={index} className="text-center group">
                 <div className="p-3 md:p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20 w-fit mx-auto mb-3 md:mb-4 group-hover:scale-110 transition-transform duration-300">
