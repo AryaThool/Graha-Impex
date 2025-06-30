@@ -331,15 +331,33 @@ export default function ContactPageClient() {
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold mb-4">Find Our Export Office</h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
-                Visit our head office in Maharashtra, India or any of our branch locations for direct business
-                discussions
+                Visit our head office in MIHAN, Nagpur, Maharashtra, India for direct business discussions
               </p>
             </div>
-            <div className="bg-gray-200 rounded-lg h-96 flex items-center justify-center">
-              <div className="text-center">
-                <MapPin className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-                <p className="text-gray-500 text-lg">Interactive Map Coming Soon</p>
-                <p className="text-gray-400 text-sm">Nagpur, Maharashtra, India</p>
+
+            {/* Embedded Google Maps */}
+            <div className="flex justify-center">
+              <div className="w-full max-w-4xl">
+                <div className="relative w-full h-96 rounded-lg overflow-hidden shadow-lg border border-gray-200">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d59579.652564883545!2d79.0180836!3d21.0435553!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4be284cdf7abd%3A0x60d4ced04aace457!2sMIHAN%2C%20Nagpur%2C%20Nagpur%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1751296726355!5m2!1sen!2sin"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen={true}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Graha Impex Office Location - MIHAN, Nagpur, Maharashtra"
+                  />
+                </div>
+
+                {/* Map Info */}
+                <div className="mt-6 text-center">
+                  <div className="inline-flex items-center gap-2 text-gray-600 bg-white px-6 py-3 rounded-full border border-gray-200 shadow-sm">
+                    <MapPin className="h-5 w-5 text-blue-600" />
+                    <span className="font-medium">MIHAN, Nagpur, Maharashtra, India</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -349,31 +367,31 @@ export default function ContactPageClient() {
         <section className="py-16">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">Our Export Office Locations</h2>
+              <h2 className="text-3xl font-bold mb-4">Our Office Locations</h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
                 We have offices across major cities in India to serve international buyers better
               </p>
             </div>
             <div className="grid md:grid-cols-3 gap-8">
               {[
-                {
+                /* {
                   city: "Mumbai",
                   address: "Business District, Mumbai 400001",
                   phone: "+91 8766556928",
                   description: "Main Export Hub",
-                },
+                }, */
                 {
-                  city: "Pune",
+                  city: "Nagpur",
                   address: "Corporate Plaza, Pune 411001",
-                  phone: "+91 7385143290",
-                  description: "Regional Office",
-                },
+                  phone: "+91 8766556928",
+                  description: "Main Office",
+                } /*
                 {
                   city: "Nashik",
                   address: "Industrial Area, Nashik 422001",
                   phone: "+91 8766556928",
                   description: "Processing Center",
-                },
+                }, */,
               ].map((branch, index) => (
                 <Card key={index} className="hover:shadow-lg transition-shadow">
                   <CardContent className="pt-6">

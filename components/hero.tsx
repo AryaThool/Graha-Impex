@@ -233,7 +233,7 @@ export default function Hero() {
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 pt-8 md:pt-12 max-w-4xl w-full px-4">
             {[
-              { icon: Users, number: "50K+", label: "Daily Deliveries" },
+              { icon: Users, number: "1K+", label: "Deliveries" },
               { icon: Globe2, number: "50+", label: "Countries" },
               { icon: Award, number: "99.9%", label: "Success Rate" },
               { icon: Star, number: "24/7", label: "Support" },

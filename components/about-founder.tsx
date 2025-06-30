@@ -70,7 +70,7 @@ export default function AboutFounder() {
                       commitment to excellence."
                     </blockquote>
 
-                    {/* Stats */}
+                    {/* 
                     <div className="grid grid-cols-3 gap-4 py-6 border-t border-gray-200">
                       <div className="text-center">
                         <div className="text-2xl font-bold text-blue-600">15+</div>
@@ -84,8 +84,7 @@ export default function AboutFounder() {
                         <div className="text-2xl font-bold text-purple-600">50K+</div>
                         <div className="text-xs text-gray-600">Clients</div>
                       </div>
-                    </div>
-
+                    </div> */
                     <Link href="/about">
                       <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 group">
                         Learn More About Us
