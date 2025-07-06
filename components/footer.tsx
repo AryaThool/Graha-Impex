@@ -9,6 +9,8 @@ export default function Footer() {
     { href: "/", label: "Home" },
     { href: "/about", label: "About Us" },
     { href: "/products", label: "Products" },
+    { href: "/harvest-calendar", label: "Harvest Calendar" },
+    { href: "/certificates", label: "Certificates" },
     { href: "/contact", label: "Contact Us" },
   ]
 

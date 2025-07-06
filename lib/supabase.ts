@@ -28,6 +28,25 @@ export interface Product {
   subcategories?: Subcategory
 }
 
+export interface HarvestCalendar {
+  id: string
+  product_name: string
+  jan: string
+  feb: string
+  mar: string
+  apr: string
+  may: string
+  jun: string
+  jul: string
+  aug: string
+  sep: string
+  oct: string
+  nov: string
+  dec: string
+  best_month: string
+  created_at: string
+}
+
 // Database functions
 export const getCategories = async (): Promise<Category[]> => {
   const { data, error } = await supabase.from("categories").select("*").order("name")
@@ -154,6 +173,18 @@ export const searchProducts = async (searchTerm: string): Promise<Product[]> => 
 
   if (error) {
     console.error("Error searching products:", error)
+    return []
+  }
+
+  return data || []
+}
+
+// Harvest Calendar functions
+export const getHarvestCalendar = async (): Promise<HarvestCalendar[]> => {
+  const { data, error } = await supabase.from("harvest_calendar").select("*").order("product_name")
+
+  if (error) {
+    console.error("Error fetching harvest calendar:", error)
     return []
   }
 

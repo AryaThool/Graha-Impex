@@ -192,9 +192,9 @@ export default function Hero() {
           {/* Main Heading */}
           <div className="space-y-4 md:space-y-6 max-w-4xl">
             <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold leading-tight text-white">
-              <span className="block">Your Trusted</span>
+              <span className="block">SOURCING</span>
               <span className="block bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
-                Export Partner from India
+                SIMPLIFIED
               </span>
             </h1>
             <p className="text-lg md:text-xl lg:text-2xl text-blue-100 leading-relaxed max-w-3xl mx-auto px-4">

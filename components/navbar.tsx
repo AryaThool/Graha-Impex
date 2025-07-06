@@ -17,6 +17,8 @@ export default function Navbar() {
     { href: "/", label: "Home" },
     { href: "/about", label: "About Us" },
     { href: "/products", label: "Products" },
+    { href: "/certificates", label: "Certificates" },
+    { href: "/harvest-calendar", label: "Harvest Calendar" }, 
     { href: "/contact", label: "Contact Us" },
   ]
 
