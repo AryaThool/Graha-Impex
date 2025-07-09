@@ -1,12 +1,12 @@
 "use client"
 
 import { Badge } from "@/components/ui/badge"
-
 import { useState, useEffect } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
-import { Calendar, Leaf, TrendingUp, Info } from "lucide-react"
+import { Calendar, Leaf, TrendingUp, Info, Download, FileText, Clock, MapPin } from "lucide-react"
 import { getHarvestCalendar, type HarvestCalendar } from "@/lib/supabase"
+import { Button } from "@/components/ui/button"
 
 export default function HarvestCalendarClient() {
   const [harvestData, setHarvestData] = useState<HarvestCalendar[]>([])
@@ -29,18 +29,18 @@ export default function HarvestCalendarClient() {
   }
 
   const months = [
-    { key: "jan", name: "Jan" },
-    { key: "feb", name: "Feb" },
-    { key: "mar", name: "Mar" },
-    { key: "apr", name: "Apr" },
-    { key: "may", name: "May" },
-    { key: "jun", name: "Jun" },
-    { key: "jul", name: "Jul" },
-    { key: "aug", name: "Aug" },
-    { key: "sep", name: "Sep" },
-    { key: "oct", name: "Oct" },
-    { key: "nov", name: "Nov" },
-    { key: "dec", name: "Dec" },
+    { key: "jan", name: "Jan", fullName: "January" },
+    { key: "feb", name: "Feb", fullName: "February" },
+    { key: "mar", name: "Mar", fullName: "March" },
+    { key: "apr", name: "Apr", fullName: "April" },
+    { key: "may", name: "May", fullName: "May" },
+    { key: "jun", name: "Jun", fullName: "June" },
+    { key: "jul", name: "Jul", fullName: "July" },
+    { key: "aug", name: "Aug", fullName: "August" },
+    { key: "sep", name: "Sep", fullName: "September" },
+    { key: "oct", name: "Oct", fullName: "October" },
+    { key: "nov", name: "Nov", fullName: "November" },
+    { key: "dec", name: "Dec", fullName: "December" },
   ]
 
   const getStatusColor = (status: string) => {
@@ -110,26 +110,62 @@ export default function HarvestCalendarClient() {
 
   return (
     <>
-      {/* Harvest Calendar Schema */}
+      {/* Enhanced Harvest Calendar Schema */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebPage",
-            name: "Agricultural Harvesting Calendar - Graha Impex",
+            name: "Agricultural Harvesting Chart India 2024 | Complete Crop Calendar",
             description:
-              "Comprehensive harvesting calendar for Indian agricultural products and spices export planning.",
+              "Comprehensive agricultural harvesting chart for India showing seasonal availability, planting schedule, and harvest timing for spices, seeds, and food products.",
             url: "https://grahaimpex.com/harvest-calendar",
             mainEntity: {
               "@type": "Dataset",
-              name: "Agricultural Harvest Calendar",
-              description: "Seasonal availability and harvesting schedule for Indian agricultural products",
+              name: "Indian Agricultural Harvesting Chart 2024",
+              description:
+                "Complete seasonal harvesting calendar for Indian agricultural products including spices, seeds, oils, and food crops with monthly activity tracking",
               creator: {
                 "@type": "Organization",
                 name: "Graha Impex",
+                url: "https://grahaimpex.com",
+              },
+              keywords:
+                "harvesting chart, agricultural calendar, crop calendar, harvest seasons, India agriculture, spices harvest, export planning",
+              spatialCoverage: {
+                "@type": "Place",
+                name: "India",
+                geo: {
+                  "@type": "GeoCoordinates",
+                  latitude: 20.5937,
+                  longitude: 78.9629,
+                },
+              },
+              temporalCoverage: "2024",
+              distribution: {
+                "@type": "DataDownload",
+                encodingFormat: "text/html",
+                contentUrl: "https://grahaimpex.com/harvest-calendar",
               },
             },
+            about: [
+              {
+                "@type": "Thing",
+                name: "Agricultural Harvesting",
+                description: "The process of gathering mature crops from fields",
+              },
+              {
+                "@type": "Thing",
+                name: "Crop Calendar",
+                description: "Seasonal schedule showing when to plant, grow, and harvest crops",
+              },
+              {
+                "@type": "Thing",
+                name: "Indian Agriculture",
+                description: "Agricultural practices and crop production in India",
+              },
+            ],
             breadcrumb: {
               "@type": "BreadcrumbList",
               itemListElement: [
@@ -142,7 +178,7 @@ export default function HarvestCalendarClient() {
                 {
                   "@type": "ListItem",
                   position: 2,
-                  name: "Harvest Calendar",
+                  name: "Agricultural Harvesting Chart",
                   item: "https://grahaimpex.com/harvest-calendar",
                 },
               ],
@@ -152,47 +188,58 @@ export default function HarvestCalendarClient() {
       />
 
       <div className="min-h-screen bg-gray-50">
-        {/* Hero Section */}
-        <section className="bg-gradient-to-r from-green-600 to-blue-600 text-white py-16">
+        {/* Enhanced Hero Section with SEO Content */}
+        <section className="bg-gradient-to-r from-green-600 to-blue-600 text-white py-20">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
+            <div className="max-w-6xl mx-auto text-center">
               <div className="flex items-center justify-center gap-3 mb-6">
                 <Calendar className="h-12 w-12" />
+                <Leaf className="h-12 w-12" />
               </div>
-              <h2 className="text-2xl md:text-3xl font-semibold mb-4">Harvesting Calendar</h2>
-              <p className="text-lg md:text-xl mb-8 opacity-90">
-                Plan your export orders with our comprehensive seasonal availability guide for Indian agricultural
-                products
-              </p>
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6">
+                Agricultural Harvesting Chart
+              </h1>
+              
+
+              {/* SEO-rich feature highlights */}
+             
             </div>
           </div>
         </section>
 
+        {/* SEO Content Section */}
+       
+
         {/* Legend Section */}
-        <section className="py-8 bg-white border-b border-gray-200">
+        <section className="py-8 bg-gray-50 border-b border-gray-200">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <div className="flex items-center gap-2 mb-6">
                 <Info className="h-5 w-5 text-blue-600" />
-                <h3 className="text-lg font-semibold text-gray-900">Activity Legend</h3>
+                <h3 className="text-lg font-semibold text-gray-900">Agricultural Activity Legend</h3>
               </div>
+              <p className="text-gray-600 mb-6">
+                Our <strong>harvesting chart</strong> uses color-coded indicators to show different agricultural
+                activities throughout the year:
+              </p>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
                 {[
-                  { status: "Sowing", icon: "🌱" },
-                  { status: "Growing", icon: "🌿" },
-                  { status: "Maturing", icon: "🌾" },
-                  { status: "Harvesting", icon: "🚜" },
-                  { status: "Processing", icon: "⚙️" },
-                  { status: "Exporting", icon: "📦" },
+                  { status: "Sowing", icon: "🌱", description: "Planting season" },
+                  { status: "Growing", icon: "🌿", description: "Growth period" },
+                  { status: "Maturing", icon: "🌾", description: "Maturation phase" },
+                  { status: "Harvesting", icon: "🚜", description: "Harvest time" },
+                  { status: "Processing", icon: "⚙️", description: "Post-harvest processing" },
+                  { status: "Exporting", icon: "📦", description: "Export ready" },
                 ].map((item) => (
                   <div
                     key={item.status}
-                    className={`flex items-center gap-2 px-3 py-2 rounded-lg border text-sm font-medium ${getStatusColor(
+                    className={`flex flex-col items-center gap-2 px-3 py-4 rounded-lg border text-sm font-medium ${getStatusColor(
                       item.status,
                     )}`}
                   >
-                    <span className="text-lg">{item.icon}</span>
-                    <span>{item.status}</span>
+                    <span className="text-2xl">{item.icon}</span>
+                    <span className="font-semibold">{item.status}</span>
+                    <span className="text-xs text-center opacity-80">{item.description}</span>
                   </div>
                 ))}
               </div>
@@ -204,8 +251,8 @@ export default function HarvestCalendarClient() {
         <section className="py-12">
           <div className="container mx-auto px-4">
             <div className="max-w-full mx-auto">
-              {/* Stats Cards */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+              {/* Enhanced Stats Cards */}
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
                 <Card>
                   <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                     <CardTitle className="text-sm font-medium">Total Products</CardTitle>
@@ -219,7 +266,7 @@ export default function HarvestCalendarClient() {
 
                 <Card>
                   <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium">Peak Season</CardTitle>
+                    <CardTitle className="text-sm font-medium">Peak Harvest</CardTitle>
                     <TrendingUp className="h-4 w-4 text-orange-600" />
                   </CardHeader>
                   <CardContent>
@@ -238,16 +285,35 @@ export default function HarvestCalendarClient() {
                     <p className="text-xs text-gray-600">Continuous availability</p>
                   </CardContent>
                 </Card>
+
+                <Card>
+                  <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                    <CardTitle className="text-sm font-medium">Coverage</CardTitle>
+                    <MapPin className="h-4 w-4 text-purple-600" />
+                  </CardHeader>
+                  <CardContent>
+                    <div className="text-2xl font-bold text-purple-600">All India</div>
+                    <p className="text-xs text-gray-600">Pan-India agricultural data</p>
+                  </CardContent>
+                </Card>
               </div>
 
-              {/* Main Calendar Table - Responsive Design */}
+              {/* Main Calendar Table - Enhanced with SEO content */}
               <Card className="shadow-xl">
                 <CardHeader>
-                  <CardTitle className="text-xl font-bold text-gray-900 flex items-center gap-2">
-                    <Calendar className="h-6 w-6 text-blue-600" />
-                    Agricultural Harvesting Calendar 2024
-                  </CardTitle>
-                  <p className="text-gray-600">Seasonal availability and processing schedule for our export products</p>
+                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div>
+                      <CardTitle className="text-xl font-bold text-gray-900 flex items-center gap-2">
+                        <Calendar className="h-6 w-6 text-blue-600" />
+                        Complete Agricultural Harvesting Chart 2024
+                      </CardTitle>
+                      <p className="text-gray-600 mt-2">
+                        Comprehensive <strong>crop calendar</strong> showing seasonal availability and processing
+                        schedule for Indian agricultural exports
+                      </p>
+                    </div>
+                   
+                  </div>
                 </CardHeader>
                 <CardContent className="p-0">
                   {/* Desktop Table */}
@@ -257,18 +323,19 @@ export default function HarvestCalendarClient() {
                       <thead className="bg-gray-50 border-b border-gray-200">
                         <tr>
                           <th className="px-4 py-3 text-left text-xs font-semibold text-gray-900 border-r border-gray-200 w-48">
-                            Product Name
+                            Agricultural Product
                           </th>
                           {months.map((month) => (
                             <th
                               key={month.key}
                               className="px-2 py-3 text-center text-xs font-semibold text-gray-900 w-20"
+                              title={`${month.fullName} activities`}
                             >
                               {month.name}
                             </th>
                           ))}
                           <th className="px-3 py-3 text-center text-xs font-semibold text-gray-900 bg-gray-100 w-32">
-                            Best Month
+                            Best Harvest Month
                           </th>
                         </tr>
                       </thead>
@@ -281,7 +348,12 @@ export default function HarvestCalendarClient() {
                             <td className="px-4 py-3 text-xs font-medium text-gray-900 border-r border-gray-200">
                               <div className="flex items-center gap-1">
                                 <span className="text-sm">🌾</span>
-                                <span className="capitalize leading-tight">{product.product_name}</span>
+                                <span
+                                  className="capitalize leading-tight"
+                                  title={`${product.product_name} harvesting schedule`}
+                                >
+                                  {product.product_name}
+                                </span>
                               </div>
                             </td>
 
@@ -295,7 +367,7 @@ export default function HarvestCalendarClient() {
                                       className={`inline-flex items-center justify-center w-8 h-8 rounded-full text-xs font-medium border ${getStatusColor(
                                         status,
                                       )}`}
-                                      title={status}
+                                      title={`${product.product_name} - ${status} in ${month.fullName}`}
                                     >
                                       <span className="text-sm">{getStatusIcon(status)}</span>
                                     </div>
@@ -306,7 +378,10 @@ export default function HarvestCalendarClient() {
 
                             {/* Best Month */}
                             <td className="px-3 py-3 text-center bg-gray-100">
-                              <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-bold text-gray-900 bg-yellow-100 border border-yellow-300">
+                              <span
+                                className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-bold text-gray-900 bg-yellow-100 border border-yellow-300"
+                                title={`Best harvesting time for ${product.product_name}`}
+                              >
                                 <span>⭐</span>
                                 <span className="hidden xl:inline">{product.best_month || "N/A"}</span>
                                 <span className="xl:hidden">
@@ -330,7 +405,7 @@ export default function HarvestCalendarClient() {
                             <span className="capitalize">{product.product_name}</span>
                           </CardTitle>
                           <div className="flex items-center gap-2">
-                            <span className="text-sm text-gray-600">Best Month:</span>
+                            <span className="text-sm text-gray-600">Best Harvest Month:</span>
                             <Badge className="bg-yellow-100 text-yellow-800 border-yellow-300 font-medium">
                               ⭐ {product.best_month || "N/A"}
                             </Badge>
@@ -348,7 +423,7 @@ export default function HarvestCalendarClient() {
                                       className={`inline-flex items-center justify-center w-8 h-8 rounded-full text-xs font-medium border ${getStatusColor(
                                         status,
                                       )}`}
-                                      title={status}
+                                      title={`${status} in ${month.fullName}`}
                                     >
                                       <span className="text-sm">{getStatusIcon(status)}</span>
                                     </div>
@@ -366,13 +441,127 @@ export default function HarvestCalendarClient() {
                 </CardContent>
               </Card>
 
+              {/* SEO-rich Additional Information */}
+              <div className="mt-12 grid md:grid-cols-2 gap-8">
+                <Card className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    <FileText className="h-5 w-5 text-blue-600" />
+                    How to Use This Harvesting Chart
+                  </h3>
+                  <div className="space-y-3 text-gray-700">
+                    <p>
+                      Our <strong>agricultural harvesting chart</strong> provides month-by-month activity tracking for
+                      each crop:
+                    </p>
+                    <ul className="space-y-2 ml-4">
+                      <li>
+                        • <strong>Sowing</strong>: Best time to plant seeds
+                      </li>
+                      <li>
+                        • <strong>Growing</strong>: Active growth period
+                      </li>
+                      <li>
+                        • <strong>Maturing</strong>: Crop development phase
+                      </li>
+                      <li>
+                        • <strong>Harvesting</strong>: Optimal harvest timing
+                      </li>
+                      <li>
+                        • <strong>Processing</strong>: Post-harvest activities
+                      </li>
+                      <li>
+                        • <strong>Exporting</strong>: Ready for export
+                      </li>
+                    </ul>
+                  </div>
+                </Card>
+
+                <Card className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    <TrendingUp className="h-5 w-5 text-green-600" />
+                    Benefits for Exporters & Farmers
+                  </h3>
+                  <div className="space-y-3 text-gray-700">
+                    <p>
+                      This <strong>crop calendar 2024</strong> helps you:
+                    </p>
+                    <ul className="space-y-2 ml-4">
+                      <li>• Plan procurement schedules effectively</li>
+                      <li>• Optimize export timing for best prices</li>
+                      <li>• Coordinate with farmers for bulk orders</li>
+                      <li>• Manage inventory and storage requirements</li>
+                      <li>• Ensure quality by harvesting at right time</li>
+                      <li>• Meet international delivery commitments</li>
+                    </ul>
+                  </div>
+                </Card>
+              </div>
+
               {/* Additional Info */}
               <div className="mt-8 text-center">
                 <div className="inline-flex items-center gap-2 text-gray-600 bg-white px-6 py-3 rounded-full border border-gray-200 shadow-sm">
                   <Info className="h-4 w-4 text-blue-600" />
                   <span className="text-sm">
-                    Calendar updated monthly based on seasonal patterns and agricultural data
+                    <strong>Harvesting chart</strong> updated monthly based on Indian agricultural patterns and climate
+                    data
                   </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section for SEO */}
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
+                Frequently Asked Questions About Agricultural Harvesting Chart
+              </h2>
+
+              <div className="space-y-8">
+                <div className="border-l-4 border-green-500 pl-6">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    What is an agricultural harvesting chart?
+                  </h3>
+                  <p className="text-gray-700">
+                    An <strong>agricultural harvesting chart</strong> is a comprehensive calendar that shows the optimal
+                    timing for planting, growing, and harvesting different crops throughout the year. Our chart covers
+                    over 30 Indian agricultural products including spices, seeds, and oils.
+                  </p>
+                </div>
+
+                <div className="border-l-4 border-blue-500 pl-6">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    When is the best time to harvest cumin in India?
+                  </h3>
+                  <p className="text-gray-700">
+                    According to our <strong>cumin harvesting season</strong> data, cumin is typically harvested in
+                    January in India, with processing continuing through February and March. The best harvest month for
+                    cumin is January.
+                  </p>
+                </div>
+
+                <div className="border-l-4 border-purple-500 pl-6">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    How accurate is this crop calendar for export planning?
+                  </h3>
+                  <p className="text-gray-700">
+                    Our <strong>crop calendar 2024</strong> is based on extensive agricultural data from across India
+                    and is updated monthly. It's specifically designed for export planning and has been used
+                    successfully by numerous agricultural exporters for procurement and delivery scheduling.
+                  </p>
+                </div>
+
+                <div className="border-l-4 border-orange-500 pl-6">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    Which months have the highest harvesting activity in India?
+                  </h3>
+                  <p className="text-gray-700">
+                    Based on our <strong>harvesting chart</strong>, September and October show the highest harvesting
+                    activity across multiple crops including turmeric, coriander, and various oil seeds. This makes it
+                    the peak season for agricultural procurement in India.
+                  </p>
                 </div>
               </div>
             </div>

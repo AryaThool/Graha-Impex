@@ -5,15 +5,62 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { MapPin, Phone, Mail, Clock } from "lucide-react"
-import { useState } from "react"
+import { MapPin, Phone, Mail, Clock, Send, CheckCircle, AlertCircle } from "lucide-react"
+import { useState, useRef, useEffect } from "react"
 import { supabase } from "@/lib/supabase"
+
+// EmailJS configuration
+const EMAILJS_SERVICE_ID = "service_bc2ugbm"
+const EMAILJS_TEMPLATE_ID = "template_wpj2r8w"
+const EMAILJS_PUBLIC_KEY = "jvlfQ5l3d51gW44Mo"
 
 export default function ContactPageClient() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitMessage, setSubmitMessage] = useState("")
-
   const [messageType, setMessageType] = useState<"success" | "error">("success")
+  const [emailJSLoaded, setEmailJSLoaded] = useState(false)
+  const formRef = useRef<HTMLFormElement>(null)
+
+  // Load EmailJS script
+  useEffect(() => {
+    const loadEmailJS = async () => {
+      try {
+        // Check if EmailJS is already loaded
+        if (typeof window !== "undefined" && (window as any).emailjs) {
+          console.log("EmailJS already loaded")
+          setEmailJSLoaded(true)
+          return
+        }
+
+        // Load EmailJS script
+        const script = document.createElement("script")
+        script.src = "https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+        script.async = true
+
+        script.onload = () => {
+          console.log("EmailJS script loaded successfully")
+          // Initialize EmailJS
+          if ((window as any).emailjs) {
+            ;(window as any).emailjs.init(EMAILJS_PUBLIC_KEY)
+            console.log("EmailJS initialized with public key:", EMAILJS_PUBLIC_KEY)
+            setEmailJSLoaded(true)
+          }
+        }
+
+        script.onerror = () => {
+          console.error("Failed to load EmailJS script")
+          setEmailJSLoaded(false)
+        }
+
+        document.head.appendChild(script)
+      } catch (error) {
+        console.error("Error loading EmailJS:", error)
+        setEmailJSLoaded(false)
+      }
+    }
+
+    loadEmailJS()
+  }, [])
 
   const contactInfo = [
     {
@@ -45,54 +92,104 @@ export default function ContactPageClient() {
 
     const formData = new FormData(e.target as HTMLFormElement)
 
-    // Prepare data for Supabase insertion
+    // Prepare data for both Supabase and EmailJS
     const contactData = {
-      first_name: formData.get("firstName") as string,
-      last_name: formData.get("lastName") as string,
+      first_name: formData.get("first_name") as string,
+      last_name: formData.get("last_name") as string,
       email: formData.get("email") as string,
-      phone: (formData.get("phone") as string) || null, // Handle empty phone as null
+      phone: (formData.get("phone") as string) || null,
       message: formData.get("message") as string,
     }
 
-    try {
-      // Insert data into Supabase
-      const { data, error } = await supabase.from("contact_submissions").insert([contactData]).select()
+    console.log("Form data being processed:", contactData)
 
-      if (error) {
-        console.error("Supabase error:", error)
-        throw error
+    try {
+      // 1. Save to Supabase database first
+      console.log("Saving to Supabase...")
+      const { data, error: supabaseError } = await supabase.from("contact_submissions").insert([contactData]).select()
+
+      if (supabaseError) {
+        console.error("Supabase error:", supabaseError)
+        throw new Error("Database save failed")
+      }
+      console.log("Supabase save successful:", data)
+
+      // 2. Send email using EmailJS
+      if (!emailJSLoaded) {
+        throw new Error("EmailJS not loaded yet. Please try again in a moment.")
       }
 
-      // Success
-      setMessageType("success")
-      setSubmitMessage(
-        "Thank you for your export inquiry! We'll get back to you within 24 hours with detailed information.",
-      )
+      if (!(window as any).emailjs) {
+        throw new Error("EmailJS not available. Please refresh the page and try again.")
+      }
 
-      // Reset form
-      const form = e.target as HTMLFormElement
-      form.reset()
+      console.log("Sending email via EmailJS...")
+      console.log("Service ID:", EMAILJS_SERVICE_ID)
+      console.log("Template ID:", EMAILJS_TEMPLATE_ID)
+      console.log("Template variables:", contactData)
+
+      // Send email using EmailJS
+      const emailResult = await (window as any).emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        first_name: contactData.first_name,
+        last_name: contactData.last_name,
+        email: contactData.email,
+        phone: contactData.phone || "Not provided",
+        message: contactData.message,
+        to_email: "info@grahaimpex.com", // Add this if your template needs it
+        reply_to: contactData.email,
+      })
+
+      console.log("EmailJS response:", emailResult)
+
+      if (emailResult.status === 200) {
+        console.log("Email sent successfully via EmailJS")
+
+        // Success - both database and email sent
+        setMessageType("success")
+        setSubmitMessage(
+          "🎉 Thank you for your export inquiry! We've received your message and sent you a confirmation email. Our team will get back to you within 24 hours with detailed information and competitive pricing.",
+        )
+
+        // Reset form
+        if (formRef.current) {
+          formRef.current.reset()
+        }
+      } else {
+        throw new Error(`EmailJS failed with status: ${emailResult.status}`)
+      }
     } catch (error: any) {
       console.error("Error submitting form:", error)
       setMessageType("error")
 
-      // Provide user-friendly error messages
-      if (error.message?.includes("duplicate key")) {
+      // Handle different types of errors with more specific messages
+      if (error.message?.includes("EmailJS")) {
         setSubmitMessage(
-          "It looks like you've already submitted an inquiry with this email. We'll get back to you soon!",
+          `📧 Email service error: ${error.message}. Your inquiry was saved to our database. We'll contact you directly at the email you provided.`,
+        )
+      } else if (error.message?.includes("Database save failed")) {
+        setSubmitMessage(
+          "❌ Sorry, there was an error saving your inquiry. Please try again or contact us directly at info@grahaimpex.com or +91-8766556928.",
+        )
+      } else if (error.message?.includes("duplicate key")) {
+        setSubmitMessage(
+          "📧 It looks like you've already submitted an inquiry with this email. We'll get back to you soon! If urgent, please call us at +91-8766556928.",
         )
       } else if (error.message?.includes("invalid input")) {
-        setSubmitMessage("Please check your information and try again.")
+        setSubmitMessage(
+          "⚠️ Please check your information and try again. Make sure all required fields are filled correctly.",
+        )
       } else {
-        setSubmitMessage("Sorry, there was an error sending your inquiry. Please try again or contact us directly.")
+        setSubmitMessage(
+          `❌ Error: ${error.message}. Please try again or contact us directly at info@grahaimpex.com or +91-8766556928.`,
+        )
       }
     } finally {
       setIsSubmitting(false)
 
-      // Clear message after 7 seconds
+      // Clear message after 15 seconds
       setTimeout(() => {
         setSubmitMessage("")
-      }, 7000)
+      }, 15000)
     }
   }
 
@@ -183,33 +280,43 @@ export default function ContactPageClient() {
                   you with detailed information and competitive pricing.
                 </p>
 
+                {/* EmailJS Loading Status */}
+                {!emailJSLoaded && (
+                  <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                    <div className="flex items-center gap-2">
+                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-600"></div>
+                      <span className="text-blue-800 text-sm">Loading email service...</span>
+                    </div>
+                  </div>
+                )}
+
                 <Card>
                   <CardContent className="pt-6">
-                    <form onSubmit={handleSubmit} className="space-y-6">
+                    <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                       <div className="grid md:grid-cols-2 gap-4">
                         <div>
-                          <label htmlFor="firstName" className="block text-sm font-medium mb-2">
+                          <label htmlFor="first_name" className="block text-sm font-medium mb-2">
                             First Name *
                           </label>
                           <Input
-                            id="firstName"
-                            name="firstName"
+                            id="first_name"
+                            name="first_name"
                             required
                             placeholder="Enter your first name"
-                            disabled={isSubmitting}
+                            disabled={isSubmitting || !emailJSLoaded}
                             className="transition-all duration-200"
                           />
                         </div>
                         <div>
-                          <label htmlFor="lastName" className="block text-sm font-medium mb-2">
+                          <label htmlFor="last_name" className="block text-sm font-medium mb-2">
                             Last Name *
                           </label>
                           <Input
-                            id="lastName"
-                            name="lastName"
+                            id="last_name"
+                            name="last_name"
                             required
                             placeholder="Enter your last name"
-                            disabled={isSubmitting}
+                            disabled={isSubmitting || !emailJSLoaded}
                             className="transition-all duration-200"
                           />
                         </div>
@@ -225,7 +332,7 @@ export default function ContactPageClient() {
                           type="email"
                           required
                           placeholder="Enter your business email address"
-                          disabled={isSubmitting}
+                          disabled={isSubmitting || !emailJSLoaded}
                           className="transition-all duration-200"
                         />
                       </div>
@@ -239,7 +346,7 @@ export default function ContactPageClient() {
                           name="phone"
                           type="tel"
                           placeholder="Enter your phone number with country code"
-                          disabled={isSubmitting}
+                          disabled={isSubmitting || !emailJSLoaded}
                           className="transition-all duration-200"
                         />
                       </div>
@@ -254,38 +361,94 @@ export default function ContactPageClient() {
                           required
                           rows={5}
                           placeholder="Please provide details about your export requirements: product types, quantities, destination country, timeline, and any specific quality requirements..."
-                          disabled={isSubmitting}
+                          disabled={isSubmitting || !emailJSLoaded}
                           className="transition-all duration-200"
                         />
                       </div>
 
                       <Button
                         type="submit"
-                        className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300"
-                        disabled={isSubmitting}
+                        className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 h-12"
+                        disabled={isSubmitting || !emailJSLoaded}
                       >
                         {isSubmitting ? (
                           <div className="flex items-center justify-center">
-                            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                            <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-3"></div>
                             Sending Export Inquiry...
                           </div>
+                        ) : !emailJSLoaded ? (
+                          <div className="flex items-center justify-center">
+                            <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-3"></div>
+                            Loading Email Service...
+                          </div>
                         ) : (
-                          "Send Export Inquiry"
+                          <div className="flex items-center justify-center">
+                            <Send className="h-5 w-5 mr-2" />
+                            Send Export Inquiry via EmailJS
+                          </div>
                         )}
                       </Button>
 
-                      {/* Success/Error Message */}
+                      {/* Enhanced Success/Error Message */}
                       {submitMessage && (
                         <div
-                          className={`mt-4 p-4 rounded-lg border transition-all duration-300 ${
+                          className={`mt-6 p-6 rounded-xl border-2 transition-all duration-300 ${
                             messageType === "success"
                               ? "bg-green-50 border-green-200 text-green-800"
                               : "bg-red-50 border-red-200 text-red-800"
                           }`}
                         >
-                          <p className="text-sm font-medium">{submitMessage}</p>
+                          <div className="flex items-start gap-3">
+                            {messageType === "success" ? (
+                              <CheckCircle className="h-6 w-6 text-green-600 flex-shrink-0 mt-0.5" />
+                            ) : (
+                              <AlertCircle className="h-6 w-6 text-red-600 flex-shrink-0 mt-0.5" />
+                            )}
+                            <div>
+                              <p className="font-medium text-base leading-relaxed">{submitMessage}</p>
+                              {messageType === "success" && (
+                                <div className="mt-3 text-sm text-green-700">
+                                  <p>✅ Saved to our database</p>
+                                  <p>📧 Email sent via EmailJS</p>
+                                  <p>⏰ Response within 24 hours</p>
+                                </div>
+                              )}
+                            </div>
+                          </div>
                         </div>
                       )}
+
+                      {/* Additional Info */}
+                      <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                        <div className="flex items-start gap-3">
+                          <Mail className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                          <div className="text-sm text-blue-800">
+                            <p className="font-medium mb-1">What happens next?</p>
+                            <ul className="space-y-1 text-blue-700">
+                              <li>• Your inquiry is sent directly to our export team</li>
+                              <li>• We'll review your requirements within 2 hours</li>
+                              <li>• You'll receive detailed pricing and product information</li>
+                              <li>• Schedule a call to discuss your specific needs</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* EmailJS Status */}
+                      <div className="mt-4 text-center">
+                        <div
+                          className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs ${
+                            emailJSLoaded
+                              ? "bg-green-100 text-green-800 border border-green-200"
+                              : "bg-yellow-100 text-yellow-800 border border-yellow-200"
+                          }`}
+                        >
+                          <div
+                            className={`w-2 h-2 rounded-full ${emailJSLoaded ? "bg-green-500" : "bg-yellow-500"}`}
+                          ></div>
+                          <span>{emailJSLoaded ? "Email service ready" : "Loading email service..."}</span>
+                        </div>
+                      </div>
                     </form>
                   </CardContent>
                 </Card>
@@ -374,24 +537,12 @@ export default function ContactPageClient() {
             </div>
             <div className="grid md:grid-cols-3 gap-8">
               {[
-                /* {
-                  city: "Mumbai",
-                  address: "Business District, Mumbai 400001",
-                  phone: "+91 8766556928",
-                  description: "Main Export Hub",
-                }, */
                 {
                   city: "Nagpur",
-                  address: "Corporate Plaza, Pune 411001",
+                  address: "MIHAN, Nagpur, Maharashtra 400001",
                   phone: "+91 8766556928",
                   description: "Main Office",
-                } /*
-                {
-                  city: "Nashik",
-                  address: "Industrial Area, Nashik 422001",
-                  phone: "+91 8766556928",
-                  description: "Processing Center",
-                }, */,
+                },
               ].map((branch, index) => (
                 <Card key={index} className="hover:shadow-lg transition-shadow">
                   <CardContent className="pt-6">

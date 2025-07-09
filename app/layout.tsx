@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     template: "%s | Graha Impex - Export Company India",
   },
   description:
-    "Graha Impex is a leading export company from India specializing in premium spices, dehydrated products, edible oils, and oil seeds. Trusted by 50,000+ customers worldwide with 99.9% on-time delivery. Contact us for quality exports from India.",
+    "Graha Impex is a leading export company from India specializing in premium spices, dehydrated products, edible oils, and oil seeds. Trusted by 50,000+ customers worldwide with 99.9% on-time delivery. View our agricultural harvesting chart and crop calendar for export planning.",
   keywords: [
     "Graha Impex",
     "export company India",
@@ -35,6 +35,23 @@ export const metadata: Metadata = {
     "quality food products India",
     "bulk spices export",
     "wholesale spices India",
+    "harvesting chart India",
+    "agricultural harvesting chart",
+    "crop calendar India",
+    "harvest calendar",
+    "seasonal harvesting guide",
+    "agricultural calendar India",
+    "crop harvesting schedule",
+    "farming calendar India",
+    "spices harvesting chart",
+    "agricultural export planning",
+    "harvest timing export",
+    "crop export seasons",
+    "seasonal export guide",
+    "agricultural export calendar",
+    "harvest chart exporters",
+    "crop procurement calendar",
+    "agricultural sourcing calendar",
   ],
   authors: [{ name: "Graha Impex Team" }],
   creator: "Graha Impex",
@@ -49,9 +66,9 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Graha Impex - Leading Export Company from India",
+    title: "Graha Impex - Leading Export Company from India | Agricultural Harvesting Chart",
     description:
-      "Premium spices, dehydrated products, and food exports from India. Trusted by 50,000+ customers worldwide with certified quality and reliable delivery.",
+      "Premium spices, dehydrated products, and food exports from India. Trusted by 50,000+ customers worldwide with certified quality and reliable delivery. View our comprehensive agricultural harvesting chart and crop calendar.",
     url: "https://grahaimpex.com",
     siteName: "Graha Impex",
     images: [
@@ -59,7 +76,7 @@ export const metadata: Metadata = {
         url: "https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/founder-images//Graha%20Impex.png",
         width: 1200,
         height: 630,
-        alt: "Graha Impex - Export Company India",
+        alt: "Graha Impex - Export Company India with Agricultural Harvesting Chart",
       },
     ],
     locale: "en_US",
@@ -67,9 +84,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Graha Impex - Leading Export Company from India",
+    title: "Graha Impex - Leading Export Company from India | Harvesting Chart",
     description:
-      "Premium spices, dehydrated products, and food exports from India. Trusted by 50,000+ customers worldwide.",
+      "Premium spices, dehydrated products, and food exports from India. View our agricultural harvesting chart for export planning.",
     images: ["https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/founder-images//Graha%20Impex.png"],
     creator: "@grahaimpex",
   },
@@ -95,6 +112,12 @@ export const metadata: Metadata = {
     yahoo: "your-yahoo-verification-code", // Add if needed
   },
   category: "business",
+  other: {
+    "geo.region": "IN-MH",
+    "geo.placename": "Mumbai, Maharashtra",
+    "geo.position": "19.0760;72.8777",
+    ICBM: "19.0760, 72.8777",
+  },
     generator: 'v0.dev'
 }
 
@@ -118,7 +141,7 @@ export default function RootLayout({
         <meta name="geo.position" content="19.0760;72.8777" />
         <meta name="ICBM" content="19.0760, 72.8777" />
 
-        {/* Business Schema */}
+        {/* Enhanced Business Schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -126,11 +149,11 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "Graha Impex",
-              alternateName: "Graha Impex Export Company",
+              alternateName: ["Graha Impex Export Company", "Graha Impex India"],
               url: "https://grahaimpex.com",
               logo: "https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/founder-images//Graha%20Impex.png",
               description:
-                "Leading export company from India specializing in premium spices, dehydrated products, edible oils, and oil seeds.",
+                "Leading export company from India specializing in premium spices, dehydrated products, edible oils, and oil seeds. Providing agricultural harvesting chart and crop calendar for export planning.",
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "Mihan",
@@ -145,12 +168,14 @@ export default function RootLayout({
                   telephone: "+91-8766556928",
                   contactType: "customer service",
                   availableLanguage: "English",
+                  areaServed: "Worldwide",
                 },
                 {
                   "@type": "ContactPoint",
                   telephone: "+91-7385143290",
                   contactType: "sales",
                   availableLanguage: "English",
+                  areaServed: "Worldwide",
                 },
               ],
               email: "info@grahaimpex.com",
@@ -160,7 +185,9 @@ export default function RootLayout({
                 name: "Ms. Aachal Patil",
               },
               numberOfEmployees: "50-100",
-              industry: "Food Export",
+              industry: ["Food Export", "Agricultural Export", "Spices Export"],
+              keywords:
+                "export company India, spices export, agricultural harvesting chart, crop calendar, harvest chart, Indian food exports",
               sameAs: [
                 "https://www.facebook.com/profile.php?id=61560943020624",
                 "https://www.linkedin.com/company/graha-impex/",
@@ -181,6 +208,25 @@ export default function RootLayout({
                   recognizedBy: {
                     "@type": "Organization",
                     name: "Agricultural and Processed Food Products Export Development Authority",
+                  },
+                },
+              ],
+              makesOffer: [
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Agricultural Harvesting Chart",
+                    description:
+                      "Comprehensive crop calendar and seasonal harvesting guide for Indian agricultural products",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Product",
+                    name: "Premium Indian Spices",
+                    description: "High-quality spices for export including cumin, turmeric, coriander, and more",
                   },
                 },
               ],
