@@ -48,7 +48,7 @@ export default function AboutFounder() {
                   {/* Founder Photo */}
                   <div className="flex-shrink-0">
                     <Image
-                      src="https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/founder-images//person.jpg"
+                      src="https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/founder-images/person.jpg"
                       alt="Ms. Achal Patil - Founder & CEO"
                       width={200}
                       height={200}
