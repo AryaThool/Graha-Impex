@@ -84,7 +84,7 @@ export default function AboutFounder() {
                         <div className="text-2xl font-bold text-purple-600">50K+</div>
                         <div className="text-xs text-gray-600">Clients</div>
                       </div>
-                    </div> */
+                    </div> */}
                     <Link href="/about">
                       <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 group">
                         Learn More About Us
