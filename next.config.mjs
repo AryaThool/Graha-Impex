@@ -13,7 +13,6 @@ const nextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     domains: [
       'sagobctjwpnpmpcxxyut.supabase.co',
-      'placeholder.svg',
       'via.placeholder.com'
     ],
     remotePatterns: [
@@ -30,8 +29,6 @@ const nextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     // Add loader configuration for better image handling
     loader: 'default',
-    // Increase timeout for slow loading images
-    minimumCacheTTL: 60,
   },
   // Enable compression
   compress: true,
@@ -39,10 +36,6 @@ const nextConfig = {
   experimental: {
     optimizeCss: true,
     optimizePackageImports: ['lucide-react', '@radix-ui/react-icons'],
-    // Enable image optimization
-    images: {
-      allowFutureImage: true,
-    },
   },
   // Headers for better caching and performance
   async headers() {
