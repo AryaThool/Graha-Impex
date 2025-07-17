@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Skeleton } from "@/components/ui/skeleton"
-import { ArrowLeft, Package, Share2, Heart, ShoppingCart, Phone, Mail } from "lucide-react"
+import { ArrowLeft, Package, Share2, Heart, ShoppingCart, Phone, Mail, Hash, FileText } from "lucide-react"
 import { getProductById, getProducts, type Product } from "@/lib/supabase"
 import ProductCard from "@/components/product-card"
 
@@ -57,11 +57,13 @@ export default function ProductDetailPage() {
   }
 
   const handleImageError = () => {
+    console.log("Image failed to load:", product?.image_url)
     setImageError(true)
     setImageLoading(false)
   }
 
   const handleImageLoad = () => {
+    console.log("Image loaded successfully:", product?.image_url)
     setImageLoading(false)
   }
 
@@ -141,9 +143,13 @@ export default function ProductDetailPage() {
             <div className="relative">
               <Card className="overflow-hidden border-0 shadow-xl">
                 <div className="relative h-64 sm:h-80 lg:h-[500px] bg-gradient-to-br from-gray-100 to-gray-200">
+                  {/* Loading indicator */}
                   {imageLoading && (
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="animate-spin rounded-full h-6 w-6 sm:h-8 sm:w-8 border-b-2 border-blue-600"></div>
+                    <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+                      <div className="flex flex-col items-center gap-3">
+                        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+                        <p className="text-sm text-gray-600">Loading image...</p>
+                      </div>
                     </div>
                   )}
 
@@ -152,15 +158,23 @@ export default function ProductDetailPage() {
                       src={product.image_url || "/placeholder.svg"}
                       alt={product.name}
                       fill
-                      className={`object-cover ${imageLoading ? "opacity-0" : "opacity-100"}`}
+                      className={`object-cover transition-opacity duration-300 ${
+                        imageLoading ? "opacity-0" : "opacity-100"
+                      }`}
                       onError={handleImageError}
                       onLoad={handleImageLoad}
                       priority
                       sizes="(max-width: 1024px) 100vw, 50vw"
+                      quality={85}
+                      unoptimized={false}
                     />
                   ) : (
                     <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
-                      <Package className="h-16 w-16 sm:h-24 sm:w-24 text-gray-400" />
+                      <div className="text-center p-4">
+                        <Package className="h-16 w-16 sm:h-24 sm:w-24 text-gray-400 mx-auto mb-4" />
+                        <p className="text-gray-600 text-sm">Image not available</p>
+                        <p className="text-gray-500 text-xs mt-1">Product: {product.name}</p>
+                      </div>
                     </div>
                   )}
                 </div>
@@ -196,6 +210,13 @@ export default function ProductDetailPage() {
                       {product.subcategories.name}
                     </Badge>
                   )}
+                  {/* HSN Number Badge */}
+                  {product.hsn_number && (
+                    <Badge className="bg-blue-100 text-blue-800 border-blue-200 text-xs sm:text-sm flex items-center gap-1">
+                      <Hash className="h-3 w-3" />
+                      HSN: {product.hsn_number}
+                    </Badge>
+                  )}
                 </div>
               </div>
 
@@ -222,12 +243,12 @@ export default function ProductDetailPage() {
                       variant="outline"
                       size="lg"
                       onClick={handleShare}
-                      className="flex-1 sm:flex-none h-12 sm:h-auto"
+                      className="flex-1 sm:flex-none h-12 sm:h-auto bg-transparent"
                     >
                       <Share2 className="h-4 w-4 sm:h-5 sm:w-5" />
                       <span className="ml-2 sm:hidden">Share</span>
                     </Button>
-                    <Button variant="outline" size="lg" className="flex-1 sm:flex-none h-12 sm:h-auto">
+                    <Button variant="outline" size="lg" className="flex-1 sm:flex-none h-12 sm:h-auto bg-transparent">
                       <Heart className="h-4 w-4 sm:h-5 sm:w-5" />
                       <span className="ml-2 sm:hidden">Save</span>
                     </Button>
@@ -237,22 +258,25 @@ export default function ProductDetailPage() {
                 {/* Contact buttons - Responsive layout */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <Link href="/contact" className="block">
-                    <Button variant="outline" size="lg" className="w-full h-12 sm:h-auto">
+                    <Button variant="outline" size="lg" className="w-full h-12 sm:h-auto bg-transparent">
                       <Mail className="h-4 w-4 mr-2" />
                       <span className="text-sm sm:text-base">Get Info</span>
                     </Button>
                   </Link>
-                  <Button variant="outline" size="lg" className="w-full h-12 sm:h-auto">
+                  <Button variant="outline" size="lg" className="w-full h-12 sm:h-auto bg-transparent">
                     <Phone className="h-4 w-4 mr-2" />
                     <span className="text-sm sm:text-base">Call Us</span>
                   </Button>
                 </div>
               </div>
 
-              {/* Product Details Card - Responsive padding */}
+              {/* Product Details Card - Enhanced with HSN */}
               <Card className="border-0 shadow-lg">
                 <CardContent className="p-4 sm:p-6">
-                  <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4">Product Details</h3>
+                  <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center gap-2">
+                    <FileText className="h-5 w-5 text-blue-600" />
+                    Product Details
+                  </h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-sm">
                     <div className="flex justify-between sm:block">
                       <span className="text-gray-600">Category:</span>
@@ -262,6 +286,13 @@ export default function ProductDetailPage() {
                       <div className="flex justify-between sm:block">
                         <span className="text-gray-600">Subcategory:</span>
                         <span className="sm:ml-0 ml-2 font-medium">{product.subcategories.name}</span>
+                      </div>
+                    )}
+                    {/* HSN Number Detail */}
+                    {product.hsn_number && (
+                      <div className="flex justify-between sm:block">
+                        <span className="text-gray-600">HSN Code:</span>
+                        <span className="sm:ml-0 ml-2 font-medium text-blue-600 font-mono">{product.hsn_number}</span>
                       </div>
                     )}
                     <div className="flex justify-between sm:block sm:col-span-2">

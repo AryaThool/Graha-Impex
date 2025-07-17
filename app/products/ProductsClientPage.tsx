@@ -24,13 +24,13 @@ export default function ProductsClientPage() {
 
   const ITEMS_PER_PAGE = 12
 
-  // Catalog data - YOU CAN EDIT THE DOWNLOAD LINKS HERE
+  // Catalog data
   const catalogData = [
     {
       id: "spices",
       name: "Spices & Seasonings",
       description: "Complete catalog of premium spices, herbs, and seasoning blends",
-      downloadLink: "#", // EDIT THIS LINK LATER
+      downloadLink: "#",
       icon: "🌶️",
       pages: "24 pages",
       size: "2.5 MB",
@@ -40,7 +40,7 @@ export default function ProductsClientPage() {
       name: "Dehydrated Products",
       description: "Dried vegetables, fruits, and dehydrated food products catalog",
       downloadLink:
-        "https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/catlog-pdf//dehydratedProducts.pdf", // EDIT THIS LINK LATER
+        "https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/catlog-pdf//dehydratedProducts.pdf",
       icon: "🥕",
       pages: "8 pages",
       size: "1.8 MB",
@@ -49,7 +49,7 @@ export default function ProductsClientPage() {
       id: "oils",
       name: "Edible Oils",
       description: "Premium cooking oils and specialty oil products",
-      downloadLink: "#", // EDIT THIS LINK LATER
+      downloadLink: "#",
       icon: "🫒",
       pages: "12 pages",
       size: "1.2 MB",
@@ -58,7 +58,7 @@ export default function ProductsClientPage() {
       id: "seeds",
       name: "Oil Seeds",
       description: "Various oil seeds and agricultural products catalog",
-      downloadLink: "#", // EDIT THIS LINK LATER
+      downloadLink: "#",
       icon: "🌱",
       pages: "16 pages",
       size: "1.5 MB",
@@ -67,7 +67,7 @@ export default function ProductsClientPage() {
       id: "general",
       name: "Complete Product Catalog",
       description: "Comprehensive catalog featuring all our product categories",
-      downloadLink: "#", // EDIT THIS LINK LATER
+      downloadLink: "#",
       icon: "📋",
       pages: "48 pages",
       size: "4.2 MB",
@@ -136,7 +136,6 @@ export default function ProductsClientPage() {
       alert("Download link will be available soon!")
       return
     }
-    // When you add real links, this will handle the download
     window.open(catalog.downloadLink, "_blank")
   }
 

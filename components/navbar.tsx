@@ -18,7 +18,7 @@ export default function Navbar() {
     { href: "/about", label: "About Us" },
     { href: "/products", label: "Products" },
     { href: "/certificates", label: "Certificates" },
-    { href: "/harvest-calendar", label: "Harvest Calendar" }, 
+    { href: "/harvest-calendar", label: "Harvest Calendar" },
     { href: "/contact", label: "Contact Us" },
   ]
 
@@ -31,10 +31,15 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  // Check if we're on homepage for transparent navbar
+  const isHomePage = pathname === "/"
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/95 backdrop-blur-lg shadow-lg border-b border-gray-200/50" : "bg-transparent"
+        isScrolled || !isHomePage
+          ? "bg-white/95 backdrop-blur-lg shadow-lg border-b border-gray-200/50"
+          : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4">
@@ -48,14 +53,14 @@ export default function Navbar() {
                 width={40}
                 height={40}
                 className={`transition-all duration-300 ${
-                  isScrolled ? "brightness-100" : "brightness-0 invert"
+                  isScrolled || !isHomePage ? "brightness-100" : "brightness-0 invert"
                 } group-hover:scale-110 transition-transform rounded-lg`}
               />
               <div className="absolute -inset-2 bg-blue-500/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
             <span
               className={`text-2xl font-bold transition-colors duration-300 ${
-                isScrolled ? "text-gray-900" : "text-white"
+                isScrolled || !isHomePage ? "text-gray-900" : "text-white"
               }`}
             >
               Graha Impex
@@ -70,10 +75,10 @@ export default function Navbar() {
                 href={item.href}
                 className={`relative px-4 py-2 rounded-lg font-medium transition-all duration-300 group ${
                   pathname === item.href
-                    ? isScrolled
+                    ? isScrolled || !isHomePage
                       ? "text-blue-600 bg-blue-50"
                       : "text-cyan-400 bg-white/10"
-                    : isScrolled
+                    : isScrolled || !isHomePage
                       ? "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
                       : "text-white/90 hover:text-white hover:bg-white/10"
                 }`}
@@ -82,7 +87,7 @@ export default function Navbar() {
                 {pathname === item.href && (
                   <div
                     className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 rounded-full ${
-                      isScrolled ? "bg-blue-600" : "bg-cyan-400"
+                      isScrolled || !isHomePage ? "bg-blue-600" : "bg-cyan-400"
                     }`}
                   ></div>
                 )}
@@ -95,7 +100,7 @@ export default function Navbar() {
             <Link href="/contact">
               <Button
                 className={`transition-all duration-300 transform hover:scale-105 ${
-                  isScrolled
+                  isScrolled || !isHomePage
                     ? "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg"
                     : "bg-white/10 hover:bg-white/20 text-white border border-white/30 backdrop-blur-sm"
                 }`}
@@ -112,7 +117,7 @@ export default function Navbar() {
                 variant="ghost"
                 size="icon"
                 className={`transition-colors duration-300 ${
-                  isScrolled ? "text-gray-700 hover:bg-gray-100" : "text-white hover:bg-white/10"
+                  isScrolled || !isHomePage ? "text-gray-700 hover:bg-gray-100" : "text-white hover:bg-white/10"
                 }`}
               >
                 {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}

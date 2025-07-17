@@ -1,8 +1,14 @@
 import type { Metadata } from "next"
+import { Suspense } from "react"
 import Hero from "@/components/hero"
-import AboutFounder from "@/components/about-founder"
-import WhyChooseUs from "@/components/why-choose-us"
-import Testimonials from "@/components/testimonials"
+import LazyComponent from "@/components/lazy-component"
+
+// Lazy load components for better performance
+const AboutFounder = lazy(() => import("@/components/about-founder"))
+const WhyChooseUs = lazy(() => import("@/components/why-choose-us"))
+const Testimonials = lazy(() => import("@/components/testimonials"))
+
+import { lazy } from "react"
 
 export const metadata: Metadata = {
   title: "Graha Impex - Leading Export Company from India | Premium Spices & Food Products",
@@ -22,6 +28,9 @@ export const metadata: Metadata = {
     "international shipping India",
     "bulk spices supplier",
     "agricultural exports India",
+    "fast loading website",
+    "optimized export website",
+    "mobile friendly export company",
   ],
   openGraph: {
     title: "Graha Impex - Leading Export Company from India",
@@ -41,10 +50,39 @@ export const metadata: Metadata = {
   },
 }
 
+// Loading components
+function HeroSkeleton() {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 flex items-center justify-center">
+      <div className="animate-pulse text-center">
+        <div className="h-16 bg-white/20 rounded mb-4 w-96"></div>
+        <div className="h-8 bg-white/10 rounded w-64 mx-auto"></div>
+      </div>
+    </div>
+  )
+}
+
+function SectionSkeleton() {
+  return (
+    <div className="py-16">
+      <div className="container mx-auto px-4">
+        <div className="animate-pulse">
+          <div className="h-8 bg-gray-200 rounded w-64 mx-auto mb-8"></div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="h-64 bg-gray-200 rounded"></div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export default function HomePage() {
   return (
     <>
-      {/* Homepage Schema */}
+      {/* Enhanced Homepage Schema for SEO */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -66,6 +104,12 @@ export default function HomePage() {
                 bestRating: "5",
                 worstRating: "1",
               },
+              offers: {
+                "@type": "AggregateOffer",
+                priceCurrency: "USD",
+                availability: "https://schema.org/InStock",
+                itemCondition: "https://schema.org/NewCondition",
+              },
             },
             breadcrumb: {
               "@type": "BreadcrumbList",
@@ -78,15 +122,38 @@ export default function HomePage() {
                 },
               ],
             },
+            speakable: {
+              "@type": "SpeakableSpecification",
+              cssSelector: ["h1", ".hero-description"],
+            },
           }),
         }}
       />
 
       <div>
-        <Hero />
-        <AboutFounder />
-        <WhyChooseUs />
-        <Testimonials />
+        {/* Hero Section - Critical above-the-fold content */}
+        <Suspense fallback={<HeroSkeleton />}>
+          <Hero />
+        </Suspense>
+
+        {/* Lazy loaded sections for better performance */}
+        <LazyComponent fallback={<SectionSkeleton />}>
+          <Suspense fallback={<SectionSkeleton />}>
+            <AboutFounder />
+          </Suspense>
+        </LazyComponent>
+
+        <LazyComponent fallback={<SectionSkeleton />}>
+          <Suspense fallback={<SectionSkeleton />}>
+            <WhyChooseUs />
+          </Suspense>
+        </LazyComponent>
+
+        <LazyComponent fallback={<SectionSkeleton />}>
+          <Suspense fallback={<SectionSkeleton />}>
+            <Testimonials />
+          </Suspense>
+        </LazyComponent>
       </div>
     </>
   )

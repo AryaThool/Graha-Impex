@@ -9,15 +9,6 @@ export default function WhyChooseUs() {
 
   const features = [
     {
-      icon: <Clock className="h-8 w-8" />,
-      title: "24/7 Support",
-      description: "Round-the-clock customer service and support for all your logistics needs",
-      color: "from-blue-500 to-blue-600",
-      bgColor: "bg-blue-50",
-      textColor: "text-blue-600",
-      borderColor: "border-blue-200",
-    },
-    {
       icon: <Shield className="h-8 w-8" />,
       title: "Secure Handling",
       description: "Advanced security measures and insurance coverage for complete peace of mind",
@@ -36,15 +27,6 @@ export default function WhyChooseUs() {
       borderColor: "border-purple-200",
     },
     {
-      icon: <Award className="h-8 w-8" />,
-      title: "Industry Leader",
-      description: "Award-winning logistics company with proven track record of excellence",
-      color: "from-yellow-500 to-orange-500",
-      bgColor: "bg-yellow-50",
-      textColor: "text-yellow-600",
-      borderColor: "border-yellow-200",
-    },
-    {
       icon: <Globe className="h-8 w-8" />,
       title: "Global Network",
       description: "Worldwide coverage with local expertise in over 50 countries",
@@ -54,15 +36,6 @@ export default function WhyChooseUs() {
       borderColor: "border-indigo-200",
     },
     {
-      icon: <Truck className="h-8 w-8" />,
-      title: "Fast Delivery",
-      description: "Express delivery options with same-day and next-day service availability",
-      color: "from-red-500 to-red-600",
-      bgColor: "bg-red-50",
-      textColor: "text-red-600",
-      borderColor: "border-red-200",
-    },
-    {
       icon: <HeadphonesIcon className="h-8 w-8" />,
       title: "Customer First",
       description: "Customer-centric approach with personalized solutions for every need",
@@ -70,15 +43,6 @@ export default function WhyChooseUs() {
       bgColor: "bg-teal-50",
       textColor: "text-teal-600",
       borderColor: "border-teal-200",
-    },
-    {
-      icon: <Zap className="h-8 w-8" />,
-      title: "Technology Driven",
-      description: "Cutting-edge technology for real-time tracking and seamless operations",
-      color: "from-pink-500 to-pink-600",
-      bgColor: "bg-pink-50",
-      textColor: "text-pink-600",
-      borderColor: "border-pink-200",
     },
   ]
 

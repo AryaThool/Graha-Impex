@@ -1,235 +1,269 @@
 import type { Metadata } from "next"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Users, Target, Award, Globe } from "lucide-react"
-import Image from "next/image"
-import Link from "next/link"
+import { Target, Eye, Users, Award, Globe, Shield, Heart, TrendingUp } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "About Graha Impex - Our Story, Mission & Leadership | Export Company India",
+  title: "About Graha Impex - Leading Export Company from India | Our Story & Mission",
   description:
-    "Learn about Graha Impex's journey as a leading export company from India. Founded by Ms. Aachal Patil, we specialize in premium spices and food products export with 15+ years of experience. Discover our mission, values, and commitment to quality.",
+    "Learn about Graha Impex's journey as India's trusted export company. Discover our vision to empower farmers, mission for fair trade, and commitment to connecting Indian producers with global markets.",
   keywords: [
-    "about Graha Impex",
-    "Graha Impex story",
-    "Ms. Aachal Patil founder",
-    "export company India history",
-    "Indian food exporter",
-    "spices export company",
-    "Mumbai export business",
-    "food export experience",
-    "export company leadership",
-    "Indian agricultural exports",
+    "Graha Impex about",
+    "export company story",
+    "Indian export company history",
+    "fair trade mission",
+    "farmer empowerment",
+    "agricultural exports India",
+    "company vision mission",
+    "export business values",
   ],
   openGraph: {
-    title: "About Graha Impex - Our Story & Leadership",
+    title: "About Graha Impex - Our Story, Vision & Mission",
     description:
-      "Learn about Graha Impex's journey as India's leading export company. Founded by Ms. Aachal Patil with 15+ years of experience in premium food exports.",
+      "Discover how Graha Impex empowers Indian farmers and connects local producers to international markets through fair trade and quality exports.",
     images: [
       {
-        url: "https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/founder-images//Graha%20Impex.png",
+        url: "/placeholder.svg?height=630&width=1200&text=About+Graha+Impex",
         width: 1200,
         height: 630,
         alt: "About Graha Impex - Export Company India",
       },
     ],
   },
-  alternates: {
-    canonical: "https://grahaimpex.com/about",
-  },
 }
 
 export default function AboutPage() {
   return (
-    <>
-      {/* About Page Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "AboutPage",
-            name: "About Graha Impex",
-            description: "Learn about Graha Impex's journey as a leading export company from India.",
-            url: "https://grahaimpex.com/about",
-            mainEntity: {
-              "@type": "Organization",
-              name: "Graha Impex",
-              founder: {
-                "@type": "Person",
-                name: "Ms. Aachal Patil",
-                jobTitle: "Chief Executive Officer",
-                worksFor: {
-                  "@type": "Organization",
-                  name: "Graha Impex",
-                },
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+      {/* Hero Section */}
+      <section className="relative py-20 bg-gradient-to-br from-blue-900 via-slate-900 to-indigo-900 overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-blue-400/20 to-cyan-600/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-indigo-400/20 to-blue-600/20 rounded-full blur-3xl animate-pulse"></div>
+        </div>
+
+        <div className="relative z-10 container mx-auto px-4 text-center">
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+            About{" "}
+            <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+              Graha Impex
+            </span>
+          </h1>
+          <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+            Bridging continents through quality exports and empowering Indian producers to reach global markets
+          </p>
+        </div>
+      </section>
+
+      {/* Vision & Mission Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Vision & Mission</h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Driving economic empowerment and sustainable growth through ethical trade practices
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
+            {/* Vision Card */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-3xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
+              <div className="relative bg-white rounded-3xl p-8 shadow-2xl border border-blue-100 hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
+                <div className="flex items-center mb-6">
+                  <div className="p-4 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl shadow-lg">
+                    <Eye className="h-8 w-8 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 ml-4">Our Vision</h3>
+                </div>
+
+                <blockquote className="text-lg text-gray-700 leading-relaxed mb-6 italic border-l-4 border-blue-500 pl-6">
+                  "To be a catalyst for economic empowerment in India by connecting local producers to international
+                  markets."
+                </blockquote>
+
+                <div className="space-y-3">
+                  <div className="flex items-center">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                    <span className="text-gray-600">Empowering local communities</span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-2 h-2 bg-cyan-500 rounded-full mr-3"></div>
+                    <span className="text-gray-600">Creating global opportunities</span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                    <span className="text-gray-600">Building lasting partnerships</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Mission Card */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-green-500 to-emerald-600 rounded-3xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
+              <div className="relative bg-white rounded-3xl p-8 shadow-2xl border border-green-100 hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
+                <div className="flex items-center mb-6">
+                  <div className="p-4 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl shadow-lg">
+                    <Target className="h-8 w-8 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 ml-4">Our Mission</h3>
+                </div>
+
+                <blockquote className="text-lg text-gray-700 leading-relaxed mb-6 italic border-l-4 border-green-500 pl-6">
+                  "Empower Indian farmers and manufacturers by providing fair trade opportunities and creating
+                  sustainable employment."
+                </blockquote>
+
+                <div className="space-y-3">
+                  <div className="flex items-center">
+                    <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+                    <span className="text-gray-600">Fair trade practices</span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-2 h-2 bg-emerald-500 rounded-full mr-3"></div>
+                    <span className="text-gray-600">Sustainable employment</span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-2 h-2 bg-green-600 rounded-full mr-3"></div>
+                    <span className="text-gray-600">Supporting farmers directly</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Impact Statistics */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {[
+              { icon: Users, number: "1000+", label: "Farmers Supported", color: "from-blue-500 to-cyan-500" },
+              { icon: Globe, number: "25+", label: "Export Destinations", color: "from-green-500 to-emerald-500" },
+              { icon: TrendingUp, number: "15+", label: "Years Experience", color: "from-purple-500 to-indigo-500" },
+              { icon: Award, number: "100%", label: "Quality Commitment", color: "from-orange-500 to-red-500" },
+            ].map((stat, index) => (
+              <div key={index} className="text-center group">
+                <div
+                  className={`p-4 bg-gradient-to-br ${stat.color} rounded-2xl w-fit mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg`}
+                >
+                  <stat.icon className="h-8 w-8 text-white" />
+                </div>
+                <div className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">{stat.number}</div>
+                <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Company Story Section */}
+      <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Story</h2>
+              <p className="text-lg text-gray-600">A journey of connecting Indian excellence with global markets</p>
+            </div>
+
+            <div className="bg-white rounded-3xl p-8 md:p-12 shadow-2xl">
+              <div className="prose prose-lg max-w-none">
+                <p className="text-gray-700 leading-relaxed mb-6">
+                  Founded with a vision to bridge the gap between Indian producers and international markets, Graha
+                  Impex has grown from a small trading company to a trusted global partner in agricultural exports. Our
+                  journey began with a simple belief: that quality Indian products deserve to reach every corner of the
+                  world.
+                </p>
+
+                <p className="text-gray-700 leading-relaxed mb-6">
+                  Over the years, we have built strong relationships with farmers, manufacturers, and international
+                  buyers, creating a network that ensures fair prices for producers and premium quality for consumers.
+                  Our commitment to ethical trading practices has made us a preferred partner for businesses worldwide.
+                </p>
+
+                <p className="text-gray-700 leading-relaxed">
+                  Today, we continue to expand our reach while staying true to our core values of quality, integrity,
+                  and sustainable growth. Every shipment we send carries with it the hopes and hard work of Indian
+                  farmers and the promise of excellence to our global customers.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Core Values Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Core Values</h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              The principles that guide every decision we make and every relationship we build
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                icon: Shield,
+                title: "Quality Assurance",
+                description: "Rigorous quality control at every step of the supply chain",
+                color: "from-blue-500 to-cyan-500",
               },
-              foundingDate: "2010",
-              description: "A New-Age Export Company With Old-School Values",
-            },
-            breadcrumb: {
-              "@type": "BreadcrumbList",
-              itemListElement: [
-                {
-                  "@type": "ListItem",
-                  position: 1,
-                  name: "Home",
-                  item: "https://grahaimpex.com",
-                },
-                {
-                  "@type": "ListItem",
-                  position: 2,
-                  name: "About Us",
-                  item: "https://grahaimpex.com/about",
-                },
-              ],
-            },
-          }),
-        }}
-      />
-
-      <div className="min-h-screen">
-        {/* Hero Section */}
-        <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">About Graha Impex</h1>
-              <p className="text-xl md:text-2xl mb-8">A New-Age Export Company With Old-School Values</p>
-            </div>
-          </div>
-        </section>
-
-        {/* Company Story */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-3xl font-bold mb-6">Our Story</h2>
-                <p className="text-gray-600 mb-4">
-                  The idea behind our company was born from a powerful blend of business experience and a passion for
-                  meaningful trade.
-                </p>
-                <p className="text-gray-600 mb-4">
-                  One of our founders comes from a long line of Indian entrepreneurs, with successful ventures in
-                  petroleum and infrastructure. The other, a first-generation entrepreneur, stepped into business with a
-                  vision to make a difference in how Indian products are delivered to the global stage.
-                </p>
-                <p className="text-gray-600 mb-6">
-                  Together, they created this company with a shared purpose: To uplift Indian farmers, manufacturers,
-                  and small producers. To give global buyers access to authentic, high-quality products. And to build a
-                  company that stands for integrity, quality, and trust.
-                </p>
-                <Link href="/contact">
-                  <Button size="lg">Get in Touch</Button>
-                </Link>
+              {
+                icon: Heart,
+                title: "Fair Trade",
+                description: "Ensuring fair prices and ethical treatment for all stakeholders",
+                color: "from-green-500 to-emerald-500",
+              },
+              {
+                icon: Globe,
+                title: "Global Reach",
+                description: "Connecting markets across continents with reliable service",
+                color: "from-purple-500 to-indigo-500",
+              },
+              {
+                icon: Award,
+                title: "Excellence",
+                description: "Striving for perfection in every aspect of our operations",
+                color: "from-orange-500 to-red-500",
+              },
+            ].map((value, index) => (
+              <div key={index} className="group text-center">
+                <div
+                  className={`p-6 bg-gradient-to-br ${value.color} rounded-3xl w-fit mx-auto mb-6 group-hover:scale-110 transition-all duration-500 shadow-2xl`}
+                >
+                  <value.icon className="h-10 w-10 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">{value.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{value.description}</p>
               </div>
-              <div>
-                <Image
-                  src="https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/founder-images//Graha%20Impex.png"
-                  alt="Graha Impex warehouse and operations"
-                  width={600}
-                  height={400}
-                  className="rounded-lg shadow-lg"
-                />
-              </div>
-            </div>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Values */}
-        <section className="py-16 bg-gray-50">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">Our Core Values</h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                We are guided by a commitment to integrity, excellence, and customer-centricity.
-              </p>
-            </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <Card className="text-center p-6">
-                <CardContent className="pt-6">
-                  <Users className="h-12 w-12 text-blue-600 mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">Clear Communication</h3>
-                  <p className="text-gray-600">
-                    Ensuring information is conveyed accurately and understandably, fostering transparency and
-                    minimizing misunderstandings.
-                  </p>
-                </CardContent>
-              </Card>
-              <Card className="text-center p-6">
-                <CardContent className="pt-6">
-                  <Target className="h-12 w-12 text-blue-600 mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">Fast response times</h3>
-                  <p className="text-gray-600">
-                    Promptly addressing queries or concerns to maintain efficiency and demonstrate reliability.
-                  </p>
-                </CardContent>
-              </Card>
-              <Card className="text-center p-6">
-                <CardContent className="pt-6">
-                  <Award className="h-12 w-12 text-blue-600 mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">Attention to detail</h3>
-                  <p className="text-gray-600">
-                    Carefully managing every aspect, no matter how small, to ensure precision and high-quality outcomes.
-                  </p>
-                </CardContent>
-              </Card>
-              <Card className="text-center p-6">
-                <CardContent className="pt-6">
-                  <Globe className="h-12 w-12 text-blue-600 mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">Personalized Service</h3>
-                  <p className="text-gray-600">
-                    Tailoring experiences and solutions to meet the unique needs and preferences of each individual
-                    client.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-br from-blue-900 via-slate-900 to-indigo-900">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Partner with Us?</h2>
+          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            Join thousands of satisfied customers who trust Graha Impex for their import and export needs
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="/contact"
+              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-700 text-white font-bold rounded-2xl hover:from-blue-700 hover:to-cyan-800 transition-all duration-300 transform hover:scale-105 shadow-2xl"
+            >
+              Get Started Today
+              <TrendingUp className="ml-2 h-5 w-5" />
+            </a>
+            <a
+              href="/products"
+              className="inline-flex items-center justify-center px-8 py-4 border-2 border-cyan-400 text-cyan-100 font-bold rounded-2xl hover:bg-cyan-400/10 transition-all duration-300 transform hover:scale-105"
+            >
+              View Our Products
+              <Globe className="ml-2 h-5 w-5" />
+            </a>
           </div>
-        </section>
-
-        {/* Team Section */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">Leadership Team</h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                Our team is our strength. From sourcing specialists to logistics coordinators, quality inspectors, and
-                customer service managers — each person plays a key role in making sure every shipment meets the highest
-                standards.
-              </p>
-            </div>
-            <div className="grid md:grid-cols-3 gap-8">
-              {[
-                {
-                  name: "Ms. Aachal Patil",
-                  role: "Chief Executive Officer",
-                  image: "https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/founder-images//person.jpg",
-                },
-                {
-                  name: "Mr. Karan Khurana",
-                  role: "Director",
-                  image: "https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/founder-images//person.jpg",
-                },
-              ].map((member, index) => (
-                <Card key={index} className="text-center">
-                  <CardContent className="pt-6">
-                    <Image
-                      src={member.image || "/placeholder.svg"}
-                      alt={`${member.name} - ${member.role} at Graha Impex`}
-                      width={200}
-                      height={200}
-                      className="rounded-full mx-auto mb-4"
-                    />
-                    <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
-                    <p className="text-gray-600">{member.role}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-      </div>
-    </>
+        </div>
+      </section>
+    </div>
   )
 }

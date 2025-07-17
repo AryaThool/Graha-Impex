@@ -4,8 +4,15 @@ import { Inter } from "next/font/google"
 import "./globals.css"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
+import { Suspense } from "react"
 
-const inter = Inter({ subsets: ["latin"] })
+// Optimize font loading
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  preload: true,
+  variable: "--font-inter",
+})
 
 export const metadata: Metadata = {
   title: {
@@ -61,7 +68,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://grahaimpex.com"), // Replace with your actual domain
+  metadataBase: new URL("https://grahaimpex.com"),
   alternates: {
     canonical: "/",
   },
@@ -102,14 +109,17 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/founder-images//Graha%20Impex.png",
-    shortcut: "https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/founder-images//Graha%20Impex.png",
-    apple: "https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/founder-images//Graha%20Impex.png",
+    icon: [
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
   verification: {
-    google: "your-google-verification-code", // Add your Google Search Console verification code
-    yandex: "your-yandex-verification-code", // Add if targeting Russian market
-    yahoo: "your-yahoo-verification-code", // Add if needed
+    google: "your-google-verification-code",
+    yandex: "your-yandex-verification-code",
+    yahoo: "your-yahoo-verification-code",
   },
   category: "business",
   other: {
@@ -121,18 +131,43 @@ export const metadata: Metadata = {
     generator: 'v0.dev'
 }
 
+// Loading component for Suspense
+function Loading() {
+  return (
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+    </div>
+  )
+}
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={inter.variable}>
       <head>
-        <link
-          rel="icon"
-          href="https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/founder-images//Graha%20Impex.png"
-        />
+        {/* Preconnect to external domains */}
+        <link rel="preconnect" href="https://sagobctjwpnpmpcxxyut.supabase.co" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
+        {/* DNS prefetch for better performance */}
+        <link rel="dns-prefetch" href="https://www.google.com" />
+        <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+
+        {/* Favicon and icons */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon.png" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/manifest.json" />
+
+        {/* Theme color for mobile browsers */}
+        <meta name="theme-color" content="#2563eb" />
+        <meta name="msapplication-TileColor" content="#2563eb" />
+
+        {/* Canonical URL */}
         <link rel="canonical" href="https://grahaimpex.com" />
 
         {/* Additional SEO Meta Tags */}
@@ -141,7 +176,10 @@ export default function RootLayout({
         <meta name="geo.position" content="19.0760;72.8777" />
         <meta name="ICBM" content="19.0760, 72.8777" />
 
-        {/* Enhanced Business Schema */}
+        {/* Performance hints */}
+        <meta httpEquiv="x-dns-prefetch-control" content="on" />
+
+        {/* Enhanced Business Schema with performance optimization */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -234,10 +272,37 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={inter.className}>
-        <Navbar />
-        <main className="min-h-screen">{children}</main>
-        <Footer />
+      <body className={`${inter.className} font-sans antialiased`}>
+        <Suspense fallback={<Loading />}>
+          <Navbar />
+        </Suspense>
+
+        <main className="min-h-screen">
+          <Suspense fallback={<Loading />}>{children}</Suspense>
+        </main>
+
+        <Suspense fallback={<div className="h-32 bg-gray-100"></div>}>
+          <Footer />
+        </Suspense>
+
+        {/* Performance monitoring script (optional) */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              // Basic performance monitoring
+              if ('performance' in window) {
+                window.addEventListener('load', function() {
+                  setTimeout(function() {
+                    const perfData = performance.getEntriesByType('navigation')[0];
+                    if (perfData) {
+                      console.log('Page Load Time:', perfData.loadEventEnd - perfData.loadEventStart, 'ms');
+                    }
+                  }, 0);
+                });
+              }
+            `,
+          }}
+        />
       </body>
     </html>
   )

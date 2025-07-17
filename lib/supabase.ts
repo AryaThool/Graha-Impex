@@ -24,6 +24,7 @@ export interface Product {
   image_url: string
   category_id: string
   subcategory_id: string | null
+  hsn_number: string | null // Added HSN number field
   categories?: Category
   subcategories?: Subcategory
 }

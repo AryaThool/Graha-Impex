@@ -1,7 +1,7 @@
 {
   "name": "Graha Impex - Leading Export Company from India",
   "short_name": "Graha Impex",
-  "description": "Premium spices, dehydrated products, and food exports from India. Trusted by 50,000+ customers worldwide.",
+  "description": "Premium spices, dehydrated products, and food exports from India. Trusted by 50,000+ customers worldwide with fast loading and optimized performance.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
@@ -9,19 +9,26 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/founder-images//Graha%20Impex.png",
+      "src": "/icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/founder-images//Graha%20Impex.png",
+      "src": "/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
     }
   ],
   "categories": ["business", "export", "food", "spices"],
   "lang": "en",
-  "dir": "ltr"
+  "dir": "ltr",
+  "scope": "/",
+  "prefer_related_applications": false
 }

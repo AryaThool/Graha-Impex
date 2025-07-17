@@ -14,53 +14,19 @@ const EMAILJS_SERVICE_ID = "service_bc2ugbm"
 const EMAILJS_TEMPLATE_ID = "template_wpj2r8w"
 const EMAILJS_PUBLIC_KEY = "jvlfQ5l3d51gW44Mo"
 
+// Declare global emailjs
+declare global {
+  interface Window {
+    emailjs: any
+  }
+}
+
 export default function ContactPageClient() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitMessage, setSubmitMessage] = useState("")
   const [messageType, setMessageType] = useState<"success" | "error">("success")
   const [emailJSLoaded, setEmailJSLoaded] = useState(false)
   const formRef = useRef<HTMLFormElement>(null)
-
-  // Load EmailJS script
-  useEffect(() => {
-    const loadEmailJS = async () => {
-      try {
-        // Check if EmailJS is already loaded
-        if (typeof window !== "undefined" && (window as any).emailjs) {
-          console.log("EmailJS already loaded")
-          setEmailJSLoaded(true)
-          return
-        }
-
-        // Load EmailJS script
-        const script = document.createElement("script")
-        script.src = "https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
-        script.async = true
-
-        script.onload = () => {
-          console.log("EmailJS script loaded successfully")
-          // Initialize EmailJS
-          if ((window as any).emailjs) {
-            ;(window as any).emailjs.init(EMAILJS_PUBLIC_KEY)
-            console.log("EmailJS initialized with public key:", EMAILJS_PUBLIC_KEY)
-            setEmailJSLoaded(true)
-          }
-        }
-
-        script.onerror = () => {
-          console.error("Failed to load EmailJS script")
-          setEmailJSLoaded(false)
-        }
-
-        document.head.appendChild(script)
-      } catch (error) {
-        console.error("Error loading EmailJS:", error)
-        setEmailJSLoaded(false)
-      }
-    }
-
-    loadEmailJS()
-  }, [])
 
   const contactInfo = [
     {
@@ -84,6 +50,47 @@ export default function ContactPageClient() {
       details: ["Monday - Friday: 9:00 AM - 6:00 PM", "Saturday: 9:00 AM - 2:00 PM", "Sunday: Closed"],
     },
   ]
+
+  // Load EmailJS script
+  useEffect(() => {
+    const loadEmailJS = async () => {
+      try {
+        // Check if EmailJS is already loaded
+        if (typeof window !== "undefined" && window.emailjs) {
+          console.log("EmailJS already loaded")
+          setEmailJSLoaded(true)
+          return
+        }
+
+        // Load EmailJS script
+        const script = document.createElement("script")
+        script.src = "https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+        script.async = true
+
+        script.onload = () => {
+          console.log("EmailJS script loaded successfully")
+          // Initialize EmailJS
+          if (window.emailjs) {
+            window.emailjs.init(EMAILJS_PUBLIC_KEY)
+            console.log("EmailJS initialized with public key:", EMAILJS_PUBLIC_KEY)
+            setEmailJSLoaded(true)
+          }
+        }
+
+        script.onerror = () => {
+          console.error("Failed to load EmailJS script")
+          setEmailJSLoaded(false)
+        }
+
+        document.head.appendChild(script)
+      } catch (error) {
+        console.error("Error loading EmailJS:", error)
+        setEmailJSLoaded(false)
+      }
+    }
+
+    loadEmailJS()
+  }, [])
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -119,7 +126,7 @@ export default function ContactPageClient() {
         throw new Error("EmailJS not loaded yet. Please try again in a moment.")
       }
 
-      if (!(window as any).emailjs) {
+      if (!window.emailjs) {
         throw new Error("EmailJS not available. Please refresh the page and try again.")
       }
 
@@ -129,7 +136,7 @@ export default function ContactPageClient() {
       console.log("Template variables:", contactData)
 
       // Send email using EmailJS
-      const emailResult = await (window as any).emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+      const emailResult = await window.emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
         first_name: contactData.first_name,
         last_name: contactData.last_name,
         email: contactData.email,
