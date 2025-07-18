@@ -8,20 +8,7 @@ import Link from "next/link"
 
 export default function AboutFounder() {
   return (
-    <section className="relative py-20 bg-white overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0">
-        {/* Subtle Pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fillRule='evenodd'%3E%3Cg fill='%23000000' fillOpacity='0.1'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3Ccircle cx='15' cy='15' r='1'/%3E%3Ccircle cx='45' cy='45' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-            }}
-          ></div>
-        </div>
-      </div>
-
+    <section className="relative py-20 bg-gray-50 overflow-hidden">
       <div className="relative z-10 container mx-auto px-4">
         <div className="text-center mb-16">
           <div className="inline-flex items-center px-6 py-3 bg-blue-50 rounded-full border border-blue-200 mb-6">
@@ -40,12 +27,10 @@ export default function AboutFounder() {
         </div>
 
         <div className="max-w-4xl mx-auto">
-          {/* Founder Card */}
           <div className="relative">
             <Card className="overflow-hidden bg-white border border-gray-200 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
               <CardContent className="p-8 md:p-12">
                 <div className="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8">
-                  {/* Founder Photo */}
                   <div className="flex-shrink-0">
                     <Image
                       src="https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/founder-images//person.jpg"
@@ -55,36 +40,16 @@ export default function AboutFounder() {
                       className="w-32 h-32 md:w-48 md:h-48 rounded-full border-4 border-blue-200 shadow-xl object-cover"
                     />
                   </div>
-
-                  {/* Content */}
                   <div className="flex-1 text-center md:text-left space-y-6">
                     <div>
                       <h3 className="text-2xl md:text-3xl font-bold text-gray-900">Ms. Achal Patil</h3>
                       <p className="text-blue-600 font-medium text-lg">Founder & CEO</p>
                     </div>
-
                     <blockquote className="text-lg leading-relaxed text-gray-700 italic">
-                      "We started this company with one mission: to make global sourcing simple, honest, and reliable.
-                      For us, it's not just about exports — it's about helping Indian suppliers grow and giving buyers
-                      worldwide a partner they can count on. Our journey is built on trust, innovation, and unwavering
-                      commitment to excellence."
+                      {
+                        "We started this company with one mission: to make global sourcing simple, honest, and reliable. For us, it's not just about exports — it's about helping Indian suppliers grow and giving buyers worldwide a partner they can count on. Our journey is built on trust, innovation, and unwavering commitment to excellence."
+                      }
                     </blockquote>
-
-                    {/* 
-                    <div className="grid grid-cols-3 gap-4 py-6 border-t border-gray-200">
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-blue-600">15+</div>
-                        <div className="text-xs text-gray-600">Years Exp.</div>
-                      </div>
-                      <div className="text-center border-l border-r border-gray-200">
-                        <div className="text-2xl font-bold text-green-600">MBA</div>
-                        <div className="text-xs text-gray-600">Logistics</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-purple-600">50K+</div>
-                        <div className="text-xs text-gray-600">Clients</div>
-                      </div>
-                    </div> */
                     <Link href="/about">
                       <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 group">
                         Learn More About Us
@@ -94,8 +59,6 @@ export default function AboutFounder() {
                   </div>
                 </div>
               </CardContent>
-
-              {/* Decorative Elements */}
               <div className="absolute -top-4 -right-4 w-24 h-24 bg-blue-100 rounded-full opacity-50"></div>
               <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-purple-100 rounded-full opacity-50"></div>
             </Card>
