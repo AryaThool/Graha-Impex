@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Suspense } from "react"
+import { Suspense, lazy } from "react"
 import Hero from "@/components/hero"
 import LazyComponent from "@/components/lazy-component"
 
@@ -7,8 +7,6 @@ import LazyComponent from "@/components/lazy-component"
 const AboutFounder = lazy(() => import("@/components/about-founder"))
 const WhyChooseUs = lazy(() => import("@/components/why-choose-us"))
 const Testimonials = lazy(() => import("@/components/testimonials"))
-
-import { lazy } from "react"
 
 export const metadata: Metadata = {
   title: "Graha Impex - Leading Export Company from India | Premium Spices & Food Products",
