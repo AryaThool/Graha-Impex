@@ -9,12 +9,6 @@ const nextConfig = {
   images: {
     unoptimized: false,
     formats: ['image/webp', 'image/avif'],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    domains: [
-      'sagobctjwpnpmpcxxyut.supabase.co',
-      'via.placeholder.com'
-    ],
     remotePatterns: [
       {
         protocol: 'https',
@@ -22,21 +16,21 @@ const nextConfig = {
         port: '',
         pathname: '/storage/v1/object/public/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'placeholder.svg',
+      },
+      {
+        protocol: 'https',
+        hostname: 'via.placeholder.com',
+      }
     ],
-    // Optimize image loading
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-    // Add loader configuration for better image handling
-    loader: 'default',
   },
   // Enable compression
   compress: true,
-  // Experimental features for better performance
-  experimental: {
-    optimizeCss: true,
-    optimizePackageImports: ['lucide-react', '@radix-ui/react-icons'],
-  },
   // Headers for better caching and performance
   async headers() {
     return [
@@ -85,16 +79,6 @@ const nextConfig = {
           {
             key: 'Cache-Control',
             value: 'public, max-age=86400, s-maxage=86400',
-          },
-        ],
-      },
-      // Optimize image loading with preload hints
-      {
-        source: '/products/(.*)',
-        headers: [
-          {
-            key: 'Link',
-            value: '</placeholder.svg>; rel=preload; as=image',
           },
         ],
       },
