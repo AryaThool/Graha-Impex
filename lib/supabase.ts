@@ -1,9 +1,11 @@
 import { createClient } from "@supabase/supabase-js"
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || ""
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ""
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+export const supabase = supabaseUrl && supabaseAnonKey 
+  ? createClient(supabaseUrl, supabaseAnonKey)
+  : null
 
 // Database types
 export interface Category {
@@ -50,6 +52,11 @@ export interface HarvestCalendar {
 
 // Database functions
 export const getCategories = async (): Promise<Category[]> => {
+  if (!supabase) {
+    console.warn("Supabase client not initialized. Please check environment variables.")
+    return []
+  }
+
   const { data, error } = await supabase.from("categories").select("*").order("name")
 
   if (error) {
@@ -61,6 +68,11 @@ export const getCategories = async (): Promise<Category[]> => {
 }
 
 export const getSubcategories = async (categoryId?: string): Promise<Subcategory[]> => {
+  if (!supabase) {
+    console.warn("Supabase client not initialized. Please check environment variables.")
+    return []
+  }
+
   let query = supabase.from("subcategories").select("*").order("name")
 
   if (categoryId) {
@@ -84,6 +96,11 @@ export const getProducts = async (filters?: {
   limit?: number
   offset?: number
 }): Promise<Product[]> => {
+  if (!supabase) {
+    console.warn("Supabase client not initialized. Please check environment variables.")
+    return []
+  }
+
   let query = supabase
     .from("products")
     .select(`
@@ -130,6 +147,11 @@ export const getProducts = async (filters?: {
 }
 
 export const getProductById = async (id: string): Promise<Product | null> => {
+  if (!supabase) {
+    console.warn("Supabase client not initialized. Please check environment variables.")
+    return null
+  }
+
   const { data, error } = await supabase
     .from("products")
     .select(`
@@ -155,6 +177,11 @@ export const getProductById = async (id: string): Promise<Product | null> => {
 }
 
 export const searchProducts = async (searchTerm: string): Promise<Product[]> => {
+  if (!supabase) {
+    console.warn("Supabase client not initialized. Please check environment variables.")
+    return []
+  }
+
   const { data, error } = await supabase
     .from("products")
     .select(`
@@ -182,6 +209,11 @@ export const searchProducts = async (searchTerm: string): Promise<Product[]> => 
 
 // Harvest Calendar functions
 export const getHarvestCalendar = async (): Promise<HarvestCalendar[]> => {
+  if (!supabase) {
+    console.warn("Supabase client not initialized. Please check environment variables.")
+    return []
+  }
+
   const { data, error } = await supabase.from("harvest_calendar").select("*").order("product_name")
 
   if (error) {
