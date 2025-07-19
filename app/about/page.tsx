@@ -128,7 +128,7 @@ export default function AboutPage() {
             </div>
             <div className="text-center p-6 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl text-white transform hover:scale-105 transition-all duration-300">
               <div className="text-3xl font-bold mb-2">15+</div>
-              <div className="text-purple-100">Years Experience</div>
+              <div className="text-purple-100">{"States in India"}</div>
             </div>
             <div className="text-center p-6 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl text-white transform hover:scale-105 transition-all duration-300">
               <div className="text-3xl font-bold mb-2">100%</div>
@@ -146,18 +146,16 @@ export default function AboutPage() {
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Story</h2>
               <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
                 <p>
-                  Founded in 2010 by <strong>Ms. Aachal Patil</strong>, Graha Impex began with a simple yet powerful
-                  vision: to bridge the gap between India's rich agricultural heritage and the global marketplace.
+                  The idea behind our company was born from a powerful blend of business experience and a passion for meaningful trade.
                 </p>
                 <p>
-                  What started as a small export business has grown into a trusted partner for international buyers
-                  seeking authentic Indian products. Our journey has been marked by unwavering commitment to quality,
-                  fair trade practices, and sustainable business relationships.
+                  One of our founders comes from a long line of Indian entrepreneurs, with successful ventures in petroleum and infrastructure. The other, a first-generation entrepreneur, stepped into business with a vision to make a difference in how Indian products are delivered to the global stage.
                 </p>
                 <p>
-                  Today, we work directly with over 1000 farmers and producers across India, ensuring they receive fair
-                  compensation while delivering premium products to markets worldwide. Our success is measured not just
-                  in business growth, but in the positive impact we create in rural communities.
+                  Together, they created this company with a shared purpose:
+                  To uplift Indian farmers, manufacturers, and small producers
+                  To give global buyers access to authentic, high-quality products
+                  And to build a company that stands for integrity, quality, and trust
                 </p>
               </div>
             </div>
@@ -191,32 +189,32 @@ export default function AboutPage() {
               <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Award className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Quality Assurance</h3>
-              <p className="text-gray-600">Uncompromising standards in every product we export</p>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">{"Clear Communication"} </h3>
+              <p className="text-gray-600">Concise, transparent, and effective messaging</p>
             </div>
 
             <div className="text-center p-6 bg-gradient-to-br from-green-50 to-green-100 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
               <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Heart className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Fair Trade</h3>
-              <p className="text-gray-600">Ensuring fair compensation for all our partners</p>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Fast Response Time   </h3>
+              <p className="text-gray-600"> Prompt replies with minimal delay</p>
             </div>
 
             <div className="text-center p-6 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
               <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Globe className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Global Reach</h3>
-              <p className="text-gray-600">Connecting Indian excellence with worldwide markets</p>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">{"Attention to Detail"}</h3>
+              <p className="text-gray-600">Precision in every small aspect</p>
             </div>
 
             <div className="text-center p-6 bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
               <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Lightbulb className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Excellence</h3>
-              <p className="text-gray-600">Continuous improvement in all aspects of our business</p>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">{"And Personalised Service"}</h3>
+              <p className="text-gray-600"> Customized solutions for individual needs</p>
             </div>
           </div>
         </div>
