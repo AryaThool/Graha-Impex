@@ -152,7 +152,7 @@ export default function ContactPageClient() {
 
                       <div>
                         <label htmlFor="phone" className="block text-sm font-medium mb-2">
-                          Phone Number (Optional)
+                          Phone Number 
                         </label>
                         <Input
                           id="phone"

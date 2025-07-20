@@ -68,11 +68,11 @@ export default function ProductsClientPage({ initialProducts }: ProductsClientPa
     {
       id: "general",
       name: "Complete Rice Catalog",
-      description: "Comprehensive catalog featuring all our product categories",
-      downloadLink: "#",
+      description: "Comprehensive catalog featuring all our Basmati Rice categories",
+      downloadLink: "https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/catlog-pdf//Basmati%20Rice%20Catalogue%20(3).pdf",
       icon: "📋",
-      pages: "48 pages",
-      size: "4.2 MB",
+      pages: "8 pages",
+      size: "10 MB",
     },
   ]
 

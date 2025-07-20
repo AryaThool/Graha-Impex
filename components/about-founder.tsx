@@ -12,7 +12,7 @@ const founders = [
     title: "Founder & Head of Global Operations",
     image: "https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/founder-images/person.jpg",
     quote:
-      "We started this company with one mission: to make global sourcing simple, honest, and reliable. For us, it's not just about exports — it's about helping Indian suppliers grow and giving buyers worldwide a partner they can count on. Our journey is built on trust, innovation, and unwavering commitment to excellence.",
+      "We started this company with one mission: to make global sourcing simple, honest, and reliable. For us, it's not just about exports — it's about helping Indian suppliers grow and giving buyers worldwide a partner they can count on. Our journey is built on trust, innovation, and unwavering commitment to excellence. As the driving force behind Graha Impex, Ms. Achal Patil oversees global operations, sales, and international client relations. With a strong background in business development and strategic growth, she brings a bold and buyer-centric vision to the company. Her leadership ensures Graha Impex stays agile, transparent, and deeply committed to delivering value on every shipment.",
     link: "/about",
   },
   {

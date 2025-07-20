@@ -129,7 +129,7 @@ export default function Hero() {
                   <Anchor className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="text-lg font-semibold text-white mb-2">Trusted Indian Network</h3>
-                <p className="text-blue-200 text-sm">We partner with certified manufacturers, millers & farmers across India to bring you products that are authentic tracebale and competetively priced.</p>
+                <p className="text-blue-200 text-sm">We partner with certified manufacturers, millers & farmers across India to bring you products that are authentic,tracebale and competetively priced.</p>
               </div>
             </div>
           </div>
