@@ -67,7 +67,7 @@ export default function ProductsClientPage({ initialProducts }: ProductsClientPa
     },
     {
       id: "general",
-      name: "Complete Product Catalog",
+      name: "Complete Rice Catalog",
       description: "Comprehensive catalog featuring all our product categories",
       downloadLink: "#",
       icon: "📋",

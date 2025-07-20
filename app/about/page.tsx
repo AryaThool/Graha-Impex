@@ -68,20 +68,20 @@ export default function AboutPage() {
                 <h3 className="text-2xl font-bold text-gray-900">Our Vision</h3>
               </div>
               <blockquote className="text-lg text-gray-700 italic mb-6 leading-relaxed">
-                "To become a globally recognised name for quality exports by ensuring 100% client satisfaction."
+                "To become a globally respected name in Indian exports, recognized for our commitment to buyer satisfaction, product integrity, and ethical trade — while uplifting Indian farmers and creating lasting impact in global markets."
               </blockquote>
               <div className="space-y-3">
                 <div className="flex items-center">
                   <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                  <span className="text-gray-600">Empowering local communities</span>
+                  <span className="text-gray-600">🌐 Global Reach, Local Roots – Expanding our international presence while staying rooted in supporting Indian agriculture and rural communities.</span>
                 </div>
                 <div className="flex items-center">
                   <div className="w-2 h-2 bg-indigo-500 rounded-full mr-3"></div>
-                  <span className="text-gray-600">Creating global opportunities</span>
+                  <span className="text-gray-600">📦 Transparent & Dependable Trade – Leading with clarity, consistency, and trust to make sourcing from India simple and stress-free.</span>
                 </div>
                 <div className="flex items-center">
                   <div className="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
-                  <span className="text-gray-600">Building sustainable partnerships</span>
+                  <span className="text-gray-600">💼 Long-Term Impact – Building meaningful partnerships that go beyond business — strengthening global buyer confidence and India’s export economy.</span>
                 </div>
               </div>
             </div>
@@ -95,21 +95,20 @@ export default function AboutPage() {
                 <h3 className="text-2xl font-bold text-gray-900">Our Mission</h3>
               </div>
               <blockquote className="text-lg text-gray-700 italic mb-6 leading-relaxed">
-                "Empower Indian farmers and manufacturers by providing fair trade opportunities and creating sustainable
-                employment."
+                "At Graha Impex, our mission is to be the bridge between global buyers and India’s finest producers — delivering high-quality products with professionalism, transparency, and care. We are committed to creating value for our clients while supporting Indian farmers and contributing to the growth of the national economy."
               </blockquote>
               <div className="space-y-3">
                 <div className="flex items-center">
                   <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
-                  <span className="text-gray-600">Fair trade practices</span>
+                  <span className="text-gray-600">🤝 Client-Centric Partnerships – Offering responsive service, tailored sourcing solutions, and reliable trade support to meet unique buyer needs.</span>
                 </div>
                 <div className="flex items-center">
                   <div className="w-2 h-2 bg-emerald-500 rounded-full mr-3"></div>
-                  <span className="text-gray-600">Sustainable employment</span>
+                  <span className="text-gray-600">🌾 Empowering Indian Producers – Sourcing directly from trusted farmers and manufacturers, ensuring fair value and promoting sustainable livelihoods.</span>
                 </div>
                 <div className="flex items-center">
                   <div className="w-2 h-2 bg-green-600 rounded-full mr-3"></div>
-                  <span className="text-gray-600">Supporting farmers directly</span>
+                  <span className="text-gray-600">📈 Driving Economic Growth – Enabling smoother international trade while contributing to India's export ecosystem and rural development.</span>
                 </div>
               </div>
             </div>
