@@ -10,8 +10,8 @@ export default function WhyChooseUs() {
   const features = [
     {
       icon: <Shield className="h-8 w-8" />,
-      title: "Secure Handling",
-      description: "Advanced security measures and insurance coverage for complete peace of mind",
+      title: "Pre Shipment Quality Check",
+      description: "Lab Tested and Batch verified before Dispatch. ",
       color: "from-green-500 to-green-600",
       bgColor: "bg-green-50",
       textColor: "text-green-600",
@@ -19,8 +19,8 @@ export default function WhyChooseUs() {
     },
     {
       icon: <Users className="h-8 w-8" />,
-      title: "Expert Team",
-      description: "Experienced professionals dedicated to providing exceptional service quality",
+      title: "Timely Delivery Every Time",
+      description: "Strong Supplier base and Shipping partners",
       color: "from-purple-500 to-purple-600",
       bgColor: "bg-purple-50",
       textColor: "text-purple-600",
@@ -28,8 +28,8 @@ export default function WhyChooseUs() {
     },
     {
       icon: <Globe className="h-8 w-8" />,
-      title: "Global Network",
-      description: "Worldwide coverage with local expertise in over 50 countries",
+      title: "Global Exports Standards",
+      description: "Compliance with FSSAI, APEDA, Spice Board, GST, IEC & MSME registrations.",
       color: "from-indigo-500 to-indigo-600",
       bgColor: "bg-indigo-50",
       textColor: "text-indigo-600",
@@ -37,8 +37,8 @@ export default function WhyChooseUs() {
     },
     {
       icon: <HeadphonesIcon className="h-8 w-8" />,
-      title: "Customer First",
-      description: "Customer-centric approach with personalized solutions for every need",
+      title: "Customizable Packaging & Logistics",
+      description: "Solutions tailored to buyer specifications",
       color: "from-teal-500 to-teal-600",
       bgColor: "bg-teal-50",
       textColor: "text-teal-600",

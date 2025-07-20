@@ -22,13 +22,13 @@ export default function Testimonials() {
     },
     {
       id: 2,
-      name: "Rajesh Patel",
-      position: "Operations Manager",
+      name: "Nguyen Thi Lan",
+      position: "Export Manager",
       company: "Global Trade Corp",
       image: "/placeholder.svg?height=100&width=100",
       rating: 5,
       text: "The international shipping services provided by Graha Impex are exceptional. They handle all customs procedures seamlessly, making our global operations much smoother.",
-      location: "Mumbai, India",
+      location: "Vietnam",
     },
     {
       id: 3,
@@ -52,13 +52,13 @@ export default function Testimonials() {
     },
     {
       id: 5,
-      name: "Priya Sharma",
-      position: "Business Owner",
+      name: "Chinedu Okafor",
+      position: "Distributor",
       company: "Artisan Crafts",
       image: "/placeholder.svg?height=100&width=100",
       rating: 5,
       text: "Graha Impex helped us expand internationally. Their expertise in handling delicate items and providing insurance coverage gave us the confidence to ship our handmade products worldwide.",
-      location: "Delhi, India",
+      location: "Lagos, Nigeria",
     },
     {
       id: 6,

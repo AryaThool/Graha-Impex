@@ -74,12 +74,12 @@ export default function Hero() {
 
             {/* Subtitle */}
             <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Connecting Markets • Delivering Excellence
+              Sourcing Simplified. Quality You Can Count On.
             </p>
 
             {/* Description */}
             <p className="text-lg text-blue-200/80 mb-12 max-w-2xl mx-auto">
-              Bridging continents through premium Indian exports with unmatched quality and reliability in global trade
+              From Indian Farms To Global Shelves - Trusted Bulk Exporters of Premium Agro Products
             </p>
 
             {/* CTA Buttons */}
@@ -110,9 +110,9 @@ export default function Hero() {
                 <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <Ship className="h-6 w-6 text-white" />
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">Import Excellence</h3>
+                <h3 className="text-lg font-semibold text-white mb-2">Smart Sourcing</h3>
                 <p className="text-blue-200 text-sm">
-                  Sourcing premium products globally with rigorous quality standards
+                  Get the right products at the right price - Handpicked to meet your market demands.
                 </p>
               </div>
 
@@ -120,16 +120,16 @@ export default function Hero() {
                 <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <Globe2 className="h-6 w-6 text-white" />
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">Export Mastery</h3>
-                <p className="text-blue-200 text-sm">Delivering Indian quality to international markets worldwide</p>
+                <h3 className="text-lg font-semibold text-white mb-2">Seamless Exports</h3>
+                <p className="text-blue-200 text-sm">End-to-end support from documentation to delivery. We handle the hassle, so you don't have to.</p>
               </div>
 
               <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
                 <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <Anchor className="h-6 w-6 text-white" />
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">Global Network</h3>
-                <p className="text-blue-200 text-sm">Established partnerships across continents for seamless trade</p>
+                <h3 className="text-lg font-semibold text-white mb-2">Trusted Indian Network</h3>
+                <p className="text-blue-200 text-sm">We partner with certified manufacturers, millers & farmers across India to bring you products that are authentic tracebale and competetively priced.</p>
               </div>
             </div>
           </div>

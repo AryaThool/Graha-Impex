@@ -68,8 +68,7 @@ export default function AboutPage() {
                 <h3 className="text-2xl font-bold text-gray-900">Our Vision</h3>
               </div>
               <blockquote className="text-lg text-gray-700 italic mb-6 leading-relaxed">
-                "To be a catalyst for economic empowerment in India by connecting local producers to international
-                markets."
+                "To become a globally recognised name for quality exports by ensuring 100% client satisfaction."
               </blockquote>
               <div className="space-y-3">
                 <div className="flex items-center">

@@ -10,49 +10,31 @@ type Props = {
   params: { id: string }
 }
 
-// Generate metadata for the product page
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const product = await getProductById(params.id)
-
-  if (!product) {
-    return {
-      title: "Product Not Found",
-    }
-  }
-
+  if (!product) return { title: "Product Not Found" }
   return {
     title: `${product.name} | Graha Impex`,
     description: product.description || `High-quality ${product.name} exported by Graha Impex.`,
-    keywords: [product.name, product.categories?.name, product.subcategories?.name, "export", "India"].filter(Boolean),
+    keywords: [product.name, product.categories?.name, product.subcategories?.name, "export", "India"].filter(
+      Boolean,
+    ) as string[],
     openGraph: {
       title: product.name,
       description: product.description || "",
-      images: [
-        {
-          url: product.image_url,
-          width: 1200,
-          height: 630,
-          alt: product.name,
-        },
-      ],
+      images: [{ url: product.image_url, width: 1200, height: 630, alt: product.name }],
     },
   }
 }
 
-// Generate static paths for all products
 export async function generateStaticParams() {
-  const products = await getProducts({ limit: 100 }) // Fetch a reasonable number of products for static generation
-  return products.map((product) => ({
-    id: product.id,
-  }))
+  const products = await getProducts({ limit: 100 })
+  return products.map((product) => ({ id: product.id }))
 }
 
 export default async function ProductDetailPage({ params }: Props) {
   const product = await getProductById(params.id)
-
-  if (!product) {
-    notFound()
-  }
+  if (!product) notFound()
 
   const specifications = [
     { icon: <Globe className="h-5 w-5 text-blue-500" />, label: "Origin", value: product.origin },
@@ -72,7 +54,6 @@ export default async function ProductDetailPage({ params }: Props) {
     <div className="bg-gray-50">
       <div className="container mx-auto px-4 py-12">
         <div className="grid lg:grid-cols-5 gap-12">
-          {/* Left Column: Image */}
           <div className="lg:col-span-2">
             <Card className="overflow-hidden shadow-lg sticky top-24">
               <div className="relative w-full aspect-square">
@@ -81,14 +62,12 @@ export default async function ProductDetailPage({ params }: Props) {
                   alt={product.name}
                   fill
                   className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  sizes="(max-width: 1024px) 100vw, 40vw"
                   priority
                 />
               </div>
             </Card>
           </div>
-
-          {/* Right Column: Details */}
           <div className="lg:col-span-3">
             <div className="flex items-center space-x-2 mb-4">
               {product.categories && <Badge variant="outline">{product.categories.name}</Badge>}
@@ -97,7 +76,6 @@ export default async function ProductDetailPage({ params }: Props) {
             <h1 className="text-4xl font-bold text-gray-900 mb-4">{product.name}</h1>
             <p className="text-lg text-gray-600 mb-8">{product.description}</p>
 
-            {/* Specifications Card */}
             <Card className="mb-8 bg-white shadow-md">
               <CardHeader>
                 <CardTitle className="text-2xl">Product Specifications</CardTitle>
@@ -117,7 +95,6 @@ export default async function ProductDetailPage({ params }: Props) {
               </CardContent>
             </Card>
 
-            {/* Detailed Sections */}
             <div className="space-y-8">
               {product.product_description && (
                 <Card className="bg-white shadow-md">

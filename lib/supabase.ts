@@ -1,6 +1,6 @@
 import { createClient } from "@supabase/supabase-js"
 
-// --- Robust Supabase Client Initialization ---
+// --- Supabase Client Initialization ---
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
@@ -76,10 +76,7 @@ export interface HarvestCalendar {
 export const getCategories = async (): Promise<Category[]> => {
   try {
     const { data, error } = await supabase.from("categories").select("*").order("name")
-    if (error) {
-      console.error("Error fetching categories:", error.message)
-      throw error
-    }
+    if (error) throw error
     return data || []
   } catch (error) {
     console.error("Caught exception in getCategories:", error)
@@ -90,14 +87,9 @@ export const getCategories = async (): Promise<Category[]> => {
 export const getSubcategories = async (categoryId?: string): Promise<Subcategory[]> => {
   try {
     let query = supabase.from("subcategories").select("*").order("name")
-    if (categoryId) {
-      query = query.eq("category_id", categoryId)
-    }
+    if (categoryId) query = query.eq("category_id", categoryId)
     const { data, error } = await query
-    if (error) {
-      console.error("Error fetching subcategories:", error.message)
-      throw error
-    }
+    if (error) throw error
     return data || []
   } catch (error) {
     console.error("Caught exception in getSubcategories:", error)
@@ -109,10 +101,17 @@ export const getProductById = async (id: string): Promise<Product | null> => {
   try {
     const { data, error } = await supabase
       .from("products")
-      .select("*, categories(*), subcategories(*)")
+      .select(
+        `
+        *,
+        categories(*),
+        subcategories(*)
+      `,
+      )
       .eq("id", id)
       .single()
-    if (error) {
+    if (error && error.code !== "PGRST116") {
+      // PGRST116 means no rows found, which is not an error here.
       console.error(`Error fetching product by id ${id}:`, error.message)
       throw error
     }
@@ -133,13 +132,23 @@ export const getProducts = async (filters?: {
   try {
     let query = supabase.from("products").select("*, categories(id, name), subcategories(id, name)")
 
-    if (filters?.categoryId) query = query.eq("category_id", filters.categoryId)
-    if (filters?.subcategoryId) query = query.eq("subcategory_id", filters.subcategoryId)
-    if (filters?.search) query = query.or(`name.ilike.%${filters.search}%,description.ilike.%${filters.search}%`)
+    if (filters?.categoryId) {
+      query = query.eq("category_id", filters.categoryId)
+    }
+    if (filters?.subcategoryId) {
+      query = query.eq("subcategory_id", filters.subcategoryId)
+    }
+    if (filters?.search) {
+      query = query.or(`name.ilike.%${filters.search}%,description.ilike.%${filters.search}%`)
+    }
 
     query = query.order("name")
-    if (filters?.limit) query = query.limit(filters.limit)
-    if (filters?.offset) query = query.range(filters.offset, filters.offset + (filters.limit || 12) - 1)
+    if (filters?.limit) {
+      query = query.limit(filters.limit)
+    }
+    if (filters?.offset) {
+      query = query.range(filters.offset, filters.offset + (filters.limit || 12) - 1)
+    }
 
     const { data, error } = await query
     if (error) {
@@ -156,10 +165,7 @@ export const getProducts = async (filters?: {
 export const getHarvestCalendar = async (): Promise<HarvestCalendar[]> => {
   try {
     const { data, error } = await supabase.from("harvest_calendar").select("*").order("product_name")
-    if (error) {
-      console.error("Error fetching harvest calendar:", error.message)
-      throw error
-    }
+    if (error) throw error
     return data || []
   } catch (error) {
     console.error("Caught exception in getHarvestCalendar:", error)
@@ -176,10 +182,7 @@ export const submitContactForm = async (formData: {
 }) => {
   try {
     const { data, error } = await supabase.from("contact_submissions").insert([formData]).select()
-    if (error) {
-      console.error("Error submitting contact form:", error.message)
-      throw error
-    }
+    if (error) throw error
     return { data, error: null }
   } catch (error) {
     console.error("Caught exception in submitContactForm:", error)
