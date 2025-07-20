@@ -42,7 +42,7 @@ export default function AboutPage() {
               About <span className="text-blue-400">Graha Impex</span>
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto">
-              Bridging Indian Excellence with Global Markets Since 2010
+              Graha Impex – Your Reliable Global Sourcing Partner
             </p>
           </div>
         </div>
@@ -141,19 +141,26 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Story</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Graha Impex – Your Reliable Global Sourcing Partner</h2>
               <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
                 <p>
-                  The idea behind our company was born from a powerful blend of business experience and a passion for meaningful trade.
+                  At Graha Impex, we are a professionally managed export company dedicated to delivering premium-grade Indian agricultural products and essential commodities to buyers around the world. Backed by decades of industry expertise through our strategic partner network, we ensure every shipment meets the highest standards in quality, packaging, pricing, and timely delivery.
                 </p>
                 <p>
-                  One of our founders comes from a long line of Indian entrepreneurs, with successful ventures in petroleum and infrastructure. The other, a first-generation entrepreneur, stepped into business with a vision to make a difference in how Indian products are delivered to the global stage.
+                 Though established in 2024, our leadership brings years of combined experience in procurement, trade strategy, and international business, allowing us to operate with the agility of a startup and the dependability of a seasoned enterprise.
                 </p>
                 <p>
-                  Together, they created this company with a shared purpose:
-                  To uplift Indian farmers, manufacturers, and small producers
-                  To give global buyers access to authentic, high-quality products
-                  And to build a company that stands for integrity, quality, and trust
+                 Strong Sourcing, Seamless Supply
+                 We source our products from reputed farmers, manufacturers, millers, processors, and verified suppliers across India. With multiple trusted sourcing partners, volume is never a concern — whether you're seeking small trial orders or full container loads.
+
+                </p>
+                <p>
+                  Pan-India Supplier Network
+                  Over time, we have built a robust sourcing network not only across Maharashtra and Gujarat but also in several other key agricultural states. This allows us to offer highly competitive pricing and access to a diverse product range with dependable availability throughout the year.
+                </p>
+                <p>
+                 Logistics You Can Trust
+With a well-managed supply chain and logistics support, we make international sourcing stress-free and efficient. From product selection to doorstep delivery, our team handles it all — so you can focus on growing your business while we manage the rest.
                 </p>
               </div>
             </div>
@@ -187,32 +194,32 @@ export default function AboutPage() {
               <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Award className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">{"Clear Communication"} </h3>
-              <p className="text-gray-600">Concise, transparent, and effective messaging</p>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">{"Buyer-Centric Approach"} </h3>
+              <p className="text-gray-600">We put our buyers first — always. Every product, service, and decision is driven by the goal of creating lasting value and a smooth experience for our clients.</p>
             </div>
 
             <div className="text-center p-6 bg-gradient-to-br from-green-50 to-green-100 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
               <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Heart className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Fast Response Time   </h3>
-              <p className="text-gray-600"> Prompt replies with minimal delay</p>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Relationship-Driven Trade</h3>
+              <p className="text-gray-600"> We don’t just aim for transactions — we aim for trust. We build long-term partnerships through consistent support, mutual respect, and dependable service.</p>
             </div>
 
             <div className="text-center p-6 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
               <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Globe className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">{"Attention to Detail"}</h3>
-              <p className="text-gray-600">Precision in every small aspect</p>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">{" Integrity & Transparency"}</h3>
+              <p className="text-gray-600">We believe in honest communication and ethical business practices. What we promise is what we deliver — with no hidden terms or compromises on quality.</p>
             </div>
 
             <div className="text-center p-6 bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
               <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Lightbulb className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">{"And Personalised Service"}</h3>
-              <p className="text-gray-600"> Customized solutions for individual needs</p>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">{"Commitment to Quality"}</h3>
+              <p className="text-gray-600"> We uphold strict standards for product quality, packaging, and documentation. Every order reflects our promise of consistency, safety, and export readiness.</p>
             </div>
           </div>
         </div>

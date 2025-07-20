@@ -126,9 +126,9 @@ export default function Footer() {
                 <MapPin className="h-5 w-5 text-blue-400 mt-1 flex-shrink-0" />
                 <div>
                   <p className="text-gray-300">
-                    123 Export Street
+                    222 Weakly Market,Pulgaon, Nagpur
                     <br />
-                    Gujarat, India - 380001
+                    Maharashtra, India - 442302
                   </p>
                 </div>
               </div>
@@ -198,7 +198,7 @@ export default function Footer() {
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
             <div className="text-center md:text-left">
-              <p className="text-gray-400 text-sm">© 2024 Graha Impex. All rights reserved.</p>
+              <p className="text-gray-400 text-sm">© 2025 Graha Impex. All rights reserved.</p>
             </div>
             <div className="flex items-center space-x-6 text-sm text-gray-400">
               <Link href="/privacy" className="hover:text-white transition-colors">

@@ -20,7 +20,7 @@ const founders = [
     title: "CEO & Director-Procurement & Logistics",
     image: "/placeholder.svg?height=200&width=200",
     quote:
-      "Leveraging technology to build transparent and efficient supply chains is our passion. We are dedicated to creating a platform that empowers our partners and delivers unparalleled value to our customers through innovation and cutting-edge solutions.",
+      "With solid expertise in procurement, vendor management, and supply chain optimization, Mr. Karan Khurana plays a crucial role in ensuring smooth backend operations and timely fulfillment. His strong relationships with manufacturers, processors, and transport networks across India enable Graha Impex to deliver quality products at competitive prices — reliably and efficiently. His leadership is grounded in operational excellence, logistics strategy, and building a strong, scalable sourcing infrastructure that supports long-term global partnerships.",
     link: "/about",
   },
 ]

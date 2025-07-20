@@ -18,13 +18,18 @@ export default function ContactPageClient() {
   const contactInfo = [
     {
       icon: <MapPin className="h-6 w-6" />,
-      title: "Head Office",
-      details: ["Mihan", "Nagpur, Maharashtra 400001", "India"],
+      title: "Commercial Head Office",
+      details: ["222 Weekly Market, Pulgaon", "Nagpur, Maharashtra 442302", "India"],
+    },
+    {
+      icon: <MapPin className="h-6 w-6" />,
+      title: "Operational Office",
+      details: ["Mihan", "Nagpur, Maharashtra 441108", "India"],
     },
     {
       icon: <Phone className="h-6 w-6" />,
       title: "Phone Numbers",
-      details: ["+91 8766556928", "+91 7385143290"],
+      details: ["+91 8766556928", "+91 8983504965"],
     },
     {
       icon: <Mail className="h-6 w-6" />,
@@ -34,7 +39,7 @@ export default function ContactPageClient() {
     {
       icon: <Clock className="h-6 w-6" />,
       title: "Business Hours",
-      details: ["Monday - Friday: 9:00 AM - 6:00 PM", "Saturday: 9:00 AM - 2:00 PM", "Sunday: Closed"],
+      details: ["Monday - Friday: 9:00 AM - 6:00 PM", "Saturday: 9:00 AM - 6:00 PM", "Sunday: Closed"],
     },
   ]
 

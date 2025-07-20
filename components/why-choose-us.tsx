@@ -8,15 +8,7 @@ export default function WhyChooseUs() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null)
 
   const features = [
-    {
-      icon: <Shield className="h-8 w-8" />,
-      title: "Pre Shipment Quality Check",
-      description: "Lab Tested and Batch verified before Dispatch. ",
-      color: "from-green-500 to-green-600",
-      bgColor: "bg-green-50",
-      textColor: "text-green-600",
-      borderColor: "border-green-200",
-    },
+    
     {
       icon: <Users className="h-8 w-8" />,
       title: "Timely Delivery Every Time",
@@ -34,6 +26,15 @@ export default function WhyChooseUs() {
       bgColor: "bg-indigo-50",
       textColor: "text-indigo-600",
       borderColor: "border-indigo-200",
+    },
+    {
+      icon: <Shield className="h-8 w-8" />,
+      title: "Pre Shipment Quality Check",
+      description: "Lab Tested and Batch verified before Dispatch. ",
+      color: "from-green-500 to-green-600",
+      bgColor: "bg-green-50",
+      textColor: "text-green-600",
+      borderColor: "border-green-200",
     },
     {
       icon: <HeadphonesIcon className="h-8 w-8" />,
