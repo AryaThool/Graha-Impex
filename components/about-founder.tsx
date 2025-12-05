@@ -11,75 +11,82 @@ const founders = [
     name: "Ms. Achal Patil",
     title: "Founder & Head of Global Operations",
     image: "https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/founder-images/person.jpg",
-    quote:
-      "We started this company with one mission: to make global sourcing simple, honest, and reliable. For us, it's not just about exports — it's about helping Indian suppliers grow and giving buyers worldwide a partner they can count on. Our journey is built on trust, innovation, and unwavering commitment to excellence. As the driving force behind Graha Impex, Ms. Achal Patil oversees global operations, sales, and international client relations. With a strong background in business development and strategic growth, she brings a bold and buyer-centric vision to the company. Her leadership ensures Graha Impex stays agile, transparent, and deeply committed to delivering value on every shipment.",
+    description:
+      "Graha Impex was founded with one mission — to make global sourcing simple, honest, and reliable. We’re dedicated to empowering Indian suppliers and serving global buyers with trust and transparency. Led by Ms. Achal Patil, who drives global operations, sales, and international client relations, our company continues to grow with a bold, buyer-focused vision. Her leadership keeps Graha Impex agile, innovative, and committed to delivering value with every shipment",
+    expertise: ["Global Operations", "Sales Strategy", "Client Relations"],
     link: "/about",
   },
   {
     name: "Mr. Karan Khurana",
-    title: "CEO & Director-Procurement & Logistics",
-    image: "/placeholder.svg?height=200&width=200",
-    quote:
-      "With solid expertise in procurement, vendor management, and supply chain optimization, Mr. Karan Khurana plays a crucial role in ensuring smooth backend operations and timely fulfillment. His strong relationships with manufacturers, processors, and transport networks across India enable Graha Impex to deliver quality products at competitive prices — reliably and efficiently. His leadership is grounded in operational excellence, logistics strategy, and building a strong, scalable sourcing infrastructure that supports long-term global partnerships.",
+    title: "CEO & Director - Procurement & Logistics",
+    image: "/professional-man-business-portrait.jpg",
+    description:
+      "Expert in procurement, vendor management, and supply chain optimization. Ensures smooth backend operations with strong relationships across India's manufacturing and logistics networks.",
+    expertise: ["Procurement", "Supply Chain", "Logistics Strategy"],
     link: "/about",
   },
 ]
 
 export default function AboutFounder() {
   return (
-    <section className="relative py-20 bg-gray-50 overflow-hidden">
+    <section className="relative py-20 bg-white overflow-hidden">
       <div className="relative z-10 container mx-auto px-4">
         <div className="text-center mb-16">
           <div className="inline-flex items-center px-6 py-3 bg-blue-50 rounded-full border border-blue-200 mb-6">
             <Star className="w-5 h-5 mr-2 text-blue-600" />
             <span className="text-sm font-medium text-blue-800">Meet Our Founders</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Leadership That
-            <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
-              Drives Excellence
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-balance">
+            Leadership Driving
+            <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Global Excellence
             </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Visionary leadership with decades of experience in transforming global logistics
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Experienced leaders dedicated to transparency, quality, and long-term partnerships
           </p>
         </div>
 
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {founders.map((founder, index) => (
-              <div key={index} className="relative">
-                <Card className="overflow-hidden bg-white border border-gray-200 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 h-full">
-                  <CardContent className="p-8 md:p-12">
-                    <div className="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8">
-                      <div className="flex-shrink-0">
-                        <Image
-                          src={founder.image || "/placeholder.svg"}
-                          alt={`${founder.name} - ${founder.title}`}
-                          width={200}
-                          height={200}
-                          className="w-32 h-32 md:w-48 md:h-48 rounded-full border-4 border-blue-200 shadow-xl object-cover"
-                        />
-                      </div>
-                      <div className="flex-1 text-center md:text-left space-y-6">
-                        <div>
-                          <h3 className="text-2xl md:text-3xl font-bold text-gray-900">{founder.name}</h3>
-                          <p className="text-blue-600 font-medium text-lg">{founder.title}</p>
-                        </div>
-                        <blockquote className="text-lg leading-relaxed text-gray-700 italic">
-                          {`"${founder.quote}"`}
-                        </blockquote>
-                        <Link href={founder.link}>
-                          <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 group">
-                            Learn More About Us
-                            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                          </Button>
-                        </Link>
+              <div key={index} className="group relative">
+                <Card className="overflow-hidden bg-white border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-500 h-full">
+                  <div className="relative w-full h-64 md:h-72 overflow-hidden bg-gray-200">
+                    <Image
+                      src={founder.image || "/placeholder.svg"}
+                      alt={`${founder.name}`}
+                      fill
+                      className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+
+                  <CardContent className="p-8 flex flex-col h-full">
+                    <div className="flex-1 mb-6">
+                      <h3 className="text-2xl font-bold text-gray-900 mb-2">{founder.name}</h3>
+                      <p className="text-blue-600 font-semibold text-base mb-6">{founder.title}</p>
+
+                      <p className="text-gray-700 leading-relaxed mb-6">{founder.description}</p>
+
+                      <div className="flex flex-wrap gap-2 mb-8">
+                        {founder.expertise.map((skill, idx) => (
+                          <span
+                            key={idx}
+                            className="px-3 py-1 text-xs font-medium bg-blue-50 text-blue-700 rounded-full border border-blue-200"
+                          >
+                            {skill}
+                          </span>
+                        ))}
                       </div>
                     </div>
+
+                    <Link href={founder.link} className="w-full">
+                      <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-md hover:shadow-lg transition-all duration-300 group/btn">
+                        Learn More
+                        <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                      </Button>
+                    </Link>
                   </CardContent>
-                  <div className="absolute -top-4 -right-4 w-24 h-24 bg-blue-100 rounded-full opacity-50"></div>
-                  <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-purple-100 rounded-full opacity-50"></div>
                 </Card>
               </div>
             ))}
