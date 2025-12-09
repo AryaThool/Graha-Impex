@@ -171,60 +171,47 @@ export default function Footer() {
                 Sun: Closed
               </p>
             </div>
+          </div>
+        </div>
 
-            {/* Google Maps Location */}
-            <div className="mt-6 rounded-lg overflow-hidden">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d4426.828261505395!2d79.06504373479716!3d21.0924629462707!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjHCsDA1JzMxLjYiTiA3OcKwMDMnNTkuMSJF!5e0!3m2!1sen!2sin!4v1765276788532!5m2!1sen!2sin"
-                width="100%"
-                height="250"
-                style={{ border: 0 }}
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
+        {/* Newsletter Section */}
+        <div className="border-t border-gray-800 mt-8">
+          <div className="container mx-auto px-4 py-8">
+            <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
+              <div className="text-center md:text-left">
+                <h4 className="text-lg font-semibold mb-2">Stay Updated</h4>
+                <p className="text-gray-300">Get the latest updates on products and export opportunities</p>
+              </div>
+              <div className="flex w-full md:w-auto max-w-md space-x-2">
+                <Input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="bg-gray-800 border-gray-700 text-white placeholder-gray-400"
+                />
+                <Button className="bg-blue-600 hover:bg-blue-700 whitespace-nowrap">Subscribe</Button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Newsletter Section */}
-      <div className="border-t border-gray-800">
-        <div className="container mx-auto px-4 py-8">
-          <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
-            <div className="text-center md:text-left">
-              <h4 className="text-lg font-semibold mb-2">Stay Updated</h4>
-              <p className="text-gray-300">Get the latest updates on products and export opportunities</p>
-            </div>
-            <div className="flex w-full md:w-auto max-w-md space-x-2">
-              <Input
-                type="email"
-                placeholder="Enter your email"
-                className="bg-gray-800 border-gray-700 text-white placeholder-gray-400"
-              />
-              <Button className="bg-blue-600 hover:bg-blue-700 whitespace-nowrap">Subscribe</Button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Bottom Footer */}
-      <div className="border-t border-gray-800">
-        <div className="container mx-auto px-4 py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
-            <div className="text-center md:text-left">
-              <p className="text-gray-400 text-sm">© 2025 Graha Impex. All rights reserved.</p>
-            </div>
-            <div className="flex items-center space-x-6 text-sm text-gray-400">
-              <Link href="/privacy" className="hover:text-white transition-colors">
-                Privacy Policy
-              </Link>
-              <Link href="/terms" className="hover:text-white transition-colors">
-                Terms of Service
-              </Link>
-              <Link href="/sitemap" className="hover:text-white transition-colors">
-                Sitemap
-              </Link>
+        {/* Bottom Footer */}
+        <div className="border-t border-gray-800">
+          <div className="container mx-auto px-4 py-6">
+            <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
+              <div className="text-center md:text-left">
+                <p className="text-gray-400 text-sm">© 2025 Graha Impex. All rights reserved.</p>
+              </div>
+              <div className="flex items-center space-x-6 text-sm text-gray-400">
+                <Link href="/privacy" className="hover:text-white transition-colors">
+                  Privacy Policy
+                </Link>
+                <Link href="/terms" className="hover:text-white transition-colors">
+                  Terms of Service
+                </Link>
+                <Link href="/sitemap" className="hover:text-white transition-colors">
+                  Sitemap
+                </Link>
+              </div>
             </div>
           </div>
         </div>
