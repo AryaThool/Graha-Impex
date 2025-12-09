@@ -18,7 +18,7 @@ export default function ContactPageClient() {
   const contactInfo = [
     {
       icon: <MapPin className="h-6 w-6" />,
-      title: "Commercial Head Office",
+      title: "Head Office",
       details: ["2nd Floor, Pardhy, Plot no. 48, Karve Nagar, Somalwada, Wardha Road","Nagpur, Maharashtra 440025", "India"],
     },
     {
@@ -34,7 +34,7 @@ export default function ContactPageClient() {
     {
       icon: <Clock className="h-6 w-6" />,
       title: "Business Hours",
-      details: ["Monday - Friday: 9:00 AM - 6:00 PM", "Saturday: 9:00 AM - 6:00 PM", "Sunday: Closed"],
+      details: ["Monday - Friday: 9:30 AM - 6:30 PM", "Saturday: 9:00 AM - 6:00 PM", "Sunday: Closed"],
     },
   ]
 
