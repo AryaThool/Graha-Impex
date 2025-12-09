@@ -19,7 +19,11 @@ export default function ContactPageClient() {
     {
       icon: <MapPin className="h-6 w-6" />,
       title: "Head Office",
-      details: ["2nd Floor, Pardhy, Plot no. 48, Karve Nagar, Somalwada, Wardha Road","Nagpur, Maharashtra 440025", "India"],
+      details: [
+        "2nd Floor, Pardhy, Plot no. 48, Karve Nagar, Somalwada, Wardha Road",
+        "Nagpur, Maharashtra 440025",
+        "India",
+      ],
     },
     {
       icon: <Phone className="h-6 w-6" />,
@@ -34,7 +38,7 @@ export default function ContactPageClient() {
     {
       icon: <Clock className="h-6 w-6" />,
       title: "Business Hours",
-      details: ["Monday - Friday: 9:30 AM - 6:30 PM", "Saturday: 9:00 AM - 6:00 PM", "Sunday: Closed"],
+      details: ["Monday - Friday: 9:30 AM - 6:30 PM", "Saturday: 9:30 AM - 6:30 PM", "Sunday: Closed"],
     },
   ]
 
@@ -147,7 +151,7 @@ export default function ContactPageClient() {
 
                       <div>
                         <label htmlFor="phone" className="block text-sm font-medium mb-2">
-                          Phone Number 
+                          Phone Number
                         </label>
                         <Input
                           id="phone"
@@ -240,6 +244,18 @@ export default function ContactPageClient() {
                       </CardContent>
                     </Card>
                   ))}
+
+                  <div className="w-full rounded-lg overflow-hidden shadow-md">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d4426.828261505395!2d79.06504373479716!3d21.0924629462707!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjHCsDA1JzMxLjYiTiA3OcKwMDMnNTkuMSJF!5e0!3m2!1sen!2sin!4v1765276788532!5m2!1sen!2sin"
+                      width="100%"
+                      height="350"
+                      style={{ border: 0 }}
+                      allowFullScreen=""
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                    />
+                  </div>
                 </div>
               </div>
             </div>

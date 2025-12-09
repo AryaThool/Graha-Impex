@@ -164,12 +164,25 @@ export default function Footer() {
                 <h5 className="font-medium">Business Hours</h5>
               </div>
               <p className="text-sm text-gray-300">
-                Mon - Fri: 9:00 AM - 6:00 PM
+                Mon - Fri: 9:30 AM - 6:30 PM
                 <br />
-                Sat: 9:00 AM - 2:00 PM
+                Sat: 9:30 AM - 6:30 PM
                 <br />
                 Sun: Closed
               </p>
+            </div>
+
+            {/* Google Maps Location */}
+            <div className="mt-6 rounded-lg overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d4426.828261505395!2d79.06504373479716!3d21.0924629462707!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjHCsDA1JzMxLjYiTiA3OcKwMDMnNTkuMSJF!5e0!3m2!1sen!2sin!4v1765276788532!5m2!1sen!2sin"
+                width="100%"
+                height="250"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
           </div>
         </div>
