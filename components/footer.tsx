@@ -126,9 +126,11 @@ export default function Footer() {
                 <MapPin className="h-5 w-5 text-blue-400 mt-1 flex-shrink-0" />
                 <div>
                   <p className="text-gray-300">
-                    222 Weakly Market,Pulgaon, Nagpur
+                    2nd Floor, Pardhy, Plot no. 48
                     <br />
-                    Maharashtra, India - 442302
+                    Karve Nagar, Somalwada
+                    <br />
+                    Wardha Road, Nagpur-440025
                   </p>
                 </div>
               </div>
@@ -136,8 +138,8 @@ export default function Footer() {
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-blue-400 flex-shrink-0" />
                 <div>
-                  <p className="text-gray-300">+91 98765 43210</p>
-                  <p className="text-gray-300">+91 98765 43211</p>
+                  <p className="text-gray-300">+91 8766556928</p>
+                  <p className="text-gray-300">+91 8208903191</p>
                 </div>
               </div>
 

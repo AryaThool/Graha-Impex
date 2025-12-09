@@ -19,17 +19,12 @@ export default function ContactPageClient() {
     {
       icon: <MapPin className="h-6 w-6" />,
       title: "Commercial Head Office",
-      details: ["222 Weekly Market, Pulgaon", "Nagpur, Maharashtra 442302", "India"],
-    },
-    {
-      icon: <MapPin className="h-6 w-6" />,
-      title: "Operational Office",
-      details: ["Mihan", "Nagpur, Maharashtra 441108", "India"],
+      details: ["2nd Floor, Pardhy, Plot no. 48, Karve Nagar, Somalwada, Wardha Road","Nagpur, Maharashtra 440025", "India"],
     },
     {
       icon: <Phone className="h-6 w-6" />,
       title: "Phone Numbers",
-      details: ["+91 8766556928", "+91 8983504965"],
+      details: ["+91 8766556928", "+91 8208903191"],
     },
     {
       icon: <Mail className="h-6 w-6" />,
