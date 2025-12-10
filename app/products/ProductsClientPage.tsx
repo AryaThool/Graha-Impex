@@ -7,9 +7,10 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import ProductCard from "@/components/product-card"
 import ProductFilters from "@/components/product-filters"
 import { getProducts, type Product } from "@/lib/supabase"
-import { Package, Grid, List, ChevronDown, Download, FileText, ArrowRight } from "lucide-react"
+import { Package, ChevronDown, Download, FileText, ArrowRight, Eye } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { Badge } from "@/components/ui/badge"
 
 interface ProductsClientPageProps {
   initialProducts: Product[]
@@ -181,108 +182,119 @@ export default function ProductsClientPage({ initialProducts }: ProductsClientPa
               </div>
 
               <div className="lg:col-span-3">
-                <Link href="https://rice-details.grahaimpex.in/" target="_blank" rel="noopener noreferrer">
-                  <Card className="mb-8 group overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-white border-0 shadow-lg">
-                    <div className="relative overflow-hidden">
-                      <div className="relative h-48 sm:h-56 md:h-64 bg-gradient-to-br from-gray-100 to-gray-200">
-                        <Image
-                          src="https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/new-product-images/new%20rice%20display.jpg"
-                          alt="Premium Rice Collection from Graha Impex"
-                          fill
-                          className="object-cover group-hover:scale-110 transition-all duration-500"
-                          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
-                          quality={75}
-                          loading="lazy"
-                        />
-                        {/* Overlay */}
-                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300" />
+                <div
+                  className={`grid gap-6 ${
+                    viewMode === "grid" ? "grid-cols-1 sm:grid-cols-2 xl:grid-cols-3" : "grid-cols-1"
+                  }`}
+                >
+                  {/* Rice Card */}
+                  <Link href="https://rice-details.grahaimpex.in/" target="_blank" rel="noopener noreferrer">
+                    <Card className="group overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-white border-0 shadow-lg h-full flex flex-col cursor-pointer">
+                      <div className="relative overflow-hidden">
+                        <div className="relative h-48 sm:h-56 md:h-64 bg-gradient-to-br from-gray-100 to-gray-200">
+                          <Image
+                            src="https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/new-product-images/istockphoto-519309790-612x612.jpg"
+                            alt="Premium Rice Collection from Graha Impex"
+                            fill
+                            className="object-cover group-hover:scale-110 transition-all duration-500"
+                            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                            quality={75}
+                            loading="lazy"
+                          />
+                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300" />
+
+                          {/* Quick View overlay */}
+                          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+                            <Button
+                              size="sm"
+                              className="bg-white/90 text-gray-900 hover:bg-white transform scale-90 group-hover:scale-100 transition-all duration-300 text-xs sm:text-sm px-3 sm:px-4"
+                            >
+                              <Eye className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
+                              <span className="hidden sm:inline">Quick View</span>
+                              <span className="sm:hidden">View</span>
+                            </Button>
+                          </div>
+
+                          {/* Priority Badge */}
+                          <div className="absolute top-2 sm:top-4 left-2 sm:left-4">
+                            <Badge className="bg-red-500 text-white font-medium text-xs sm:text-sm px-2 py-1">
+                              Featured
+                            </Badge>
+                          </div>
+                        </div>
+
+                        <CardContent className="p-4 sm:p-6 flex-1 flex flex-col">
+                          <h3 className="text-lg sm:text-xl font-bold text-gray-900 line-clamp-2 group-hover:text-blue-600 transition-colors leading-tight mb-2">
+                            Explore Our Rice
+                          </h3>
+                          <p className="text-gray-600 text-sm sm:text-base line-clamp-3 leading-relaxed flex-1 mb-4">
+                            Premium Basmati rice, specialty varieties, and bulk export options
+                          </p>
+                          <div className="flex items-center text-blue-600 font-semibold group-hover:text-blue-800 transition-colors text-sm">
+                            View Details
+                            <ArrowRight className="ml-2 h-4 w-4" />
+                          </div>
+                        </CardContent>
                       </div>
+                    </Card>
+                  </Link>
 
-                      <CardContent className="p-4 sm:p-6">
-                        <div className="inline-block bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold mb-3">
-                          Featuring
-                        </div>
-                        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
-                          Explore Our Rice Collection
-                        </h3>
-                        <p className="text-gray-600 text-sm sm:text-base mb-4">
-                          Discover our premium selection of Basmati rice, specialty rice varieties, and bulk export
-                          options.
-                        </p>
-                        <div className="flex items-center text-blue-600 font-semibold group-hover:text-blue-800 transition-colors">
-                          View Rice Details
-                          <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                        </div>
-                      </CardContent>
-                    </div>
-                  </Card>
-                </Link>
+                  {/* Dry Chilli Card */}
+                  <Link href="https://dry-chilli-details.grahaimpex.in/" target="_blank" rel="noopener noreferrer">
+                    <Card className="group overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-white border-0 shadow-lg h-full flex flex-col cursor-pointer">
+                      <div className="relative overflow-hidden">
+                        <div className="relative h-48 sm:h-56 md:h-64 bg-gradient-to-br from-gray-100 to-gray-200">
+                          <Image
+                            src="https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/new-product-images/chilli%20display.jpg"
+                            alt="Premium Dry Chilli Collection from Graha Impex"
+                            fill
+                            className="object-cover group-hover:scale-110 transition-all duration-500"
+                            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                            quality={75}
+                            loading="lazy"
+                          />
+                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300" />
 
-                <Link href="https://dry-chilli-details.grahaimpex.in/" target="_blank" rel="noopener noreferrer">
-                  <Card className="mb-8 group overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-white border-0 shadow-lg">
-                    <div className="relative overflow-hidden">
-                      <div className="relative h-48 sm:h-56 md:h-64 bg-gradient-to-br from-gray-100 to-gray-200">
-                        <Image
-                          src="https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/new-product-images/chilli%20display.jpg"
-                          alt="Premium Dry Chilli Collection from Graha Impex"
-                          fill
-                          className="object-cover group-hover:scale-110 transition-all duration-500"
-                          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
-                          quality={75}
-                          loading="lazy"
-                        />
-                        {/* Overlay */}
-                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300" />
+                          {/* Quick View overlay */}
+                          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+                            <Button
+                              size="sm"
+                              className="bg-white/90 text-gray-900 hover:bg-white transform scale-90 group-hover:scale-100 transition-all duration-300 text-xs sm:text-sm px-3 sm:px-4"
+                            >
+                              <Eye className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
+                              <span className="hidden sm:inline">Quick View</span>
+                              <span className="sm:hidden">View</span>
+                            </Button>
+                          </div>
+
+                          {/* Featured Badge */}
+                          <div className="absolute top-2 sm:top-4 left-2 sm:left-4">
+                            <Badge className="bg-red-500 text-white font-medium text-xs sm:text-sm px-2 py-1">
+                              Featured
+                            </Badge>
+                          </div>
+                        </div>
+
+                        <CardContent className="p-4 sm:p-6 flex-1 flex flex-col">
+                          <h3 className="text-lg sm:text-xl font-bold text-gray-900 line-clamp-2 group-hover:text-blue-600 transition-colors leading-tight mb-2">
+                            Explore Our Dry Chilli
+                          </h3>
+                          <p className="text-gray-600 text-sm sm:text-base line-clamp-3 leading-relaxed flex-1 mb-4">
+                            Premium red chillies, spicy varieties, and specialty chilli products
+                          </p>
+                          <div className="flex items-center text-blue-600 font-semibold group-hover:text-blue-800 transition-colors text-sm">
+                            View Details
+                            <ArrowRight className="ml-2 h-4 w-4" />
+                          </div>
+                        </CardContent>
                       </div>
+                    </Card>
+                  </Link>
 
-                      <CardContent className="p-4 sm:p-6">
-                        <div className="inline-block bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold mb-3">
-                          Featured
-                        </div>
-                        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
-                          Explore Our Dry Chilli Range
-                        </h3>
-                        <p className="text-gray-600 text-sm sm:text-base mb-4">
-                          Discover our premium selection of red chillies, spicy varieties, and specialty chilli
-                          products.
-                        </p>
-                        <div className="flex items-center text-blue-600 font-semibold group-hover:text-blue-800 transition-colors">
-                          View Chilli Details
-                          <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                        </div>
-                      </CardContent>
-                    </div>
-                  </Card>
-                </Link>
-
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 sm:mb-8 bg-white rounded-xl shadow-sm p-4 sm:p-6 border border-gray-200">
-                  <div className="flex-grow min-w-0">
-                    <div className="flex items-center gap-3">
-                      <Package className="h-6 w-6 text-blue-600 flex-shrink-0" />
-                      <h2 className="text-xl font-bold text-gray-900 truncate">
-                        {loading ? "Loading Products..." : `Showing ${products.length} Products`}
-                      </h2>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-2 bg-gray-100 rounded-lg p-1 self-start sm:self-center">
-                    <Button
-                      variant={viewMode === "grid" ? "default" : "ghost"}
-                      size="sm"
-                      onClick={() => setViewMode("grid")}
-                      className="h-8 w-8 p-0"
-                    >
-                      <Grid className="h-4 w-4" />
-                    </Button>
-                    <Button
-                      variant={viewMode === "list" ? "default" : "ghost"}
-                      size="sm"
-                      onClick={() => setViewMode("list")}
-                      className="h-8 w-8 p-0"
-                    >
-                      <List className="h-4 w-4" />
-                    </Button>
-                  </div>
+                  {/* Regular products */}
+                  {products.map((product) => (
+                    <ProductCard key={product.id} product={product} />
+                  ))}
                 </div>
 
                 {loading ? (
@@ -354,7 +366,7 @@ export default function ProductsClientPage({ initialProducts }: ProductsClientPa
               <CardHeader className="text-center p-0 mb-6">
                 <div className="flex items-center justify-center gap-3 mb-4">
                   <FileText className="w-8 h-8 text-blue-600" />
-                  <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Download Our Product Catalogs</h2>
+                  <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Download Our Product Catalogs</h2>
                 </div>
                 <p className="text-md sm:text-lg text-gray-600 max-w-2xl mx-auto">
                   Get detailed information with our comprehensive catalogs, updated monthly.
