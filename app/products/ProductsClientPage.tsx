@@ -9,6 +9,7 @@ import ProductFilters from "@/components/product-filters"
 import { getProducts, type Product } from "@/lib/supabase"
 import { Package, Grid, List, ChevronDown, Download, FileText, ArrowRight } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 interface ProductsClientPageProps {
   initialProducts: Product[]
@@ -181,30 +182,39 @@ export default function ProductsClientPage({ initialProducts }: ProductsClientPa
 
               <div className="lg:col-span-3">
                 <Link href="https://rice-details.grahaimpex.in/" target="_blank" rel="noopener noreferrer">
-                  <Card className="mb-8 group hover:shadow-2xl transition-all duration-300 bg-gradient-to-br from-yellow-50 to-amber-50 border-2 border-yellow-200 hover:border-yellow-400 cursor-pointer">
-                    <CardContent className="p-6 sm:p-8">
-                      <div className="flex items-center justify-between">
-                        <div className="flex-1">
-                          <div className="inline-block bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold mb-3">
-                            Featuring
-                          </div>
-                          <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
-                            Explore Our Rice Collection
-                          </h3>
-                          <p className="text-gray-700 mb-4 max-w-2xl">
-                            Discover our premium selection of Basmati rice, specialty rice varieties, and bulk export
-                            options. Visit our dedicated rice portal for detailed specifications and pricing.
-                          </p>
-                          <div className="flex items-center text-blue-600 font-semibold group-hover:text-blue-800 transition-colors">
-                            View Rice Details
-                            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                          </div>
-                        </div>
-                        <div className="hidden sm:flex items-center justify-center w-24 h-24 rounded-full bg-yellow-100 group-hover:scale-110 transition-transform duration-300 flex-shrink-0 ml-6">
-                          <span className="text-4xl">🌾</span>
-                        </div>
+                  <Card className="mb-8 group overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-white border-0 shadow-lg">
+                    <div className="relative overflow-hidden">
+                      <div className="relative h-48 sm:h-56 md:h-64 bg-gradient-to-br from-gray-100 to-gray-200">
+                        <Image
+                          src="https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/new-product-images/new%20rice%20display.jpg"
+                          alt="Premium Rice Collection from Graha Impex"
+                          fill
+                          className="object-cover group-hover:scale-110 transition-all duration-500"
+                          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+                          quality={75}
+                          loading="lazy"
+                        />
+                        {/* Overlay */}
+                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300" />
                       </div>
-                    </CardContent>
+
+                      <CardContent className="p-4 sm:p-6">
+                        <div className="inline-block bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold mb-3">
+                          Featuring
+                        </div>
+                        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                          Explore Our Rice Collection
+                        </h3>
+                        <p className="text-gray-600 text-sm sm:text-base mb-4">
+                          Discover our premium selection of Basmati rice, specialty rice varieties, and bulk export
+                          options.
+                        </p>
+                        <div className="flex items-center text-blue-600 font-semibold group-hover:text-blue-800 transition-colors">
+                          View Rice Details
+                          <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        </div>
+                      </CardContent>
+                    </div>
                   </Card>
                 </Link>
 
