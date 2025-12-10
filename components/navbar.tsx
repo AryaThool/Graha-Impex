@@ -6,7 +6,7 @@ import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Menu, Phone, Mail, MapPin } from "lucide-react"
+import { Menu, Phone, Mail, MapPin, MessageCircle } from "lucide-react"
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -29,6 +29,10 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
+
+  const handleWhatsAppClick = () => {
+    window.open("https://wa.me/918766556928", "_blank")
+  }
 
   return (
     <>
@@ -99,13 +103,15 @@ export default function Navbar() {
               ))}
             </div>
 
-            {/* CTA Button */}
+            {/* WhatsApp Button */}
             <div className="hidden lg:flex items-center space-x-4">
-              <Link href="/contact">
-                <Button className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                  Get Quote
-                </Button>
-              </Link>
+              <Button
+                onClick={handleWhatsAppClick}
+                className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
+              >
+                <MessageCircle className="h-5 w-5" />
+                WhatsApp
+              </Button>
             </div>
 
             {/* Mobile Menu Button */}
@@ -169,15 +175,20 @@ export default function Navbar() {
                           <span className="text-sm">Maharashtra, India</span>
                         </div>
                       </div>
-                    </div> 
+                    </div>
 
-                    {/* Mobile CTA */}
+                    {/* Mobile WhatsApp */}
                     <div className="mt-6 px-6">
-                      <Link href="/contact" onClick={() => setIsOpen(false)}>
-                        <Button className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white shadow-lg">
-                          Get Quote
-                        </Button>
-                      </Link>
+                      <Button
+                        onClick={() => {
+                          handleWhatsAppClick()
+                          setIsOpen(false)
+                        }}
+                        className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white shadow-lg flex items-center justify-center gap-2"
+                      >
+                        <MessageCircle className="h-5 w-5" />
+                        WhatsApp
+                      </Button>
                     </div>
                   </div>
                 </div>
