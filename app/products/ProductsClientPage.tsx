@@ -218,6 +218,43 @@ export default function ProductsClientPage({ initialProducts }: ProductsClientPa
                   </Card>
                 </Link>
 
+                <Link href="https://dry-chilli-details.grahaimpex.in/" target="_blank" rel="noopener noreferrer">
+                  <Card className="mb-8 group overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-white border-0 shadow-lg">
+                    <div className="relative overflow-hidden">
+                      <div className="relative h-48 sm:h-56 md:h-64 bg-gradient-to-br from-gray-100 to-gray-200">
+                        <Image
+                          src="https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/new-product-images/chilli%20display.jpg"
+                          alt="Premium Dry Chilli Collection from Graha Impex"
+                          fill
+                          className="object-cover group-hover:scale-110 transition-all duration-500"
+                          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+                          quality={75}
+                          loading="lazy"
+                        />
+                        {/* Overlay */}
+                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300" />
+                      </div>
+
+                      <CardContent className="p-4 sm:p-6">
+                        <div className="inline-block bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold mb-3">
+                          Featured
+                        </div>
+                        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                          Explore Our Dry Chilli Range
+                        </h3>
+                        <p className="text-gray-600 text-sm sm:text-base mb-4">
+                          Discover our premium selection of red chillies, spicy varieties, and specialty chilli
+                          products.
+                        </p>
+                        <div className="flex items-center text-blue-600 font-semibold group-hover:text-blue-800 transition-colors">
+                          View Chilli Details
+                          <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        </div>
+                      </CardContent>
+                    </div>
+                  </Card>
+                </Link>
+
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 sm:mb-8 bg-white rounded-xl shadow-sm p-4 sm:p-6 border border-gray-200">
                   <div className="flex-grow min-w-0">
                     <div className="flex items-center gap-3">
