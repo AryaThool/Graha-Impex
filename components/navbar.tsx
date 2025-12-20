@@ -127,7 +127,7 @@ export default function Navbar() {
                   <div className="flex items-center justify-between p-6 border-b border-gray-200">
                     <div className="flex items-center space-x-3">
                       <Image
-                        src="https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/founder-images//Graha%20Impex.png"
+                        src="https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/new-product-images/GRAHA%20LOGO.png"
                         alt="Graha Impex Logo"
                         width={40}
                         height={40}
