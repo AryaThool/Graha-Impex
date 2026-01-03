@@ -89,7 +89,7 @@ export default function Hero() {
                 size="lg"
                 className="bg-gradient-to-r from-blue-600 to-cyan-700 hover:from-blue-700 hover:to-cyan-800 text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-2xl transform hover:scale-105 transition-all duration-300"
               >
-                <Link href="https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/sign/pdfs/New%20Company%20Profile.pdf?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hNGUyOWZlNy1iYzBmLTQ5MGYtOGVlNS00ZmE2NDJhZmFiOTEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJwZGZzL05ldyBDb21wYW55IFByb2ZpbGUucGRmIiwiaWF0IjoxNzUyODA0OTE0LCJleHAiOjE5MTA0ODQ5MTR9.mbCdgrJpe__Hbe7bbK5FD1fu8OVtGY48VKINndHQdIw" className="flex items-center">
+                <Link href="https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/sign/pdfs/Graha.CompanyProfile.pdf?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hNGUyOWZlNy1iYzBmLTQ5MGYtOGVlNS00ZmE2NDJhZmFiOTEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJwZGZzL0dyYWhhLkNvbXBhbnlQcm9maWxlLnBkZiIsImlhdCI6MTc2NzQ0MDc5OCwiZXhwIjoxOTI1MTIwNzk4fQ.8hin6etH5wcOvYP7hHlxxGwJYS8Td4OSB39gzEIrZwI" className="flex items-center">
                   Company Profile
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>

@@ -20,7 +20,7 @@ export default function ContactPageClient() {
       icon: <MapPin className="h-6 w-6" />,
       title: "Head Office",
       details: [
-        "2nd Floor, Pardhy, Plot no. 48, Karve Nagar, Somalwada, Wardha Road",
+        "Second Floor, Plot no. 48, Karve Nagar, Somalwada, Wardha Road",
         "Nagpur, Maharashtra 440025",
         "India",
       ],

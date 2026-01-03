@@ -42,7 +42,7 @@ export default function AboutFounder() {
             </span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Experienced leaders dedicated to transparency, quality, and long-term partnerships
+            A core leadership member who helped shape the initial vision of Graha Impex and leads sourcing and logistics operations
           </p>
         </div>
 
