@@ -74,12 +74,12 @@ export default function Hero() {
 
             {/* Subtitle */}
             <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Sourcing Simplified. Quality You Can Count On.
+              Connecting India’s Best Producers to Global Markets
             </p>
 
             {/* Description */}
             <p className="text-lg text-blue-200/80 mb-12 max-w-2xl mx-auto">
-              From Indian Farms To Global Shelves - Trusted Bulk Exporters of Premium Agro Products
+             Graha Impex is a merchant export company built on strong sourcing, honest communication, and reliable execution—helping global buyers source quality Indian products with confidence.
             </p>
 
             {/* CTA Buttons */}
@@ -112,7 +112,7 @@ export default function Hero() {
                 </div>
                 <h3 className="text-lg font-semibold text-white mb-2">Smart Sourcing</h3>
                 <p className="text-blue-200 text-sm">
-                  Get the right products at the right price - Handpicked to meet your market demands.
+                  We identify the right manufacturers, farmers, and processors based on buyer requirements—product specifications, certifications, pricing, and consistency. Every supplier is evaluated before onboarding to ensure reliability and compliance.
                 </p>
               </div>
 
@@ -121,7 +121,7 @@ export default function Hero() {
                   <Globe2 className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="text-lg font-semibold text-white mb-2">Seamless Exports</h3>
-                <p className="text-blue-200 text-sm">End-to-end support from documentation to delivery. We handle the hassle, so you don't have to.</p>
+                <p className="text-blue-200 text-sm">From sampling and documentation to quality checks and shipment coordination, we manage the entire export process. Our team ensures smooth communication, accurate paperwork, and timely dispatch—so buyers can focus on their market, not the process..</p>
               </div>
 
               <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
@@ -129,7 +129,7 @@ export default function Hero() {
                   <Anchor className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="text-lg font-semibold text-white mb-2">Trusted Indian Network</h3>
-                <p className="text-blue-200 text-sm">We partner with certified manufacturers, millers & farmers across India to bring you products that are authentic,tracebale and competetively priced.</p>
+                <p className="text-blue-200 text-sm">Our sourcing strength comes from long-standing relationships with certified suppliers across India. This on-ground presence allows us to maintain traceability, quality consistency, and competitive pricing across product categories.</p>
               </div>
             </div>
           </div>

@@ -11,8 +11,8 @@ export default function WhyChooseUs() {
     
     {
       icon: <Users className="h-8 w-8" />,
-      title: "Timely Delivery Every Time",
-      description: "Strong Supplier base and Shipping partners",
+      title: "On-Ground Supplier Access",
+      description: "Strong sourcing base and established logistics partners across India.",
       color: "from-purple-500 to-purple-600",
       bgColor: "bg-purple-50",
       textColor: "text-purple-600",
@@ -20,7 +20,7 @@ export default function WhyChooseUs() {
     },
     {
       icon: <Globe className="h-8 w-8" />,
-      title: "Global Exports Standards",
+      title: "Compliance-Driven Exports",
       description: "Compliance with FSSAI, APEDA, Spice Board, GST, IEC & MSME registrations.",
       color: "from-indigo-500 to-indigo-600",
       bgColor: "bg-indigo-50",
@@ -29,8 +29,8 @@ export default function WhyChooseUs() {
     },
     {
       icon: <Shield className="h-8 w-8" />,
-      title: "Pre Shipment Quality Check",
-      description: "Lab Tested and Batch verified before Dispatch. ",
+      title: "Pre-Shipment Quality Checks",
+      description: "Products are batch-verified and lab-tested before dispatch. ",
       color: "from-green-500 to-green-600",
       bgColor: "bg-green-50",
       textColor: "text-green-600",
@@ -38,8 +38,8 @@ export default function WhyChooseUs() {
     },
     {
       icon: <HeadphonesIcon className="h-8 w-8" />,
-      title: "Customizable Packaging & Logistics",
-      description: "Solutions tailored to buyer specifications",
+      title: "Flexible Packaging & Logistics",
+      description: "Packaging and shipment solutions tailored to buyer and market requirements.",
       color: "from-teal-500 to-teal-600",
       bgColor: "bg-teal-50",
       textColor: "text-teal-600",
