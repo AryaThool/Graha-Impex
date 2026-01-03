@@ -59,13 +59,21 @@ export default function AboutPage() {
           <div className="max-w-4xl mx-auto">
             <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
               <p>
-                Graha Impex is an India-based merchant export company committed to delivering high-quality products to
-                international markets. We work closely with manufacturers, farmers, and suppliers across India to ensure
-                our buyers receive products that meet global standards.
+                Graha Impex is an India-based merchant export company engaged in sourcing and supplying high-quality
+                Indian products to international markets. We work closely with farmers, APMC mandis, processors, and
+                manufacturers across multiple states of India to ensure consistent quality, traceability, and compliance
+                with global standards.
               </p>
               <p>
-                As a growing export house, we combine market knowledge, strong sourcing capabilities, and a
-                customer-centric approach to make global trade seamless and dependable.
+                With strong roots in domestic trade and a well-established sourcing network—particularly across Gujarat
+                and key agricultural hubs—we procure products directly from their origin regions, ensuring authenticity,
+                freshness, and price efficiency. Our relationships span generations of domestic trade experience,
+                allowing us to understand product behavior, seasonality, and quality benchmarks at a granular level.
+              </p>
+              <p>
+                As an export-focused organization, we combine deep market understanding, reliable supplier partnerships,
+                and structured export processes to deliver dependable, transparent, and long-term value to our
+                international buyers.
               </p>
             </div>
           </div>
@@ -200,20 +208,42 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">How We Work</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">Simple. Transparent. Reliable.</p>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">A structured export process designed for consistency and reliability
+</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
             {[
-              { step: "01", title: "Understand Requirements", description: "Analyze buyer specifications and needs" },
+              {
+                step: "01",
+                title: "Requirement Understanding",
+                description:
+                  "We study buyer specifications, destination-country regulations, packaging needs, and quality parameters before confirming any order.",
+              },
               {
                 step: "02",
-                title: "Source from Verified Suppliers",
-                description: "Connect with trusted manufacturers",
+                title: "Origin-Based Sourcing",
+                description:
+                  "Products are sourced directly from verified farmers, APMC mandis, processors, and manufacturers located in the original production regions.",
               },
-              { step: "03", title: "Quality Check & Compliance", description: "Ensure international standards" },
-              { step: "04", title: "Packaging & Documentation", description: "Professional export preparation" },
-              { step: "05", title: "Timely Shipment & Support", description: "End-to-end coordination" },
+              {
+                step: "03",
+                title: "Quality Verification & Compliance",
+                description:
+                  "Each lot is checked for quality, specifications, and compliance with buyer and international standards.",
+              },
+              {
+                step: "04",
+                title: "Packaging & Export Documentation",
+                description:
+                  "Products are packed as per export norms and buyer requirements, with accurate documentation for smooth customs clearance.",
+              },
+              {
+                step: "05",
+                title: "Shipment Coordination & Follow-Up",
+                description:
+                  "We manage logistics coordination and maintain clear communication until goods are dispatched and delivered.",
+              },
             ].map((item, index) => (
               <div
                 key={index}
@@ -240,15 +270,15 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { icon: Users, title: "Buyer Requirement Analysis", description: "Understanding your specific needs" },
+              { icon: Users, title: "Transparency First", description: "Clear communication on quality, pricing, timelines, and limitations—no overpromising." },
               {
                 icon: CheckCircle,
-                title: "Ethical & Compliant Sourcing",
-                description: "Working with verified suppliers",
+                title: "Ethical & Responsible Sourcing",
+                description: "Long-standing relationships with suppliers built on trust, fairness, and accountability.",
               },
-              { icon: Award, title: "Strict Quality Checks", description: "Ensuring product excellence" },
-              { icon: Package, title: "Clear Documentation", description: "Professional export paperwork" },
-              { icon: TrendingUp, title: "End-to-End Coordination", description: "Complete supply chain management" },
+              { icon: Award, title: "Consistency Over Short-Term Gains", description: "Focused on stable quality and long-term partnerships rather than one-time transactions." },
+              { icon: Package, title: "Market & Buyer Awareness", description: "Understanding global market expectations and aligning sourcing accordingly." },
+              { icon: TrendingUp, title: "Relationship-Driven Trade", description: "We believe successful exports are built through reliability, performance, and repeat business." },
               { icon: Heart, title: "Customer Support", description: "Responsive communication" },
             ].map((item, index) => (
               <div
