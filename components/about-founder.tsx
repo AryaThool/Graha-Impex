@@ -11,17 +11,17 @@ const founders = [
     title: "Founder & Head of Global Operations",
     image: "https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/founder-images/person.jpg",
     description:
-      "Graha Impex was founded with one mission — to make global sourcing simple, honest, and reliable. We’re dedicated to empowering Indian suppliers and serving global buyers with trust and transparency. Led by Ms. Achal Patil, who drives global operations, sales, and international client relations, our company continues to grow with a bold, buyer-focused vision. Her leadership keeps Graha Impex agile, innovative, and committed to delivering value with every shipment",
-    expertise: ["Global Operations", "Sales Strategy", "Client Relations"],
+      "Graha Impex was founded with a simple belief—that global trade works best when sourcing is honest, communication is clear, and execution is reliable.As Founder & Head of Global Operations, Ms. Aachal Patil leads international sales, buyer communication, and business development. She works closely with global clients to understand their market needs and ensures that every sourcing decision aligns with quality, pricing, and long-term partnership goals.",
+    expertise: ["Global Sales & Buyer Relations", "Market Expansion", "Business Strategy"],
     link: "/about",
   },
   {
     name: "Mr. Karan Khurana",
-    title: "CEO & Director - Procurement & Logistics",
+    title: "COO & Head of Procurement and Logistics",
     image: "/professional-man-business-portrait.jpg",
     description:
-      "Expert in procurement, vendor management, and supply chain optimization. Ensures smooth backend operations with strong relationships across India's manufacturing and logistics networks.",
-    expertise: ["Procurement", "Supply Chain", "Logistics Strategy"],
+      "Mr. Karan Khurana oversees procurement, supplier coordination, and logistics operations at Graha Impex. Coming from a family with generations of experience in domestic trade and sourcing, he brings strong on-ground knowledge of supplier networks and market practices.He manages vendor relationships, quality coordination, documentation, and shipment planning—ensuring smooth backend operations and reliable deliveries for international buyers",
+    expertise: ["Procurement & Supplier Management", "Logistics & Documentation", "Supply Chain Execution"],
     link: "/about",
   },
 ]
