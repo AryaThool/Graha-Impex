@@ -70,9 +70,9 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="relative">
-              <div className="bg-gradient-to-br from-blue-100 to-indigo-100 rounded-2xl p-8">
+              <div className="rounded-2xl p-8">
                 <Image
-                  src="https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/founder-images//Graha%20Impex.png"
+                  src="https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/new-product-images/GRAHA%20LOGO.png"
                   alt="Graha Impex - Export Excellence"
                   width={500}
                   height={400}

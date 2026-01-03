@@ -68,24 +68,15 @@ export default function Navbar() {
       >
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center h-20">
-            {/* Logo and Company Name */}
-            <Link href="/" className="flex items-center space-x-3 group">
-              <div className="relative">
-                <Image
-                  src="https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/founder-images//Graha%20Impex.png"
-                  alt="Graha Impex Logo"
-                  width={50}
-                  height={50}
-                  className="rounded-lg shadow-md group-hover:shadow-lg transition-shadow duration-300"
-                  priority
-                />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
-                  Graha Impex
-                </span>
-                <span className="text-sm text-gray-600 font-medium">Export Excellence</span>
-              </div>
+            <Link href="/" className="flex items-center group">
+              <Image
+                src="https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/new-product-images/GRAHA%20LOGO.png"
+                alt="Graha Impex"
+                width={180}
+                height={60}
+                className="h-14 w-auto group-hover:opacity-80 transition-opacity duration-300"
+                priority
+              />
             </Link>
 
             {/* Desktop Navigation */}
@@ -123,21 +114,14 @@ export default function Navbar() {
               </SheetTrigger>
               <SheetContent side="right" className="w-80 p-0">
                 <div className="flex flex-col h-full">
-                  {/* Mobile Header */}
-                  <div className="flex items-center justify-between p-6 border-b border-gray-200">
-                    <div className="flex items-center space-x-3">
-                      <Image
-                        src="https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/new-product-images/GRAHA%20LOGO.png"
-                        alt="Graha Impex Logo"
-                        width={40}
-                        height={40}
-                        className="rounded-lg"
-                      />
-                      <div>
-                        <span className="text-lg font-bold text-gray-900">Graha Impex</span>
-                        <p className="text-xs text-gray-600">Export Excellence</p>
-                      </div>
-                    </div>
+                  <div className="flex items-center justify-center p-6 border-b border-gray-200">
+                    <Image
+                      src="https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/new-product-images/GRAHA%20LOGO.png"
+                      alt="Graha Impex"
+                      width={160}
+                      height={50}
+                      className="h-12 w-auto"
+                    />
                   </div>
 
                   {/* Mobile Navigation */}
