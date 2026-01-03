@@ -1,6 +1,5 @@
 import type { Metadata } from "next"
 import { Target, Users, Award, Globe, Heart, Lightbulb, CheckCircle, Package, TrendingUp, Shield } from "lucide-react"
-import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 
@@ -57,7 +56,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="max-w-4xl mx-auto">
             <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
               <p>
                 Graha Impex is an India-based merchant export company committed to delivering high-quality products to
@@ -68,17 +67,6 @@ export default function AboutPage() {
                 As a growing export house, we combine market knowledge, strong sourcing capabilities, and a
                 customer-centric approach to make global trade seamless and dependable.
               </p>
-            </div>
-            <div className="relative">
-              <div className="rounded-2xl p-8">
-                <Image
-                  src="https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/new-product-images/GRAHA%20LOGO.png"
-                  alt="Graha Impex - Export Excellence"
-                  width={500}
-                  height={400}
-                  className="rounded-xl shadow-lg w-full h-auto"
-                />
-              </div>
             </div>
           </div>
         </div>

@@ -2,9 +2,9 @@ import type { Metadata } from "next"
 import { Suspense, lazy } from "react"
 import Hero from "@/components/hero"
 import LazyComponent from "@/components/lazy-component"
+import AboutFounder from "@/components/about-founder"
 
 // Lazy load components for better performance
-const AboutFounder = lazy(() => import("@/components/about-founder"))
 const WhyChooseUs = lazy(() => import("@/components/why-choose-us"))
 const Testimonials = lazy(() => import("@/components/testimonials"))
 
@@ -137,13 +137,14 @@ export default function HomePage() {
         {/* Lazy loaded sections for better performance */}
         <LazyComponent fallback={<SectionSkeleton />}>
           <Suspense fallback={<SectionSkeleton />}>
-            <AboutFounder />
+            <WhyChooseUs />
           </Suspense>
         </LazyComponent>
 
+        {/* Founder Section */}
         <LazyComponent fallback={<SectionSkeleton />}>
           <Suspense fallback={<SectionSkeleton />}>
-            <WhyChooseUs />
+            <AboutFounder />
           </Suspense>
         </LazyComponent>
 

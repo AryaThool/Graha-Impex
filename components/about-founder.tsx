@@ -3,7 +3,6 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ArrowRight, Star } from "lucide-react"
-import Image from "next/image"
 import Link from "next/link"
 
 const founders = [
@@ -52,15 +51,6 @@ export default function AboutFounder() {
             {founders.map((founder, index) => (
               <div key={index} className="group relative">
                 <Card className="overflow-hidden bg-white border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-500 h-full">
-                  <div className="relative w-full h-64 md:h-72 overflow-hidden bg-gray-200">
-                    <Image
-                      src={founder.image || "/placeholder.svg"}
-                      alt={`${founder.name}`}
-                      fill
-                      className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-
                   <CardContent className="p-8 flex flex-col h-full">
                     <div className="flex-1 mb-6">
                       <h3 className="text-2xl font-bold text-gray-900 mb-2">{founder.name}</h3>
