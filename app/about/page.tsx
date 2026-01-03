@@ -279,7 +279,6 @@ export default function AboutPage() {
               { icon: Award, title: "Consistency Over Short-Term Gains", description: "Focused on stable quality and long-term partnerships rather than one-time transactions." },
               { icon: Package, title: "Market & Buyer Awareness", description: "Understanding global market expectations and aligning sourcing accordingly." },
               { icon: TrendingUp, title: "Relationship-Driven Trade", description: "We believe successful exports are built through reliability, performance, and repeat business." },
-              { icon: Heart, title: "Customer Support", description: "Responsive communication" },
             ].map((item, index) => (
               <div
                 key={index}
