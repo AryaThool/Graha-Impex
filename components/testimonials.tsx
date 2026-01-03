@@ -12,63 +12,59 @@ export default function Testimonials() {
   const testimonials = [
     {
       id: 1,
-      name: "Sarah Johnson",
-      position: "CEO, TechStart Solutions",
-      company: "TechStart Solutions",
-      image: "/placeholder.svg?height=100&width=100",
+      name: "Import Manager",
+      company: "Food Trading Company",
       rating: 5,
-      text: "Graha Impex has been our logistics partner for over 3 years. Their reliability and professionalism are unmatched. They've never let us down, even with our most urgent deliveries.",
-      location: "New York, USA",
+      text: "Graha Impex has been a reliable sourcing partner for us in India. Their team understands buyer requirements clearly and ensures quality consistency. Communication is smooth, documentation is accurate, and shipments are handled professionally. We look forward to a long-term association.",
+      location: "UAE",
     },
     {
       id: 2,
-      name: "Nguyen Thi Lan",
-      position: "Export Manager",
-      company: "Global Trade Corp",
-      image: "/placeholder.svg?height=100&width=100",
+      name: "Trading Manager",
+      company: "Trading Company",
       rating: 5,
-      text: "The international shipping services provided by Graha Impex are exceptional. They handle all customs procedures seamlessly, making our global operations much smoother.",
-      location: "Vietnam",
+      text: "What we appreciate most is their transparency. From pricing to product specifications, everything is clearly communicated. Graha Impex helped us source agricultural products with customized packaging, exactly as per our market needs.",
+      location: "Africa",
     },
     {
       id: 3,
-      name: "Emily Chen",
-      position: "Founder",
-      company: "E-Fashion Hub",
-      image: "/placeholder.svg?height=100&width=100",
+      name: "Distribution Manager",
+      company: "Regional Distribution",
       rating: 5,
-      text: "As an e-commerce business, timely delivery is crucial for us. Graha Impex's same-day delivery service has significantly improved our customer satisfaction rates.",
-      location: "Singapore",
+      text: "Strong follow-up and excellent coordination. Graha Impex handled sourcing, quality checks, and export documentation efficiently. Even as a growing company, their professionalism matches established exporters.",
+      location: "Southeast Asia",
     },
     {
       id: 4,
-      name: "Michael Rodriguez",
-      position: "Supply Chain Director",
-      company: "Manufacturing Plus",
-      image: "/placeholder.svg?height=100&width=100",
+      name: "Procurement Head",
+      company: "Import & Distribution Co.",
       rating: 5,
-      text: "Their freight services have optimized our supply chain costs by 30%. The team is professional, responsive, and always goes the extra mile to ensure our shipments arrive on time.",
-      location: "Mexico City, Mexico",
+      text: "A dependable merchant exporter from India. They provided multiple sourcing options, competitive pricing, and timely updates throughout the shipment process. This made procurement much easier for us.",
+      location: "Middle East",
     },
     {
       id: 5,
-      name: "Chinedu Okafor",
-      position: "Distributor",
-      company: "Artisan Crafts",
-      image: "/placeholder.svg?height=100&width=100",
+      name: "Wholesale Director",
+      company: "European Wholesale Group",
       rating: 5,
-      text: "Graha Impex helped us expand internationally. Their expertise in handling delicate items and providing insurance coverage gave us the confidence to ship our handmade products worldwide.",
-      location: "Lagos, Nigeria",
+      text: "Quality-focused and buyer-oriented approach. Graha Impex understands international standards and ensures products meet our expectations. Their flexibility in MOQs and packaging was a big advantage for us.",
+      location: "Europe",
     },
     {
       id: 6,
-      name: "David Thompson",
-      position: "Logistics Manager",
-      company: "Pharma Solutions",
-      image: "/placeholder.svg?height=100&width=100",
+      name: "Commodity Manager",
+      company: "Global Commodities Ltd.",
       rating: 5,
-      text: "Temperature-controlled shipping for our pharmaceutical products requires precision. Graha Impex's specialized services ensure our products maintain their integrity throughout the journey.",
-      location: "London, UK",
+      text: "Smooth experience from inquiry to shipment. The team is responsive and proactive. We received proper samples, clear specifications, and well-managed logistics support. Highly recommended for sourcing from India.",
+      location: "Africa",
+    },
+    {
+      id: 7,
+      name: "Procurement Director",
+      company: "Global Import Solutions",
+      rating: 5,
+      text: "They act like an extension of our procurement team. Graha Impex represents buyer interests well on the ground. Their sourcing network and attention to detail helped us secure consistent quality at the right price.",
+      location: "International",
     },
   ]
 
@@ -152,7 +148,7 @@ export default function Testimonials() {
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Don't just take our word for it. Here's what our satisfied customers have to say about our services
+            Real feedback from our international partners who trust us for their sourcing needs from India
           </p>
         </div>
 
@@ -184,16 +180,8 @@ export default function Testimonials() {
                           </blockquote>
 
                           <div className="flex items-center gap-4">
-                            <Image
-                              src={testimonial.image || "/placeholder.svg"}
-                              alt={testimonial.name}
-                              width={60}
-                              height={60}
-                              className="rounded-full object-cover border-2 border-gray-200"
-                            />
                             <div>
                               <div className="font-bold text-gray-900 text-lg">{testimonial.name}</div>
-                              <div className="text-blue-600 font-medium">{testimonial.position}</div>
                               <div className="text-gray-600 text-sm">{testimonial.company}</div>
                             </div>
                           </div>
@@ -275,23 +263,22 @@ export default function Testimonials() {
           </div>
         </div>
 
-        {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 pt-16 border-t border-gray-200">
           <div className="text-center">
-            <div className="text-3xl font-bold text-blue-600 mb-2">45+</div>
-            <div className="text-gray-600">Happy Customers</div>
+            <div className="text-3xl font-bold text-blue-600 mb-2">50+</div>
+            <div className="text-gray-600">Global Clients</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold text-green-600 mb-2">99.9%</div>
-            <div className="text-gray-600">Satisfaction Rate</div>
+            <div className="text-3xl font-bold text-green-600 mb-2">100%</div>
+            <div className="text-gray-600">Quality Assurance</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold text-purple-600 mb-2">4.9/5</div>
-            <div className="text-gray-600">Average Rating</div>
+            <div className="text-3xl font-bold text-purple-600 mb-2">5★</div>
+            <div className="text-gray-600">Client Rating</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold text-orange-600 mb-2">5+</div>
-            <div className="text-gray-600">Years Experience</div>
+            <div className="text-3xl font-bold text-orange-600 mb-2">15+</div>
+            <div className="text-gray-600">Countries Served</div>
           </div>
         </div>
       </div>
