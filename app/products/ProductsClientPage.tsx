@@ -291,6 +291,110 @@ export default function ProductsClientPage({ initialProducts }: ProductsClientPa
                     </Card>
                   </Link>
 
+                  {/* Cardamom Card */}
+                  <Link href="https://cardamon-new-webpage.vercel.app/" target="_blank" rel="noopener noreferrer">
+                    <Card className="group overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-white border-0 shadow-lg h-full flex flex-col cursor-pointer">
+                      <div className="relative overflow-hidden">
+                        <div className="relative h-48 sm:h-56 md:h-64 bg-gradient-to-br from-gray-100 to-gray-200">
+                          <Image
+                            src="https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/new-product-images/Cardamom%20(1).jpg"
+                            alt="Premium Cardamom Collection from Graha Impex"
+                            fill
+                            className="object-cover group-hover:scale-110 transition-all duration-500"
+                            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                            quality={75}
+                            loading="lazy"
+                          />
+                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300" />
+
+                          {/* Quick View overlay */}
+                          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+                            <Button
+                              size="sm"
+                              className="bg-white/90 text-gray-900 hover:bg-white transform scale-90 group-hover:scale-100 transition-all duration-300 text-xs sm:text-sm px-3 sm:px-4"
+                            >
+                              <Eye className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
+                              <span className="hidden sm:inline">Quick View</span>
+                              <span className="sm:hidden">View</span>
+                            </Button>
+                          </div>
+
+                          {/* Featured Badge */}
+                          <div className="absolute top-2 sm:top-4 left-2 sm:left-4">
+                            <Badge className="bg-red-500 text-white font-medium text-xs sm:text-sm px-2 py-1">
+                              Featured
+                            </Badge>
+                          </div>
+                        </div>
+
+                        <CardContent className="p-4 sm:p-6 flex-1 flex flex-col">
+                          <h3 className="text-lg sm:text-xl font-bold text-gray-900 line-clamp-2 group-hover:text-blue-600 transition-colors leading-tight mb-2">
+                            Explore Our Cardamom
+                          </h3>
+                          <p className="text-gray-600 text-sm sm:text-base line-clamp-3 leading-relaxed flex-1 mb-4">
+                            Premium green cardamom, aromatic spices, and specialty cardamom products
+                          </p>
+                          <div className="flex items-center text-blue-600 font-semibold group-hover:text-blue-800 transition-colors text-sm">
+                            View Details
+                            <ArrowRight className="ml-2 h-4 w-4" />
+                          </div>
+                        </CardContent>
+                      </div>
+                    </Card>
+                  </Link>
+
+                  {/* Coffee Card */}
+                  <Link href="https://coffee-webpage-kappa.vercel.app/" target="_blank" rel="noopener noreferrer">
+                    <Card className="group overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-white border-0 shadow-lg h-full flex flex-col cursor-pointer">
+                      <div className="relative overflow-hidden">
+                        <div className="relative h-48 sm:h-56 md:h-64 bg-gradient-to-br from-gray-100 to-gray-200">
+                          <Image
+                            src="https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/new-product-images/colombian-coffee-beans-guide.jpg"
+                            alt="Premium Coffee Collection from Graha Impex"
+                            fill
+                            className="object-cover group-hover:scale-110 transition-all duration-500"
+                            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                            quality={75}
+                            loading="lazy"
+                          />
+                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300" />
+
+                          {/* Quick View overlay */}
+                          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+                            <Button
+                              size="sm"
+                              className="bg-white/90 text-gray-900 hover:bg-white transform scale-90 group-hover:scale-100 transition-all duration-300 text-xs sm:text-sm px-3 sm:px-4"
+                            >
+                              <Eye className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
+                              <span className="hidden sm:inline">Quick View</span>
+                              <span className="sm:hidden">View</span>
+                            </Button>
+                          </div>
+
+                          {/* Featured Badge */}
+                          <div className="absolute top-2 sm:top-4 left-2 sm:left-4">
+                            <Badge className="bg-red-500 text-white font-medium text-xs sm:text-sm px-2 py-1">
+                              Featured
+                            </Badge>
+                          </div>
+                        </div>
+
+                        <CardContent className="p-4 sm:p-6 flex-1 flex flex-col">
+                          <h3 className="text-lg sm:text-xl font-bold text-gray-900 line-clamp-2 group-hover:text-blue-600 transition-colors leading-tight mb-2">
+                            Explore Our Coffee
+                          </h3>
+                          <p className="text-gray-600 text-sm sm:text-base line-clamp-3 leading-relaxed flex-1 mb-4">
+                            Premium coffee beans, specialty roasts, and export-quality coffee products
+                          </p>
+                          <div className="flex items-center text-blue-600 font-semibold group-hover:text-blue-800 transition-colors text-sm">
+                            View Details
+                            <ArrowRight className="ml-2 h-4 w-4" />
+                          </div>
+                        </CardContent>
+                      </div>
+                    </Card>
+                  </Link>
+
                   {/* Regular products */}
                   {products.map((product) => (
                     <ProductCard key={product.id} product={product} />

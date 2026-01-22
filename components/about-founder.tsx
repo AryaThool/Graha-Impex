@@ -7,7 +7,7 @@ import Link from "next/link"
 
 const founders = [
   {
-    name: "Ms. Achal Patil",
+    name: "Ms. Aachal Patil",
     title: "Founder & Head of Global Operations",
     image: "https://sagobctjwpnpmpcxxyut.supabase.co/storage/v1/object/public/founder-images/person.jpg",
     description:
